@@ -47,7 +47,7 @@ public partial class _Default : System.Web.UI.Page
                     
                 }
             }
-
+            
             if (success)
             { 
                 Session["id"] = un;
@@ -66,5 +66,10 @@ public partial class _Default : System.Web.UI.Page
         {
             Show.Text = "网络错误"; 
         }
+    }
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Adminlo.aspx");
     }
 }
