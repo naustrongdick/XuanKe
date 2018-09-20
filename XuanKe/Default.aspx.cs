@@ -28,8 +28,7 @@ public partial class _Default : System.Web.UI.Page
             SqlCommand cmd = new SqlCommand(sqlstr, conn);
             conn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
-
-            String us = null;
+            
             String pa = null;
 
             if (un == null)
