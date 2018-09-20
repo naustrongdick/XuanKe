@@ -67,10 +67,4 @@ public partial class _Default : System.Web.UI.Page
             Show.Text = "网络错误"; 
         }
     }
-
-    protected void clear_Click(object sender, EventArgs e)
-    {
-        usernm.Text = null;
-        passwd.Text = null;
-    }
 }

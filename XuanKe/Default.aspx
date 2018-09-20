@@ -8,20 +8,19 @@
     <style>
         .bg
         {
-        	background-color:#99CCCC;
+        	background-image:url('Computer.jpg');
         }
         .main
         {
-        	text-align:center;
-        	background-color:#FFCCCC;
+        	text-align:left;
+        	background-color:#FAFAFA;
         	width:300px;
-        	height:200px;
+        	height:300px;
         	margin:auto;
         	position:absolute;
-        	top:0;
-        	left:0;
-        	right:0;
-        	bottom:0;
+            top:100px;
+        	right:200px;
+            font-family:'Microsoft YaHei UI';
         }
         
     </style>
@@ -29,21 +28,19 @@
 <body class=bg>
     <form id="form1" runat="server" >
     <div class=main>
-        <br>
-        <asp:Label ID="Label1" runat="server" Text="账号登陆"></asp:Label>
         <br><br>
-        <asp:Label ID="Label2" runat="server" Text="账号："></asp:Label>
-        <asp:TextBox ID="usernm" runat="server" Width="102px"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;<asp:Label ID="Label1" runat="server" Text="账号登陆" Font-Size="X-Large"></asp:Label>
         <br><br>
-        <asp:Label ID="Label3" runat="server" Text="密码："></asp:Label>
-        <asp:TextBox ID="passwd" runat="server" Width="104px" MaxLength="10" TextMode="Password"></asp:TextBox>
-        <br><br>
-        <asp:Button ID="tologin" runat="server" Text="登录" onclick="Button1_Click" />
+        &nbsp;&nbsp;&nbsp;<asp:Label ID="Label2" runat="server" Text="账号：" Font-Size="Large"></asp:Label>
+        <asp:TextBox ID="usernm" runat="server" Width="170px" Font-Size="Larger" Font-Underline="False"></asp:TextBox>
+        <br><br><br>
+         &nbsp;&nbsp;&nbsp;<asp:Label ID="Label3" runat="server" Text="密码：" Font-Size="Large"></asp:Label>
+        <asp:TextBox ID="passwd" runat="server" Width="170px" MaxLength="10" TextMode="Password" Font-Size="Larger"></asp:TextBox>
+        <br><br><br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="tologin" runat="server" Text="登录" onclick="Button1_Click" BackColor="#00CCFF" BorderColor="Black" BorderStyle="None" Font-Size="Large" Width="170px" />
         &nbsp;&nbsp;
-        <asp:Button ID="clear" runat="server" Text="取消" OnClick="clear_Click" />
-        <br><br>
-        <asp:Label ID="Show" runat="server"></asp:Label>
-
+        <br><br><br>
+        <asp:Label ID="Show" runat="server" Text=""></asp:Label>
         <br>
     </div>
     </form>
