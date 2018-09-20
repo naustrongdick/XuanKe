@@ -43,6 +43,8 @@
         <asp:Button ID="clear" runat="server" Text="取消" OnClick="clear_Click" />
         <br><br>
         <asp:Label ID="Show" runat="server"></asp:Label>
+
+        <br>
     </div>
     </form>
 </body>
