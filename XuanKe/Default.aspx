@@ -22,10 +22,19 @@
         	right:200px;
             font-family:'Microsoft YaHei UI';
         }
+    	.ot 
+		{
+			position:absolute;
+            bottom:50px;
+			width:100%;
+			text-align:center;
+			margin:auto;
+            font-family:'Microsoft YaHei UI';
+    	}
         
     </style>
 </head>
-<body class=bg>
+<body class="bg">
     <form id="form1" runat="server" >
     <div class=main>
         <br><br>
@@ -42,7 +51,11 @@
         <br><br>
         &nbsp;&nbsp<asp:Label ID="Show" runat="server" Text="" style="color:#ff0000"></asp:Label>
         <br>
+		
     </div>
+	<div class ="ot">
+		<asp:LinkButton ID="LinkButton1" runat="server" Font-Size="Small" OnClick="LinkButton1_Click">管理员登录</asp:LinkButton>
+	</div>
     </form>
 </body>
 </html>
