@@ -51,11 +51,11 @@
         <br><br>
         &nbsp;&nbsp<asp:Label ID="Show" runat="server" Text="" style="color:#ff0000"></asp:Label>
         <br>
-		
     </div>
 	<div class ="ot">
 		<asp:LinkButton ID="LinkButton1" runat="server" Font-Size="Small" OnClick="LinkButton1_Click">管理员登录</asp:LinkButton>
 	</div>
+        <a href="http://www.baidu.com" style="color:red;">xxxxx</a>
     </form>
 </body>
 </html>
