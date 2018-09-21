@@ -16,7 +16,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        bool success = false;
+        int success = 0;
         
         String un = usernm.Text;
         String ps = passwd.Text;
@@ -24,12 +24,11 @@ public partial class _Default : System.Web.UI.Page
         {
             var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
             SqlConnection conn = new SqlConnection(consql);
-            string sqlstr = string.Format("select PASSWD from TRD where ID = '{0}'",un);
+            string sqlstr = string.Format("select PASSWD,STATUS,LASTTIME from TRL where ID = '{0}'",un);
             SqlCommand cmd = new SqlCommand(sqlstr, conn);
             conn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             
-            String pa = null;
 
             if (un == null)
                 Show.Text = "请输入账号";
@@ -39,27 +38,45 @@ public partial class _Default : System.Web.UI.Page
             {
                 if (dr.Read())
                 {
-                    pa = dr[0].ToString();
-                    if (ps.Equals(pa.TrimEnd()))
+                    if (ps.Equals(dr.GetString(0).TrimEnd()))
                     {
-                        success = true;
+                        if (dr.GetBoolean(1) == false)
+                        {
+                            success = 1;
+                        }
+                        else
+                        {
+                            success = -1;
+                        }
                     }
                     
                 }
             }
-            
-            if (success)
-            { 
-                Session["id"] = un;
-                Response.Redirect("temain.aspx");
-            }
-            else 
-            {
-                Show.Text = "账号或密码错误"; 
-            }
-            
+
+
             dr.Close();
             conn.Close();
+
+            if (success==1)
+            {
+                string sqlch = string.Format("update TRL set STATUS = 1,LASTTIME = '{0}' where ID = '{1}'",DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),un);
+                SqlCommand cdm = new SqlCommand(sqlch, conn);
+                conn.Open();
+                cdm.ExecuteNonQuery();
+                conn.Close();
+                Session["id"] = un;
+                Response.Redirect("temain.aspx");
+                
+            }
+            else if (success == 0)
+            {
+                Show.Text = "账号或密码错误";
+            }
+            else
+            {
+                Show.Text = "当前账号已登录，请安全退出或过会再尝试";
+            }
+            
         }
         
         catch (Exception)
