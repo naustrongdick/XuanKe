@@ -39,8 +39,8 @@
         <br><br><br>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="tologin" runat="server" Text="登录" onclick="Button1_Click" BackColor="#00CCFF" BorderColor="Black" BorderStyle="None" Font-Size="Large" Width="170px" />
         &nbsp;&nbsp;
-        <br><br><br>
-        <asp:Label ID="Show" runat="server" Text=""></asp:Label>
+        <br><br>
+        &nbsp;&nbsp<asp:Label ID="Show" runat="server" Text="" style="color:#ff0000"></asp:Label>
         <br>
     </div>
     </form>
