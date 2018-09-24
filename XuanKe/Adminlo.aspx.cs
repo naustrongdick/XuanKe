@@ -7,13 +7,12 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
 
-public partial class _Default : System.Web.UI.Page
+public partial class Adminlo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
-
     protected void Button1_Click(object sender, EventArgs e)
     {
         int success = 0;
@@ -24,7 +23,7 @@ public partial class _Default : System.Web.UI.Page
         {
             var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
             SqlConnection conn = new SqlConnection(consql);
-            string sqlstr = string.Format("select PASSWD,STATUS,LASTTIME from TRL where ID = '{0}'", un);
+            string sqlstr = string.Format("select PASSWD,STATUS,LASTTIME from ARL where ADMIN = '{0}'", un);
             SqlCommand cmd = new SqlCommand(sqlstr, conn);
             conn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -60,13 +59,13 @@ public partial class _Default : System.Web.UI.Page
 
             if (success == 1)
             {
-                string sqlch = string.Format("update TRL set STATUS = 1,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), un);
+                string sqlch = string.Format("update ARL set STATUS = 1,LASTTIME = '{0}' where ADMIN = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), un);
                 SqlCommand cdm = new SqlCommand(sqlch, conn);
                 conn.Open();
                 cdm.ExecuteNonQuery();
                 conn.Close();
-                Session["id"] = un;
-                Response.Redirect("temain.aspx");
+                Session["ad"] = un;
+                Response.Redirect("admain.aspx");
 
             }
             else if (success == 0)
@@ -79,15 +78,14 @@ public partial class _Default : System.Web.UI.Page
             }
 
         }
+
         catch (Exception)
         {
             Show.Text = "网络错误";
         }
     }
-
-    protected void  LinkButton1_Click(object sender, EventArgs e)
+    protected void LinkButton1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Adminlo.aspx");
-
+        Response.Redirect("Default.aspx");
     }
 }

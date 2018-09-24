@@ -12,7 +12,7 @@ public partial class Default2 : System.Web.UI.Page
     String id;
     protected void Page_Load(object sender, EventArgs e)
     {
-        id = Session["id"].ToString();
+        id = Session["ad"].ToString();
         string name = null;
         string sex = null;
         string mobile = null;
@@ -22,7 +22,7 @@ public partial class Default2 : System.Web.UI.Page
         var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
         SqlConnection conn = new SqlConnection(consql);
 
-        string sqlstr = string.Format("select * from TRM where ID = '{0}'",id);
+        string sqlstr = string.Format("select * from ARM where ID = '{0}'",id);
         SqlCommand cmd = new SqlCommand(sqlstr, conn);
         conn.Open();
         SqlDataReader dr = cmd.ExecuteReader();
@@ -48,15 +48,15 @@ public partial class Default2 : System.Web.UI.Page
         dr.Close();
         conn.Close();
     }
-    protected void exit_Click(object sender, EventArgs e)
+    protected void  exit_Click(object sender, EventArgs e)
     {
         var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
         SqlConnection conn = new SqlConnection(consql);
-        string sqlstr = string.Format("update TRL set STATUS = 0,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),id);
+        string sqlstr = string.Format("update ARL set STATUS = 0,LASTTIME = '{0}' where ADMIN = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), id);
         SqlCommand cdm = new SqlCommand(sqlstr, conn);
         conn.Open();
         cdm.ExecuteNonQuery();
         conn.Close();
-        Response.Redirect("Default.aspx");
+        Response.Redirect("Adminlo.aspx");
     }
 }
