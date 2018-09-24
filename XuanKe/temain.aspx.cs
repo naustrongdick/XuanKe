@@ -9,44 +9,25 @@ using System.Data.SqlClient;
 
 public partial class Default2 : System.Web.UI.Page
 {
-    String id;
+    string id;
     protected void Page_Load(object sender, EventArgs e)
     {
         id = Session["id"].ToString();
-        string name = null;
-        string sex = null;
-        string mobile = null;
-        string email = null;
-
-
         var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
         SqlConnection conn = new SqlConnection(consql);
 
-        string sqlstr = string.Format("select * from TRM where ID = '{0}'",id);
+        string sqlstr = string.Format("select NAME from TRM where ID = '{0}'", id);
         SqlCommand cmd = new SqlCommand(sqlstr, conn);
         conn.Open();
         SqlDataReader dr = cmd.ExecuteReader();
-
+        string name = null;
         while (dr.Read())
         {
-            name = dr[1].ToString();
-            if ("False".Equals(dr[2].ToString()))
-            {
-                sex = "男";
-            }
-            else
-            {
-                sex = "女";
-            }
-            mobile = dr[3].ToString();
-            email = dr[4].ToString();
+            name = dr[0].ToString();
         }
-
-        TextBox1.Text = id + "\r\n" + name + "\r\n" + sex + "\r\n" + mobile + "\r\n" + email;
-
-
         dr.Close();
         conn.Close();
+        hello.Text = "欢迎您，" + name;
     }
     protected void exit_Click(object sender, EventArgs e)
     {
@@ -57,6 +38,51 @@ public partial class Default2 : System.Web.UI.Page
         conn.Open();
         cdm.ExecuteNonQuery();
         conn.Close();
+        Session.Clear();
         Response.Redirect("Default.aspx");
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        mainbox.Attributes["src"] = "pages/tepage1.aspx";
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+        SqlConnection conn = new SqlConnection(consql);
+
+        string sqlstr = string.Format("select * from FaBu");
+        SqlCommand cmd = new SqlCommand(sqlstr, conn);
+        conn.Open();
+        SqlDataReader dr = cmd.ExecuteReader();
+        while (dr.Read())
+        {
+            if (dr.GetBoolean(0))
+            {
+                mainbox.Attributes["src"] = "pages/tepage2.aspx";
+            }
+            else
+            {
+                mainbox.Attributes["src"] = "pages/error.aspx";
+            }
+        }
+        dr.Close();
+        conn.Close();
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        mainbox.Attributes["src"] = "pages/tepage3.aspx";
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        mainbox.Attributes["src"] = "pages/tepage4.aspx";
+    }
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+
     }
 }
