@@ -15,7 +15,7 @@
         .bg
         {
         	background-image:url('bg/bg2.jpg');
-            background-size:contain;
+            background-size:100%;
         }
         .main
         {

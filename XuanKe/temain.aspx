@@ -34,6 +34,10 @@
             width: 84%;
             height: 700px;
         }
+        .alabal
+        {
+        	background-color:#EEE8AA;
+        }
     </style>  
 
 </head>
@@ -55,7 +59,7 @@
 
         <div class="left">
 
-            <div>
+            <div class=alabal>
                 <asp:Label ID="Label1" runat="server" Text="Label">教师选课</asp:Label>
             </div>
 
@@ -71,7 +75,7 @@
 
             </div>
 
-            <div>
+            <div class=alabal>
                 <asp:Label ID="Label2" runat="server" Text="Label">账号管理</asp:Label>
             </div>
 
@@ -86,9 +90,8 @@
                 </div>
 
             </div>
-
-            <div>
-                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">联系管理员</asp:LinkButton>
+            <div class=alabal>
+                <a href:"rose_cat707@outlook.com">联系管理员</a>
             </div>
 
         </div>

@@ -31,13 +31,7 @@ public partial class Default2 : System.Web.UI.Page
     }
     protected void exit_Click(object sender, EventArgs e)
     {
-        var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
-        SqlConnection conn = new SqlConnection(consql);
-        string sqlstr = string.Format("update TRL set STATUS = 0,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),id);
-        SqlCommand cdm = new SqlCommand(sqlstr, conn);
-        conn.Open();
-        cdm.ExecuteNonQuery();
-        conn.Close();
+        WriteDateTime();
         Session.Clear();
         Response.Redirect("Default.aspx");
     }
@@ -81,8 +75,14 @@ public partial class Default2 : System.Web.UI.Page
         mainbox.Attributes["src"] = "pages/tepage4.aspx";
     }
 
-    protected void LinkButton1_Click(object sender, EventArgs e)
+    public void WriteDateTime()
     {
-
+        var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+        SqlConnection conn = new SqlConnection(consql);
+        string sqlstr = string.Format("update TRL set STATUS = 0,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), id);
+        SqlCommand cdm = new SqlCommand(sqlstr, conn);
+        conn.Open();
+        cdm.ExecuteNonQuery();
+        conn.Close();
     }
 }

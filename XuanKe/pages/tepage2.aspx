@@ -9,7 +9,7 @@
     <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
     <style>
         .bg{
-            background-color:lightblue;
+            background-color:#FFF0F5;
         }
         .mat{
             position:absolute;

@@ -12,7 +12,7 @@
             height: 37px;
         }
         .bg{
-            background-color:lightblue;
+            background-color:#FFF0F5;
         }
         .mat{
             position:absolute;
@@ -51,7 +51,8 @@
                     </tr>
                 </table>
                 <center>
-                    <asp:Button CssClass="btn btn-info" ID="Button1" runat="server" Text="提交" />
+                    <asp:Button CssClass="btn btn-info" ID="Button1" runat="server" Text="提交" 
+                        onclick="Button1_Click" />
                 </center>
             </div>
         </div>
