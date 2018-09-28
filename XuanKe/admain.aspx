@@ -58,6 +58,10 @@
 
         <div class="left">
 
+            <div style="background-color:White">
+                <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click">用户管理</asp:LinkButton>
+            </div>
+            
             <div class=alabal>
                 <asp:Label ID="Label1" runat="server" Text="Label">排课</asp:Label>
             </div>
@@ -73,6 +77,8 @@
                 </div>
 
             </div>
+
+            
 
             <div class=alabal>
                 <asp:Label ID="Label2" runat="server" Text="Label">信息维护</asp:Label>
@@ -91,7 +97,8 @@
             </div>
 
         </div>
-        <iframe class ="content" id="mainbox" name="iframeContent" frameborder="0" src="pages/tepage1.aspx" runat="server" ></iframe>
+        <iframe class ="content" id="mainbox" name="iframeContent" frameborder="0" 
+            src="alpages/alpage0.aspx" runat="server" ></iframe>
     </form>
 </body>
 </html>

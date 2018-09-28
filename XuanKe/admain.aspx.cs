@@ -38,22 +38,22 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        mainbox.Attributes["src"] = "pages/alpage1.aspx";
+        mainbox.Attributes["src"] = "alpages/alpage1.aspx";
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        mainbox.Attributes["src"] = "pages/alpage2.aspx";
+        mainbox.Attributes["src"] = "alpages/alpage2.aspx";
     }
 
     protected void Button3_Click(object sender, EventArgs e)
     {
-        mainbox.Attributes["src"] = "pages/alpage3.aspx";
+        mainbox.Attributes["src"] = "alpages/alpage3.aspx";
     }
 
     protected void Button4_Click(object sender, EventArgs e)
     {
-        mainbox.Attributes["src"] = "pages/alpage4.aspx";
+        mainbox.Attributes["src"] = "alpages/alpage4.aspx";
     }
 
     public void WriteDateTime()
@@ -65,5 +65,9 @@ public partial class Default2 : System.Web.UI.Page
         conn.Open();
         cdm.ExecuteNonQuery();
         conn.Close();
+    }
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        mainbox.Attributes["src"] = "alpages/alpage0.aspx";
     }
 }

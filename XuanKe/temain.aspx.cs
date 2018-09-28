@@ -38,7 +38,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        mainbox.Attributes["src"] = "pages/tepage1.aspx";
+        mainbox.Attributes["src"] = "tepages/tepage1.aspx";
     }
 
     protected void Button2_Click(object sender, EventArgs e)
@@ -54,11 +54,11 @@ public partial class Default2 : System.Web.UI.Page
         {
             if (dr.GetBoolean(0))
             {
-                mainbox.Attributes["src"] = "pages/tepage2.aspx";
+                mainbox.Attributes["src"] = "tepages/tepage2.aspx";
             }
             else
             {
-                mainbox.Attributes["src"] = "pages/error.aspx";
+                mainbox.Attributes["src"] = "tepages/error.aspx";
             }
         }
         dr.Close();
@@ -67,12 +67,12 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Button3_Click(object sender, EventArgs e)
     {
-        mainbox.Attributes["src"] = "pages/tepage3.aspx";
+        mainbox.Attributes["src"] = "tepages/tepage3.aspx";
     }
 
     protected void Button4_Click(object sender, EventArgs e)
     {
-        mainbox.Attributes["src"] = "pages/tepage4.aspx";
+        mainbox.Attributes["src"] = "tepages/tepage4.aspx";
     }
 
     public void WriteDateTime()

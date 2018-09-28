@@ -26,6 +26,9 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="Label1" runat="server" Text="Label">预约选课</asp:Label>
+            <div>
+                <asp:Label ID="Ke" runat="server" Text="Label"></asp:Label>
+            </div>
             <div class="mat">
                 <table class="table table-hover table-bordered" style ="width:500px;background-color:lightpink;">
                     <tr>

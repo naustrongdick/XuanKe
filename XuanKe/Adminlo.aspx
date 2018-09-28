@@ -16,6 +16,7 @@
         {
         	background-image:url('bg/bg2.jpg');
             background-size:100%;
+            background-repeat:no-repeat;
         }
         .main
         {

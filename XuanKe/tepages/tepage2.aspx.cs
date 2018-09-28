@@ -24,5 +24,7 @@ public partial class pages_tepage2 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         id = Session["id"].ToString();
+
+
     }
 }
