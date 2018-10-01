@@ -45,38 +45,38 @@
                         <td class="auto-style1">
                             <asp:DropDownList ID="DropDownList1" runat="server" Width="120px">
                                 <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>两节课都不行</asp:ListItem>
+                                <asp:ListItem>不上课</asp:ListItem>
                             </asp:DropDownList></td>
                         <td class="auto-style1"><asp:DropDownList ID="DropDownList2" runat="server" Width="120px">
                                 <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>两节课都不行</asp:ListItem></asp:DropDownList></td>
+                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
                         <td class="auto-style1"><asp:DropDownList ID="DropDownList3" runat="server" Width="120px">
                                 <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>两节课都不行</asp:ListItem></asp:DropDownList></td>
+                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
                         <td class="auto-style1"><asp:DropDownList ID="DropDownList4" runat="server" Width="120px">
                                 <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>两节课都不行</asp:ListItem></asp:DropDownList></td>
+                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
                         <td class="auto-style1"><asp:DropDownList ID="DropDownList5" runat="server" Width="120px">
                                 <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>两节课都不行</asp:ListItem></asp:DropDownList></td>
+                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
                     </tr>
                     <tr>
                         <td class="auto-style1"><asp:Label ID="Label6" runat="server" Text=" 下午 "></asp:Label></td>
                         <td class="auto-style1"><asp:DropDownList ID="DropDownList6" runat="server" Width="120px">
                                 <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>两节课都不行</asp:ListItem></asp:DropDownList></td>
+                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
                         <td class="auto-style1"><asp:DropDownList ID="DropDownList7" runat="server" Width="120px">
                                 <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>两节课都不行</asp:ListItem></asp:DropDownList></td>
+                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
                         <td class="auto-style1"><asp:DropDownList ID="DropDownList8" runat="server" Width="120px">
                                 <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>两节课都不行</asp:ListItem></asp:DropDownList></td>
+                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
                         <td class="auto-style1"><asp:DropDownList ID="DropDownList9" runat="server" Width="120px">
                                 <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>两节课都不行</asp:ListItem></asp:DropDownList></td>
+                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
                         <td class="auto-style1"><asp:DropDownList ID="DropDownList10" runat="server" Width="120px">
                                 <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>两节课都不行</asp:ListItem></asp:DropDownList></td>
+                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
                     </tr>
                 </table>
                 <center>
