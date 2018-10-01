@@ -43,48 +43,28 @@
                     <tr>
                         <td class="auto-style1"><asp:Label ID="Label7" runat="server" Text=" 上午 " Width="50px"></asp:Label></td>
                         <td class="auto-style1">
-                            <asp:DropDownList ID="DropDownList1" runat="server" Width="120px">
-                                <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>不上课</asp:ListItem>
-                            </asp:DropDownList></td>
-                        <td class="auto-style1"><asp:DropDownList ID="DropDownList2" runat="server" Width="120px">
-                                <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
-                        <td class="auto-style1"><asp:DropDownList ID="DropDownList3" runat="server" Width="120px">
-                                <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
-                        <td class="auto-style1"><asp:DropDownList ID="DropDownList4" runat="server" Width="120px">
-                                <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
-                        <td class="auto-style1"><asp:DropDownList ID="DropDownList5" runat="server" Width="120px">
-                                <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
+                            <asp:DropDownList ID="DropDownList1" runat="server" Width="120px"></asp:DropDownList></td>
+                        <td class="auto-style1"><asp:DropDownList ID="DropDownList2" runat="server" Width="120px"></asp:DropDownList></td>
+                        <td class="auto-style1"><asp:DropDownList ID="DropDownList3" runat="server" Width="120px"></asp:DropDownList></td>
+                        <td class="auto-style1"><asp:DropDownList ID="DropDownList4" runat="server" Width="120px"></asp:DropDownList></td>
+                        <td class="auto-style1"><asp:DropDownList ID="DropDownList5" runat="server" Width="120px"></asp:DropDownList></td>
                     </tr>
                     <tr>
                         <td class="auto-style1"><asp:Label ID="Label6" runat="server" Text=" 下午 "></asp:Label></td>
-                        <td class="auto-style1"><asp:DropDownList ID="DropDownList6" runat="server" Width="120px">
-                                <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
-                        <td class="auto-style1"><asp:DropDownList ID="DropDownList7" runat="server" Width="120px">
-                                <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
-                        <td class="auto-style1"><asp:DropDownList ID="DropDownList8" runat="server" Width="120px">
-                                <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
-                        <td class="auto-style1"><asp:DropDownList ID="DropDownList9" runat="server" Width="120px">
-                                <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
-                        <td class="auto-style1"><asp:DropDownList ID="DropDownList10" runat="server" Width="120px">
-                                <asp:ListItem Selected="True">两节课都行</asp:ListItem>
-                                <asp:ListItem>不上课</asp:ListItem></asp:DropDownList></td>
+                        <td class="auto-style1"><asp:DropDownList ID="DropDownList6" runat="server" Width="120px"></asp:DropDownList></td>
+                        <td class="auto-style1"><asp:DropDownList ID="DropDownList7" runat="server" Width="120px"></asp:DropDownList></td>
+                        <td class="auto-style1"><asp:DropDownList ID="DropDownList8" runat="server" Width="120px"></asp:DropDownList></td>
+                        <td class="auto-style1"><asp:DropDownList ID="DropDownList9" runat="server" Width="120px"></asp:DropDownList></td>
+                        <td class="auto-style1"><asp:DropDownList ID="DropDownList10" runat="server" Width="120px"></asp:DropDownList></td>
                     </tr>
                 </table>
                 <center>
-                    <asp:Button CssClass="btn btn-info" ID="Button1" runat="server" Text="提交" 
-                        onclick="Button1_Click" />
+                    <div><asp:Button CssClass="btn btn-info" ID="Button1" runat="server" Text="提交" 
+                        onclick="Button1_Click" /></div>
+                    <div style="color:red;"><asp:Label ID="Label9" runat="server" Text="Label"></asp:Label></div>
                 </center>
             </div>
         </div>
-    </form>
+        </form>
 </body>
 </html>
