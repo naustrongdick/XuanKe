@@ -12,22 +12,36 @@ public partial class Default2 : System.Web.UI.Page
     string id;
     protected void Page_Load(object sender, EventArgs e)
     {
+        bool isok = false;
         id = Session["id"].ToString();
         var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
         SqlConnection conn = new SqlConnection(consql);
-
-        string sqlstr = string.Format("select NAME from TRM where ID = '{0}'", id);
-        SqlCommand cmd = new SqlCommand(sqlstr, conn);
         conn.Open();
+        string sqlstr = string.Format("select NAME from TRM where ID = '{0}';", id);
+        SqlCommand cmd = new SqlCommand(sqlstr, conn);
         SqlDataReader dr = cmd.ExecuteReader();
         string name = null;
         while (dr.Read())
         {
-            name = dr[0].ToString();
+            name = dr.GetString(0);
         }
         dr.Close();
+
+        sqlstr = string.Format("select ISOK from FaBu");
+        SqlCommand cmd2 = new SqlCommand(sqlstr, conn);
+        SqlDataReader dr2 = cmd2.ExecuteReader();
+        while (dr2.Read())
+        {
+            isok = dr2.GetBoolean(0);
+        }
+
+        if (isok)
+            mainbox.Attributes["src"] = "tepages/tepage2.aspx";
+
         conn.Close();
         hello.Text = "欢迎您，" + name;
+
+
     }
     protected void exit_Click(object sender, EventArgs e)
     {

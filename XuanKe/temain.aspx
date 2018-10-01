@@ -66,11 +66,11 @@
             <div>
 
                 <div>
-                    <asp:Button class="btleft" ID="Button1" CssClass="btn btn-link" runat="server" Text="预约课时" OnClick="Button1_Click"/>
+                    <asp:Button class="btleft" ID="Button2" CssClass="btn btn-link" runat="server" Text="课表结果" OnClick="Button2_Click"/>
                 </div>
 
                 <div>
-                    <asp:Button class="btleft" ID="Button2" CssClass="btn btn-link" runat="server" Text="课表结果" OnClick="Button2_Click"/>
+                    <asp:Button class="btleft" ID="Button1" CssClass="btn btn-link" runat="server" Text="预约课时" OnClick="Button1_Click"/>
                 </div>
 
             </div>
@@ -97,7 +97,7 @@
         </div>
 
         <iframe class ="content" id="mainbox" name="iframeContent" frameborder="0" 
-            src="tepages/tepage1.aspx" runat="server" ></iframe>
+            src="tepages/error.aspx" runat="server" ></iframe>
 
     </form>
 </body>

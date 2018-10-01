@@ -30,9 +30,9 @@ public partial class _Default : System.Web.UI.Page
             SqlDataReader dr = cmd.ExecuteReader();
 
 
-            if (un == null)
+            if (un.Equals(string.Empty))
                 Show.Text = "请输入账号";
-            else if (ps == null)
+            else if (ps.Equals(string.Empty))
                 Show.Text = "请输入密码";
             else
             {

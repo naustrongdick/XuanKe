@@ -30,6 +30,7 @@
             font-family:'Microsoft YaHei UI';
             top:20%;
         	right:10%;
+            border-radius:10px;
         }
     	.ot 
 		{
