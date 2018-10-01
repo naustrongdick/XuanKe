@@ -37,7 +37,7 @@ public partial class pages_Default : System.Web.UI.Page
             if (dt.Rows[i][0].ToString() == "100")
             {
                 if (dt.Rows[i][1].ToString() == "100")
-                    d.SelectedIndex = 0;
+                    d.SelectedIndex = d.Items.IndexOf()
                 else
                     d.SelectedIndex = 2;
             }
@@ -97,45 +97,68 @@ public partial class pages_Default : System.Web.UI.Page
         classna1 = GetClassName(class1);
         classna2 = GetClassName(class2);
 
-        Ke.Text=string.Format("你要上的课有：\n1.{0}\n2.{1}", GetClassName(class1), GetClassName(class2));
+        Ke.Text = string.Format("你要上的课有：\n1.{0}\n2.{1}", classna1, classna2);
 
-        DropDownList1.Items.Add(classna1);
-        DropDownList1.Items.Add(classna2);
-        DropDownList2.Items.Add(classna1);
-        DropDownList2.Items.Add(classna2);
-        DropDownList3.Items.Add(classna1);
-        DropDownList3.Items.Add(classna2);
-        DropDownList4.Items.Add(classna1);
-        DropDownList4.Items.Add(classna2);
-        DropDownList5.Items.Add(classna1);
-        DropDownList5.Items.Add(classna2);
-        DropDownList6.Items.Add(classna1);
-        DropDownList6.Items.Add(classna2);
-        DropDownList7.Items.Add(classna1);
-        DropDownList7.Items.Add(classna2);
-        DropDownList8.Items.Add(classna1);
-        DropDownList8.Items.Add(classna2);
-        DropDownList9.Items.Add(classna1);
-        DropDownList9.Items.Add(classna2);
-        DropDownList10.Items.Add(classna1);
-        DropDownList10.Items.Add(classna2);
+        if (classna1 != "无课程")
+        {
+            DropDownList1.Items.Add(classna1);
+            DropDownList2.Items.Add(classna1);
+            DropDownList3.Items.Add(classna1);
+            DropDownList4.Items.Add(classna1);
+            DropDownList5.Items.Add(classna1);
+            DropDownList6.Items.Add(classna1);
+            DropDownList7.Items.Add(classna1);
+            DropDownList8.Items.Add(classna1);
+            DropDownList9.Items.Add(classna1);
+            DropDownList10.Items.Add(classna1);
+        }
+        if (classna2 != "无课程")
+        {
+            DropDownList1.Items.Add(classna2);
+            DropDownList2.Items.Add(classna2);
+            DropDownList3.Items.Add(classna2);
+            DropDownList4.Items.Add(classna2);
+            DropDownList5.Items.Add(classna2);
+            DropDownList6.Items.Add(classna2);
+            DropDownList7.Items.Add(classna2);
+            DropDownList8.Items.Add(classna2);
+            DropDownList9.Items.Add(classna2);
+            DropDownList10.Items.Add(classna2);
+        }
+        if (classna1 == "无课程" && classna2 == "无课程")
+        {
+            DropDownList1.Items.Clear();
+            DropDownList1.Items.Add(classna2);
+            DropDownList2.Items.Add(classna2);
+            DropDownList3.Items.Add(classna2);
+            DropDownList4.Items.Add(classna2);
+            DropDownList5.Items.Add(classna2);
+            DropDownList6.Items.Add(classna2);
+            DropDownList7.Items.Add(classna2);
+            DropDownList8.Items.Add(classna2);
+            DropDownList9.Items.Add(classna2);
+            DropDownList10.Items.Add(classna2);
+            conn.Close();
+        }
+        else
+        {
+            sqlstr = string.Format("select CLASS{0},CLASS{1} from YYB", class1, class2);
+            SqlDataAdapter sda = new SqlDataAdapter(sqlstr, conn);
+            dt = new DataTable();
+            sda.Fill(dt);
+            conn.Close();
 
-        sqlstr = string.Format("select CLASS{0},CLASS{1} from YYB",class1,class2);
-        SqlDataAdapter sda = new SqlDataAdapter(sqlstr, conn);
-        dt = new DataTable();
-        sda.Fill(dt);
-        conn.Close();
-
-        SelectDropList(ref DropDownList1, 0);
-        SelectDropList(ref DropDownList2, 1);
-        SelectDropList(ref DropDownList3, 2);
-        SelectDropList(ref DropDownList4, 3);
-        SelectDropList(ref DropDownList5, 4);
-        SelectDropList(ref DropDownList6, 5);
-        SelectDropList(ref DropDownList7, 6);
-        SelectDropList(ref DropDownList8, 7);
-        SelectDropList(ref DropDownList9, 8);
-        SelectDropList(ref DropDownList10, 9);
+            SelectDropList(ref DropDownList1, 0);
+            SelectDropList(ref DropDownList2, 1);
+            SelectDropList(ref DropDownList3, 2);
+            SelectDropList(ref DropDownList4, 3);
+            SelectDropList(ref DropDownList5, 4);
+            SelectDropList(ref DropDownList6, 5);
+            SelectDropList(ref DropDownList7, 6);
+            SelectDropList(ref DropDownList8, 7);
+            SelectDropList(ref DropDownList9, 8);
+            SelectDropList(ref DropDownList10, 9);
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)
