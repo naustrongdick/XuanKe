@@ -234,12 +234,15 @@ public partial class pages_Default : System.Web.UI.Page
         }
         dr.Close();
         ok = true;
+
         if (ok)
         {
             int[] yy = new int[10];
             int i;
             bool first1 = true;
+            bool first2 = true;
             string str1 = "";
+            string str2 = "";
             yy[0] = DropDownList1.SelectedIndex;
             yy[1] = DropDownList2.SelectedIndex;
             yy[2] = DropDownList3.SelectedIndex;
@@ -256,7 +259,6 @@ public partial class pages_Default : System.Web.UI.Page
                     Label9.Text = "您没有需要预约的课程";
                 else
                 {
-                    first1 = true;
                     for (i = 0; i <= 9; i++)
                     {
                         if (yy[i] == 1)
@@ -266,6 +268,14 @@ public partial class pages_Default : System.Web.UI.Page
                             str1 += string.Format(" CLASSTIME = {0}", i);
                             if (first1)
                                 first1 = false;
+                        }
+                        else
+                        {
+                            if (!first2)
+                                str2 += " or";
+                            str2 += string.Format(" CLASSTIME = {0}", i);
+                            if (first2)
+                                first2 = false;
                         }
                     }
                     if (!first1)
@@ -278,11 +288,20 @@ public partial class pages_Default : System.Web.UI.Page
                         else
                             Label9.Text = "连接失败！";
                     }
+                    if (!first2)
+                    {
+                        sqlstr = string.Format("update YYB set CLASS{0} = 0 where", class2) + str2;
+                        SqlCommand cmd1 = new SqlCommand(sqlstr, conn);
+                        int n = cmd1.ExecuteNonQuery();
+                        if (n > 0)
+                            Label9.Text = "提交成功！";
+                        else
+                            Label9.Text = "连接失败！";
+                    }
                 }
             }
             else if (classna2 == "无课程")
             {
-                first1 = true;
                 for (i = 0; i <= 9; i++)
                 {
                     if (yy[i] == 1)
@@ -292,6 +311,14 @@ public partial class pages_Default : System.Web.UI.Page
                         str1 += string.Format(" CLASSTIME = {0}", i);
                         if (first1)
                             first1 = false;
+                    }
+                    else
+                    {
+                        if (!first2)
+                            str2 += " or";
+                        str2 += string.Format(" CLASSTIME = {0}", i);
+                        if (first2)
+                            first2 = false;
                     }
                 }
                 if (!first1)
@@ -304,64 +331,123 @@ public partial class pages_Default : System.Web.UI.Page
                     else
                         Label9.Text = "连接失败！";
                 }
+                if (!first2)
+                {
+                    sqlstr = string.Format("update YYB set CLASS{0} = 0 where", class1) + str2;
+                    SqlCommand cmd2 = new SqlCommand(sqlstr, conn);
+                    int n = cmd2.ExecuteNonQuery();
+                    if (n > 0)
+                        Label9.Text = "提交成功！";
+                    else
+                        Label9.Text = "连接失败！";
+                }
             }
             else
             {
-                first1 = true;
-                bool first2 = true;
-                bool success = false;
-                string str2 = "";
+                bool first3 = true;
+                bool first4 = true;
+                string str3 = "";
+                string str4 = "";
+                bool success = true;
                 for (i = 0; i <= 9; i++)
                 {
-                    if (yy[i] == 1)
+                    if (yy[i] == 0)
                     {
                         if (!first1)
                             str1 += " or";
                         str1 += string.Format(" CLASSTIME = {0}", i);
                         if (first1)
                             first1 = false;
+
                         if (!first2)
                             str2 += " or";
                         str2 += string.Format(" CLASSTIME = {0}", i);
                         if (first2)
                             first2 = false;
+                    }
+                    else if (yy[i] == 1)
+                    {
+                        if (!first3)
+                            str3 += " or";
+                        str3 += string.Format(" CLASSTIME = {0}", i);
+                        if (first3)
+                            first3 = false;
+
+                        if (!first4)
+                            str4 += " or";
+                        str4 += string.Format(" CLASSTIME = {0}", i);
+                        if (first4)
+                            first4 = false;
                     }
                     else if (yy[i] == 2)
                     {
-                        if (!first1)
-                            str1 += " or";
-                        str1 += string.Format(" CLASSTIME = {0}", i);
-                        if (first1)
-                            first1 = false;
-                    }
-                    else if (yy[i] == 3)
-                    {
+                        if (!first3)
+                            str3 += " or";
+                        str3 += string.Format(" CLASSTIME = {0}", i);
+                        if (first3)
+                            first3 = false;
+
                         if (!first2)
                             str2 += " or";
                         str2 += string.Format(" CLASSTIME = {0}", i);
                         if (first2)
                             first2 = false;
                     }
+                    else if (yy[i] == 3)
+                    {
+                        if (!first4)
+                            str4 += " or";
+                        str4 += string.Format(" CLASSTIME = {0}", i);
+                        if (first4)
+                            first4 = false;
+
+                        if (!first1)
+                            str1 += " or";
+                        str1 += string.Format(" CLASSTIME = {0}", i);
+                        if (first1)
+                            first1 = false;
+                    }
                 }
+
                 if (!first1)
                 {
-                    sqlstr = string.Format("update YYB set CLASS{0} = 100 where", class1) + str1;
+                    sqlstr = string.Format("update YYB set CLASS{0} = 0 where", class1) + str1;
                     SqlCommand cmd3 = new SqlCommand(sqlstr, conn);
                     int n1 = cmd3.ExecuteNonQuery();
-                    if (n1 > 0)
-                       success = true;
+                    if (n1 <= 0)
+                       success = false;
                 }
+
                 string sqlstr2;
                 if (!first2)
                 {
-                    sqlstr2 = string.Format("update YYB set CLASS{0} = 100 where", class2) + str2;
+                    sqlstr2 = string.Format("update YYB set CLASS{0} = 0 where", class2) + str2;
                     SqlCommand cmd4 = new SqlCommand(sqlstr2, conn);
                     int n2 = cmd4.ExecuteNonQuery();
-                    if (n2 > 0)
-                        success = true;
-                    else
+                    if (n2 <= 0)
                         success = false;
                 }
+
+                string sqlstr3;
+                if (!first3)
+                {
+                    sqlstr3 = string.Format("update YYB set CLASS{0} = 100 where", class1) + str3;
+                    SqlCommand cmd5 = new SqlCommand(sqlstr3, conn);
+                    int n3 = cmd5.ExecuteNonQuery();
+                    if (n3 <= 0)
+                        success = false;
+                }
+
+                string sqlstr4;
+                if (!first4)
+                {
+                    sqlstr4 = string.Format("update YYB set CLASS{0} = 100 where", class2) + str4;
+                    SqlCommand cmd6 = new SqlCommand(sqlstr4, conn);
+                    int n4 = cmd6.ExecuteNonQuery();
+                    if (n4 <= 0)
+                        success = false;
+                }
+
                 if (success)
                     Label9.Text = "提交成功！";
                 else

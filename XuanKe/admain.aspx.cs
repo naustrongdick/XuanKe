@@ -12,7 +12,7 @@ public partial class Default2 : System.Web.UI.Page
     string id;
     protected void Page_Load(object sender, EventArgs e)
     {
-        id = Session["id"].ToString();
+        id = Session["ad"].ToString();
         var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
         SqlConnection conn = new SqlConnection(consql);
 
@@ -31,43 +31,33 @@ public partial class Default2 : System.Web.UI.Page
     }
     protected void exit_Click(object sender, EventArgs e)
     {
-        WriteDateTime();
         Session.Clear();
         Response.Redirect("Adminlo.aspx");
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        mainbox.Attributes["src"] = "alpages/alpage1.aspx";
+        mainbox.Attributes["src"] = "alpages/alpage0.aspx";
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        mainbox.Attributes["src"] = "alpages/alpage2.aspx";
+        mainbox.Attributes["src"] = "alpages/alpage1.aspx";
     }
 
     protected void Button3_Click(object sender, EventArgs e)
     {
-        mainbox.Attributes["src"] = "alpages/alpage3.aspx";
+        mainbox.Attributes["src"] = "alpages/alpage2.aspx";
     }
 
     protected void Button4_Click(object sender, EventArgs e)
     {
-        mainbox.Attributes["src"] = "alpages/alpage4.aspx";
+        mainbox.Attributes["src"] = "alpages/alpage3.aspx";
     }
 
-    public void WriteDateTime()
+    protected void Button5_Click(object sender, EventArgs e)
     {
-        var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
-        SqlConnection conn = new SqlConnection(consql);
-        string sqlstr = string.Format("update ARL set STATUS = 0,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), id);
-        SqlCommand cdm = new SqlCommand(sqlstr, conn);
-        conn.Open();
-        cdm.ExecuteNonQuery();
-        conn.Close();
+        mainbox.Attributes["src"] = "alpages/alpage4.aspx";
     }
-    protected void LinkButton1_Click(object sender, EventArgs e)
-    {
-        mainbox.Attributes["src"] = "alpages/alpage0.aspx";
-    }
+    
 }

@@ -23,7 +23,7 @@ public partial class Adminlo : System.Web.UI.Page
         {
             var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
             SqlConnection conn = new SqlConnection(consql);
-            string sqlstr = string.Format("select PASSWD,STATUS,LASTTIME from ARL where ADMIN = '{0}'", un);
+            string sqlstr = string.Format("select PASSWD from ARL where ADMIN = '{0}'", un);
             SqlCommand cmd = new SqlCommand(sqlstr, conn);
             conn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -39,15 +39,7 @@ public partial class Adminlo : System.Web.UI.Page
                 {
                     if (ps.Equals(dr.GetString(0).TrimEnd()))
                     {
-                        TimeSpan ts = DateTime.Now - dr.GetDateTime(2);
-                        if (dr.GetBoolean(1) == false || ts.Minutes > 5)
-                        {
-                            success = 1;
-                        }
-                        else
-                        {
-                            success = -1;
-                        }
+                        success = 1;
                     }
 
                 }
@@ -59,11 +51,7 @@ public partial class Adminlo : System.Web.UI.Page
 
             if (success == 1)
             {
-                string sqlch = string.Format("update ARL set STATUS = 1,LASTTIME = '{0}' where ADMIN = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), un);
-                SqlCommand cdm = new SqlCommand(sqlch, conn);
-                conn.Open();
-                cdm.ExecuteNonQuery();
-                conn.Close();
+                
                 Session["ad"] = un;
                 Response.Redirect("admain.aspx");
 
@@ -71,10 +59,6 @@ public partial class Adminlo : System.Web.UI.Page
             else if (success == 0)
             {
                 Show.Text = "账号或密码错误";
-            }
-            else
-            {
-                Show.Text = "当前账号已登录，请安全退出或过会再尝试";
             }
 
         }

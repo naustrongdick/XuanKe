@@ -45,7 +45,7 @@
 
         <div class="top">
             <center>
-            <div style="width:98%">
+            <div style="width:98%; background-color:#777777;height:50px;" class="collapse navbar-collapse">
                 <div style="float:left;">
                     <asp:Label ID="hello" ForeColor="White" runat="server" Text="欢迎您，"></asp:Label>
                 </div>
@@ -57,13 +57,9 @@
         </div>
 
         <div class="left">
-
-            <div style="background-color:White">
-                <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click">用户管理</asp:LinkButton>
-            </div>
             
             <div class=alabal>
-                <asp:Label ID="Label1" runat="server" Text="Label">排课</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Label">排课管理</asp:Label>
             </div>
 
             <div>
@@ -73,7 +69,7 @@
                 </div>
 
                 <div>
-                    <asp:Button class="btleft" ID="Button2" CssClass="btn btn-link" runat="server" Text="预约结果" OnClick="Button2_Click"/>
+                    <asp:Button class="btleft" ID="Button2" CssClass="btn btn-link" runat="server" Text="排课结果" OnClick="Button2_Click"/>
                 </div>
 
             </div>
@@ -81,17 +77,21 @@
             
 
             <div class=alabal>
-                <asp:Label ID="Label2" runat="server" Text="Label">信息维护</asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Label">账户管理</asp:Label>
             </div>
 
             <div>
 
                 <div>
-                    <asp:Button class="btleft" ID="Button3" CssClass="btn btn-link" runat="server" Text="信息维护" OnClick="Button3_Click"/>
+                    <asp:Button class="btleft" ID="Button3" CssClass="btn btn-link" runat="server" Text="在线状态" OnClick="Button3_Click"/>
                 </div>
 
                 <div>
-                    <asp:Button class="btleft" ID="Button4" CssClass="btn btn-link" runat="server" Text="修改密码" OnClick="Button4_Click"/>
+                    <asp:Button class="btleft" ID="Button4" CssClass="btn btn-link" runat="server" Text="信息维护" OnClick="Button4_Click"/>
+                </div>
+
+                <div>
+                    <asp:Button class="btleft" ID="Button5" CssClass="btn btn-link" runat="server" Text="帐户管理" OnClick="Button5_Click"/>
                 </div>
 
             </div>
