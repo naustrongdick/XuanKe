@@ -61,7 +61,7 @@
                 <center>
                     <div><asp:Button CssClass="btn btn-info" ID="Button1" runat="server" Text="提交" 
                         onclick="Button1_Click" /></div>
-                    <div style="color:red;"><asp:Label ID="Label9" runat="server" Text="Label"></asp:Label></div>
+                    <div style="color:red; font-size:large"><asp:Label ID="Label9" runat="server" Text=""></asp:Label></div>
                 </center>
             </div>
         </div>
