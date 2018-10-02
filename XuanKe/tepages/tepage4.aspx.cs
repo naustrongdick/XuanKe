@@ -23,10 +23,63 @@ public partial class pages_tepage4 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        id = Session["id"].ToString();
+        if (!IsPostBack)
+        {
+            if (Session["id"] != null)
+            {
+
+            }
+        }
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
+        string id = Session["id"].ToString();
+        var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+        SqlConnection conn = new SqlConnection(consql);
+        string sqlstr = string.Format("select * from TRL where ID='{0}'", id);
+        SqlCommand cmd = new SqlCommand(sqlstr, conn);
+        conn.Open();
+        SqlDataReader dr = cmd.ExecuteReader();
+        string pwd = "1111";
+        while (dr.Read())
+        {
+            pwd = dr.GetString(1).Trim();
+        }
+        dr.Close();
+        
+        string a;
+        a = Convert.ToString(TextBox1.Text);
 
+        if (a!= pwd)
+            Show.Text = "旧密码错误，请重试！";
+        else
+        {
+            if (TextBox2.Text != TextBox3.Text)
+                Show.Text = "两次输入新密码不同，请重试！";
+            else
+            {
+                if (a == Convert.ToString(TextBox2.Text))
+                    Show.Text = "新旧密码相同，请重试！";
+                else
+                {
+                    SqlCommand scmd;
+                    try
+                    {
+                        string password = TextBox2.Text;
+                        string scmdStr = "update TRL set PASSWD='" + password + "'where ID=" + id + "";
+                        scmd = new SqlCommand(scmdStr, conn);
+                        scmd.ExecuteNonQuery();
+                        Show.Text = "修改成功！";
+                        conn.Close();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Show.Text = ex.ToString();
+                    }
+                }
+            }
+        }
+       
     }
 }

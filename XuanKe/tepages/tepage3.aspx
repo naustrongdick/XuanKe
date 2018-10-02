@@ -72,12 +72,15 @@
                             <center>
                                 <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="提交" 
                                     Font-Size="Large" Width="170px" Height="40px" onclick="Button1_Click" />
+                    <asp:Label ID="Show" runat="server"></asp:Label>
                             </center>
                         </div>
                         </center>
                     </div>
                     </center>
                 </div>
+                <p>
+                    &nbsp;</p>
     </form>
 </body>
 </html>
