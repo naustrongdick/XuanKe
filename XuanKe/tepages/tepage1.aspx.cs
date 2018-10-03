@@ -108,52 +108,87 @@ public partial class pages_Default : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            WriteDateTime();
-            id = Session["id"].ToString();
-            var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
-            SqlConnection conn = new SqlConnection(consql);
-            string sqlstr = string.Format("select CLASSID1,CLASSID2 from TRM where ID = '{0}'", id);
-            SqlCommand cmd = new SqlCommand(sqlstr, conn);
-            conn.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            if (Session["id"] != null)
             {
-                if (!dr.IsDBNull(0))
-                    class1 = dr.GetInt32(0);
-                else
-                    class1 = -1;
-                if (!dr.IsDBNull(1))
-                    class2 = dr.GetInt32(1);
-                else
-                    class2 = -1;
-            }
-            dr.Close();
-
-            classna1 = GetClassName(class1);
-            classna2 = GetClassName(class2);
-
-            Ke.Text = string.Format("你要上的课有：\n1.{0}\n2.{1}", classna1, classna2);
-
-
-            if (classna1 == "无课程")
-            {
-                if (classna2 == "无课程")
+                WriteDateTime();
+                id = Session["id"].ToString();
+                var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+                SqlConnection conn = new SqlConnection(consql);
+                string sqlstr = string.Format("select CLASSID1,CLASSID2 from TRM where ID = '{0}'", id);
+                SqlCommand cmd = new SqlCommand(sqlstr, conn);
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-
-                    ClearDropList();
-                    AddDropList("尽可能不上课");
-                    conn.Close();
+                    if (!dr.IsDBNull(0))
+                        class1 = dr.GetInt32(0);
+                    else
+                        class1 = -1;
+                    if (!dr.IsDBNull(1))
+                        class2 = dr.GetInt32(1);
+                    else
+                        class2 = -1;
                 }
-                else
-                {
+                dr.Close();
 
+                classna1 = GetClassName(class1);
+                classna2 = GetClassName(class2);
+
+                Ke.Text = string.Format("你要上的课有：\n1.{0}\n2.{1}", classna1, classna2);
+
+                sqlstr = string.Format("select DEADTIME from FaBu");
+                SqlCommand cdm = new SqlCommand(sqlstr, conn);
+                SqlDataReader dr2 = cdm.ExecuteReader();
+                string date="";
+                while (dr2.Read())
+                {
+                    date = dr2.GetDateTime(0).ToString();
+                }
+                dr2.Close();
+                Label1.Text = "选课截止时间：" + date;
+
+                if (classna1 == "无课程")
+                {
+                    if (classna2 == "无课程")
+                    {
+
+                        ClearDropList();
+                        AddDropList("尽可能不上课");
+                        conn.Close();
+                    }
+                    else
+                    {
+
+                        ClearDropList();
+                        AddDropList("尽可能不上课");
+                        AddDropList(classna2);
+                        sqlstr = string.Format("select CLASS{0} from YYB", class2);
+                        SqlDataAdapter sda1 = new SqlDataAdapter(sqlstr, conn);
+                        dt = new DataTable();
+                        sda1.Fill(dt);
+                        conn.Close();
+
+                        SelectDropList2(ref DropDownList1, 0);
+                        SelectDropList2(ref DropDownList2, 1);
+                        SelectDropList2(ref DropDownList3, 2);
+                        SelectDropList2(ref DropDownList4, 3);
+                        SelectDropList2(ref DropDownList5, 4);
+                        SelectDropList2(ref DropDownList6, 5);
+                        SelectDropList2(ref DropDownList7, 6);
+                        SelectDropList2(ref DropDownList8, 7);
+                        SelectDropList2(ref DropDownList9, 8);
+                        SelectDropList2(ref DropDownList10, 9);
+                    }
+                }
+                else if (classna2 == "无课程")
+                {
                     ClearDropList();
                     AddDropList("尽可能不上课");
-                    AddDropList(classna2);
-                    sqlstr = string.Format("select CLASS{0} from YYB", class2);
-                    SqlDataAdapter sda1 = new SqlDataAdapter(sqlstr, conn);
+                    AddDropList(classna1);
+                    sqlstr = string.Format("select CLASS{0} from YYB", class1);
+                    SqlDataAdapter sda2 = new SqlDataAdapter(sqlstr, conn);
                     dt = new DataTable();
-                    sda1.Fill(dt);
+                    sda2.Fill(dt);
                     conn.Close();
 
                     SelectDropList2(ref DropDownList1, 0);
@@ -167,52 +202,30 @@ public partial class pages_Default : System.Web.UI.Page
                     SelectDropList2(ref DropDownList9, 8);
                     SelectDropList2(ref DropDownList10, 9);
                 }
-            }
-            else if (classna2 == "无课程")
-            {
-                ClearDropList();
-                AddDropList("尽可能不上课");
-                AddDropList(classna1);
-                sqlstr = string.Format("select CLASS{0} from YYB", class1);
-                SqlDataAdapter sda2 = new SqlDataAdapter(sqlstr, conn);
-                dt = new DataTable();
-                sda2.Fill(dt);
-                conn.Close();
+                else
+                {
+                    ClearDropList();
+                    AddDropList("尽可能不上课");
+                    AddDropList("两节课都可以");
+                    AddDropList(classna1);
+                    AddDropList(classna2);
+                    sqlstr = string.Format("select CLASS{0},CLASS{1} from YYB", class1, class2);
+                    SqlDataAdapter sda3 = new SqlDataAdapter(sqlstr, conn);
+                    dt = new DataTable();
+                    sda3.Fill(dt);
+                    conn.Close();
 
-                SelectDropList2(ref DropDownList1, 0);
-                SelectDropList2(ref DropDownList2, 1);
-                SelectDropList2(ref DropDownList3, 2);
-                SelectDropList2(ref DropDownList4, 3);
-                SelectDropList2(ref DropDownList5, 4);
-                SelectDropList2(ref DropDownList6, 5);
-                SelectDropList2(ref DropDownList7, 6);
-                SelectDropList2(ref DropDownList8, 7);
-                SelectDropList2(ref DropDownList9, 8);
-                SelectDropList2(ref DropDownList10, 9);
-            }
-            else
-            {
-                ClearDropList();
-                AddDropList("尽可能不上课");
-                AddDropList("两节课都可以");
-                AddDropList(classna1);
-                AddDropList(classna2);
-                sqlstr = string.Format("select CLASS{0},CLASS{1} from YYB", class1, class2);
-                SqlDataAdapter sda3 = new SqlDataAdapter(sqlstr, conn);
-                dt = new DataTable();
-                sda3.Fill(dt);
-                conn.Close();
-
-                SelectDropList(ref DropDownList1, 0);
-                SelectDropList(ref DropDownList2, 1);
-                SelectDropList(ref DropDownList3, 2);
-                SelectDropList(ref DropDownList4, 3);
-                SelectDropList(ref DropDownList5, 4);
-                SelectDropList(ref DropDownList6, 5);
-                SelectDropList(ref DropDownList7, 6);
-                SelectDropList(ref DropDownList8, 7);
-                SelectDropList(ref DropDownList9, 8);
-                SelectDropList(ref DropDownList10, 9);
+                    SelectDropList(ref DropDownList1, 0);
+                    SelectDropList(ref DropDownList2, 1);
+                    SelectDropList(ref DropDownList3, 2);
+                    SelectDropList(ref DropDownList4, 3);
+                    SelectDropList(ref DropDownList5, 4);
+                    SelectDropList(ref DropDownList6, 5);
+                    SelectDropList(ref DropDownList7, 6);
+                    SelectDropList(ref DropDownList8, 7);
+                    SelectDropList(ref DropDownList9, 8);
+                    SelectDropList(ref DropDownList10, 9);
+                }
             }
         }
     }
@@ -229,11 +242,11 @@ public partial class pages_Default : System.Web.UI.Page
         SqlDataReader dr = cmd.ExecuteReader();
         while (dr.Read())
         {
-            if (!dr.GetBoolean(0))
+            TimeSpan ts = DateTime.Now - dr.GetDateTime(1);
+            if (!(dr.GetBoolean(0)||ts.Seconds>0))
                 ok = true;
         }
         dr.Close();
-        ok = true;
 
         if (ok)
         {

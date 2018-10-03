@@ -9,10 +9,10 @@
 
     <style type="text/css">
         .style1 {
-            background-color:mediumpurple;
+            background-color:#DE8100;
         }
         .style2 {
-            background-color:purple;
+            background-color:#3B200C;
             height:32px;
         }
         .style3 {
@@ -22,27 +22,21 @@
     </style>
 
 </head>
-<body>
+<body style="background-color:#E9CFAE; font-family:'Microsoft YaHei UI';">
     <form id="form1" runat="server">
-    <div>
-    <div style="width:700px;">
-        <div style="float:left; width:400px;">
-            <div style="float:left; height: 37px; width: 82px;">
-                <asp:Label ID="Label1" runat="server" Text="排课管理" Font-Size="Large"></asp:Label>
-            </div>
-            <div style="float:right;">
+    <div style="position:absolute;top:30px;left:100px;">
+        <div style="font-size:large"><center>预约信息</center></div>
+        <div style="width:700px;">
+            <div style="float:left;">
                 <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="刷新" Width="100px" OnClick="Button1_Click" />
             </div>
-        </div>
-        <div style="float:right; width:300px;">
             <div style="float:right;">
                 <asp:Button ID="Button2" CssClass="btn btn-primary" runat="server" Text="一键排课" OnClick="Button2_Click" />
             </div>
         </div>
-    </div>
 
     <div style="text-align:center; color:white; position:absolute; top:70px;">
-        <table border="1">
+        <table border="1" style="border:solid #E9CFAE;" >
             <tr class="style1">
                 <td class="style2" style="width:100px;"></td>
                 <td class="style2" style="width:60px;">

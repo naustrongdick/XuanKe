@@ -4,18 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width",initial-scale="1.0,minimun-scale=0.5,maximun-scale=2.0,user-scalable=yes" />
     <title></title>
     <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
     <style>
         .bg{
-            background-color:lightblue;
+            background-color:#E9CFAE;
         }
         .mat{
             position:absolute;
-            top:20%;
-            left:20%;
+            top:30px;
+            left:100px;
             font-size:larger;
+            font-family:'Microsoft YaHei UI';
+            font-size:x-large;
         }
     </style>
 </head>

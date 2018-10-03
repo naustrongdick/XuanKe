@@ -3,9 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+ 
 <head id="Head1" runat="server">
+    <meta name="viewport" content="width=device-width",initial-scale="1.0,minimun-scale=0.5,maximun-scale=2.0,user-scalable=yes" />
     <title>登录界面</title>
-
+    
     <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
     <style>
         @font-face {
@@ -14,8 +16,9 @@
         }
         .bg
         {
-        	background-image:url('bg/bg1.jpg');
-            background-size:100%;
+        	background-image:url('bg/bg3.jpg');
+            background-attachment:fixed;
+            background-size:cover;
             background-repeat:no-repeat;
         }
         .main

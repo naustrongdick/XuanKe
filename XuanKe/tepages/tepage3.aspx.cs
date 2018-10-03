@@ -39,11 +39,17 @@ public partial class pages_tepage3 : System.Web.UI.Page
             {
                 TextBox1.Text = dr.GetString(1).ToString();
                 if (dr.GetBoolean(2) == false)
-                    TextBox2.Text = "男";
+                    DropDownList1.SelectedIndex = 0;
                 else
-                    TextBox2.Text = "女";
-                TextBox3.Text = dr.GetString(4).ToString();
-                TextBox4.Text = dr.GetString(3).ToString();
+                    DropDownList1.SelectedIndex = 1;
+                if (!dr.IsDBNull(4))
+                    TextBox3.Text = dr.GetString(4).ToString();
+                else
+                    TextBox3.Text = null;
+               if (!dr.IsDBNull(3))
+                    TextBox4.Text = dr.GetString(3).ToString();
+                else
+                    TextBox4.Text = null;
             }
             dr.Close();
             conn.Close();
@@ -61,16 +67,16 @@ public partial class pages_tepage3 : System.Web.UI.Page
         {
             string name = TextBox1.Text;
             int sex;
-            if (TextBox2.ToString() == "男")
-                sex = 1;
-            else
-                sex = 0;
+            sex = DropDownList1.SelectedIndex;
             string email = TextBox3.Text;
             string tele = TextBox4.Text;
-            string scmdStr = "update TRM set NAME='" + name + "',SEX=" + sex + ",MOBILE='" + tele + "',EMAIL='" + email + "'where ID=" + id + "";
+            string scmdStr = "update TRM set NAME='" + name + "',SEX=" + sex + ",MOBILE='" + tele + "',EMAIL='" + email + "'where ID=" + id + ";";
             scmd = new SqlCommand(scmdStr, conn);
-            scmd.ExecuteNonQuery();
-            Show.Text = "修改成功！";
+            int n = scmd.ExecuteNonQuery();
+            if (n > 0)
+                Show.Text = "修改成功！";
+            else
+                Show.Text = "修改失败！";
             conn.Close();
         }
         catch (Exception ex)

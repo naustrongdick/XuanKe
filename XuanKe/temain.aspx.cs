@@ -12,36 +12,40 @@ public partial class Default2 : System.Web.UI.Page
     string id;
     protected void Page_Load(object sender, EventArgs e)
     {
-        bool isok = false;
-        id = Session["id"].ToString();
-        var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
-        SqlConnection conn = new SqlConnection(consql);
-        conn.Open();
-        string sqlstr = string.Format("select NAME from TRM where ID = '{0}';", id);
-        SqlCommand cmd = new SqlCommand(sqlstr, conn);
-        SqlDataReader dr = cmd.ExecuteReader();
-        string name = null;
-        while (dr.Read())
+        if (Session["id"] != null)
         {
-            name = dr.GetString(0);
+            bool isok = false;
+            TimeSpan ts = new TimeSpan(); 
+            id = Session["id"].ToString();
+            var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+            SqlConnection conn = new SqlConnection(consql);
+            conn.Open();
+            string sqlstr = string.Format("select NAME from TRM where ID = '{0}';", id);
+            SqlCommand cmd = new SqlCommand(sqlstr, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            string name = null;
+            while (dr.Read())
+            {
+                name = dr.GetString(0);
+            }
+            dr.Close();
+
+            sqlstr = string.Format("select * from FaBu");
+            SqlCommand cmd2 = new SqlCommand(sqlstr, conn);
+            SqlDataReader dr2 = cmd2.ExecuteReader();
+            while (dr2.Read())
+            {
+                isok = dr2.GetBoolean(0);
+                ts = DateTime.Now - dr2.GetDateTime(1);
+            }
+
+            if (isok|| ts.Seconds>0)
+                mainbox.Attributes["src"] = "tepages/tepage2.aspx";
+
+            conn.Close();
+            hello.Text = "欢迎您，" + name;
+
         }
-        dr.Close();
-
-        sqlstr = string.Format("select ISOK from FaBu");
-        SqlCommand cmd2 = new SqlCommand(sqlstr, conn);
-        SqlDataReader dr2 = cmd2.ExecuteReader();
-        while (dr2.Read())
-        {
-            isok = dr2.GetBoolean(0);
-        }
-
-        if (isok)
-            mainbox.Attributes["src"] = "tepages/tepage2.aspx";
-
-        conn.Close();
-        hello.Text = "欢迎您，" + name;
-
-
     }
     protected void exit_Click(object sender, EventArgs e)
     {
@@ -64,9 +68,11 @@ public partial class Default2 : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand(sqlstr, conn);
         conn.Open();
         SqlDataReader dr = cmd.ExecuteReader();
+        TimeSpan ts = new TimeSpan();
         while (dr.Read())
         {
-            if (dr.GetBoolean(0))
+            ts = DateTime.Now - dr.GetDateTime(1);
+            if (dr.GetBoolean(0)||ts.Seconds>0)
             {
                 mainbox.Attributes["src"] = "tepages/tepage2.aspx";
             }
