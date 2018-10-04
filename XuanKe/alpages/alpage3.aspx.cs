@@ -14,6 +14,25 @@ public partial class pages_alpage2 : System.Web.UI.Page
 
     }
 
+    bool jiancha(string s)
+    {
+        int i = 0;
+        foreach (char a in s)
+        {
+            if (a >= 65 && a <= 90 || a >= 97 && a <= 122 || a >= 48 && a <= 57)
+            {
+                i++;
+            }
+            else
+            {
+                return false;
+            }
+            if (i == s.Length)
+                return true;
+        }
+        return false;
+    }
+
     protected void Button1_Click(object sender, EventArgs e)
     {
         try
@@ -27,28 +46,42 @@ public partial class pages_alpage2 : System.Web.UI.Page
             int sex;
             sex = DropDownList1.SelectedIndex;
             string aps = TextBox3.Text;
+
             string aun = TextBox4.Text;
             string scmdStr = "";
 
-            scmdStr = string.Format("select ID from TRL where ID = '{0}'", aid);
-            SqlCommand cmd = new SqlCommand(scmdStr, conn);
-            int m = cmd.ExecuteNonQuery();
-            if (m > 0)
-            {
-                Show.Text = "该账号已存在！";
-                conn.Close();
-            }
+            if (aid.Equals(string.Empty))
+                Show.Text = "请输入账号";
+            else if (aps.Equals(string.Empty))
+                Show.Text = "请输入密码";
+            else if (aun.Equals(string.Empty))
+                Show.Text = "请输入用户名";
+            else if (!jiancha(aid) || aid.Length < 5 || aid.Length > 20)
+                Show.Text = "账号为5-20位字母或数字";
+            else if (!jiancha(aps) || aps.Length < 5 || aps.Length > 20)
+                Show.Text = "密码为5-20位字母或数字";
             else
             {
-
-                scmdStr = string.Format("insert into TRL(ID,PASSWD) values('{0}','{1}');insert into TRM(ID,NAME,SEX) values('{0}','{2}',{3})", aid, aps, aun, sex);
-                SqlCommand scmd = new SqlCommand(scmdStr, conn);
-                int n = scmd.ExecuteNonQuery();
-                if (n > 0)
-                    Show.Text = "添加成功！";
+                scmdStr = string.Format("select ID from TRL where ID = '{0}'", aid);
+                SqlCommand cmd = new SqlCommand(scmdStr, conn);
+                int m = cmd.ExecuteNonQuery();
+                if (m > 0)
+                {
+                    Show.Text = "该账号已存在！";
+                    conn.Close();
+                }
                 else
-                    Show.Text = "添加失败！";
-                conn.Close();
+                {
+
+                    scmdStr = string.Format("insert into TRL(ID,PASSWD) values('{0}','{1}');insert into TRM(ID,NAME,SEX) values('{0}','{2}',{3})", aid, aps, aun, sex);
+                    SqlCommand scmd = new SqlCommand(scmdStr, conn);
+                    int n = scmd.ExecuteNonQuery();
+                    if (n > 0)
+                        Show.Text = "添加成功！";
+                    else
+                        Show.Text = "添加失败！";
+                    conn.Close();
+                }
             }
         }
         catch

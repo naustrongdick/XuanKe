@@ -42,7 +42,7 @@
                                 <asp:Label ID="Label4" runat="server" Text="旧密码:"></asp:Label>
                             </div>
                             <div style="float:right;">
-                                <asp:TextBox ID="TextBox1" Height="25px" Width="152px" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TextBox1" Height="25px" Width="152px" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
                             </div>
                         </div>
                         <div style="height:50px;">
@@ -68,7 +68,7 @@
                                     Font-Size="Large" Width="170px" Height="40px" onclick="Button1_Click" />
                                 </div>
                                 <div>
-                                    <asp:Label ID="Show" runat="server" ForeColor="Red"></asp:Label>
+                                    <asp:Label ID="Show" runat="server" ForeColor="Red">密码为5-20位字母或数字</asp:Label>
                                 </div>
                             </center>
                         </div>

@@ -51,7 +51,7 @@
                                 <asp:Label ID="Label5" runat="server" Text="密码："></asp:Label>
                             </div>
                             <div style="float:right;">
-                                <asp:TextBox ID="TextBox3" Height="25px" Width="152px" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TextBox3" Height="25px" Width="152px" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
                             </div>
                         </div>
                         <div style="height:50px;">
