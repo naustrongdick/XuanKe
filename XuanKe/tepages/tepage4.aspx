@@ -4,8 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <style>
+    <title>修改密码</title>
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
         .bg{
             background-color:#E9CFAE; 
             font-family:'Microsoft YaHei UI';

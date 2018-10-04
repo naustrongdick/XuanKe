@@ -4,10 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>排课管理</title>
     
-    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <style>
+    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
         .style2 {
             height: 50px;
             width: 120px;
@@ -23,27 +23,33 @@
 </head>
 <body style="background-color:#E9CFAE; font-family:'Microsoft YaHei UI';">
     <form id="form1" runat="server">
+    
     <div style="position:absolute;top:30px;left:100px;">
+        <div style="width:750px;font-size:large;">
+            <center>
+                <asp:Label ID="Label10" runat="server" Text="Label">排课管理</asp:Label>
+            </center>
+        </div>
         <div style="width:750px;">
-        <div style="float:left;width:420px;height:50px;">
-            <div style="float:left;">
+            <div style="float:left;width:420px;height:50px;">
                 <div style="float:left;">
-                    <asp:Label ID="Label1" Font-Size="Large" runat="server" Text="Label">发布时间:&nbsp;</asp:Label>
+                    <div style="float:left;">
+                        <asp:Label ID="Label1" Font-Size="Large" runat="server" Text="Label">发布时间:&nbsp;</asp:Label>
+                    </div>
+                    <div style="float:left;">
+                        <asp:TextBox ID="TextBox1" CssClass=" form-control" Width="160px" runat="server"></asp:TextBox>
+                    </div>
                 </div>
-                <div style="float:left;">
-                    <asp:TextBox ID="TextBox1" CssClass=" form-control" Width="160px" runat="server"></asp:TextBox>
-                </div>
-            </div>
-            <div style="float:right;">
-                <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="保存修改" OnClick="Button1_Click" />
-            </div>
-        </div>
-        <div style="float:left;width:330px;">
-            <div>
                 <div style="float:right;">
-                <asp:Button ID="Button2" CssClass="btn btn-primary" runat="server" Text="立刻发布" OnClick="Button2_Click" />
+                    <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="保存修改" OnClick="Button1_Click" />
+                </div>
             </div>
-        </div>
+            <div style="float:left;width:330px;">
+                <div>
+                    <div style="float:right;">
+                    <asp:Button ID="Button2" CssClass="btn btn-primary" runat="server" Text="立刻发布" OnClick="Button2_Click" />
+                </div>
+            </div>
         </div>
         <div style="text-align:center;">
                 <table class="table table-hover table-bordered" style ="width:750px;">
@@ -79,6 +85,7 @@
                 <asp:Label ID="Label9" runat="server" ForeColor="Red"></asp:Label>
             </center>
         </div>
+    </div>
     </div>
     </form>
 </body>

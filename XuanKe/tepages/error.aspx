@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta name="viewport" content="width=device-width",initial-scale="1.0,minimun-scale=0.5,maximun-scale=2.0,user-scalable=yes" />
-    <title></title>
-    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <style>
+    <title>未发布</title>
+    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
         .bg{
             background-color:#E9CFAE;
         }

@@ -4,8 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <title>预约信息</title>
+    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet" />
 
     <style type="text/css">
         .style1 {

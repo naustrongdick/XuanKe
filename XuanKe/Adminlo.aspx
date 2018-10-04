@@ -7,7 +7,7 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width",initial-scale="1.0,minimun-scale=0.5,maximun-scale=2.0,user-scalable=yes" />
 <title>管理员登录</title>
-    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet" />
     <style>
         @font-face {
             font-family:'glfont';

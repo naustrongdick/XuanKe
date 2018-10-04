@@ -4,9 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>个人信息维护</title>
-    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
-    <style>
+    <title>信息维护</title>
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
         .bg{
             background-color:#E9CFAE; 
             font-family:'Microsoft YaHei UI';

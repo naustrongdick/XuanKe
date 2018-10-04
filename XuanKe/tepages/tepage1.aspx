@@ -4,8 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>预约选课</title>
-    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <title>预约课时</title>
+    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <style type="text/css">
         .style2 {
             height: 50px;

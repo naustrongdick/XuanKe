@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>管理员界面</title>
-    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
-    <style>
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
         .top
         {
             width: 1600px;
