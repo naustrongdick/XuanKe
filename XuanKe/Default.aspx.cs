@@ -79,9 +79,9 @@ public partial class _Default : System.Web.UI.Page
             }
 
         }
-        catch (Exception)
+        catch
         {
-            Show.Text = "网络错误";
+            Response.Write("<script>alert('网络错误！')</script>");
         }
     }
 

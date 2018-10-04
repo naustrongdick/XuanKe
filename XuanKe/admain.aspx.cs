@@ -12,24 +12,31 @@ public partial class Default2 : System.Web.UI.Page
     string id;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["ad"] != null)
+        try
         {
-            id = Session["ad"].ToString();
-            var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
-            SqlConnection conn = new SqlConnection(consql);
-
-            string sqlstr = string.Format("select NAME from ARM where ID = '{0}'", id);
-            SqlCommand cmd = new SqlCommand(sqlstr, conn);
-            conn.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            string name = null;
-            while (dr.Read())
+            if (Session["ad"] != null)
             {
-                name = dr[0].ToString();
+                id = Session["ad"].ToString();
+                var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+                SqlConnection conn = new SqlConnection(consql);
+
+                string sqlstr = string.Format("select NAME from ARM where ID = '{0}'", id);
+                SqlCommand cmd = new SqlCommand(sqlstr, conn);
+                conn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                string name = null;
+                while (dr.Read())
+                {
+                    name = dr[0].ToString();
+                }
+                dr.Close();
+                conn.Close();
+                hello.Text = "欢迎您，" + name;
             }
-            dr.Close();
-            conn.Close();
-            hello.Text = "欢迎您，" + name;
+        }
+        catch
+        {
+            Response.Write("<script>alert('网络错误！')</script>");
         }
     }
     protected void exit_Click(object sender, EventArgs e)
@@ -57,10 +64,6 @@ public partial class Default2 : System.Web.UI.Page
     {
         mainbox.Attributes["src"] = "alpages/alpage3.aspx";
     }
-
-    protected void Button5_Click(object sender, EventArgs e)
-    {
-        mainbox.Attributes["src"] = "alpages/alpage4.aspx";
-    }
+    
     
 }

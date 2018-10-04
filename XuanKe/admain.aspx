@@ -99,12 +99,9 @@
                     <asp:Button class="btleft" ID="Button3" CssClass="btn btn-link" runat="server" Text="在线状态" OnClick="Button3_Click"/>
                 </div>
 
-                <div>
-                    <asp:Button class="btleft" ID="Button4" CssClass="btn btn-link" runat="server" Text="信息维护" OnClick="Button4_Click"/>
-                </div>
 
                 <div>
-                    <asp:Button class="btleft" ID="Button5" CssClass="btn btn-link" runat="server" Text="帐户管理" OnClick="Button5_Click"/>
+                    <asp:Button class="btleft" ID="Button5" CssClass="btn btn-link" runat="server" Text="添加帐户" OnClick="Button4_Click"/>
                 </div>
 
             </div>

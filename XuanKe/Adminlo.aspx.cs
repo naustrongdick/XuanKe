@@ -63,9 +63,9 @@ public partial class Adminlo : System.Web.UI.Page
 
         }
 
-        catch (Exception)
+        catch
         {
-            Show.Text = "网络错误";
+            Response.Write("<script>alert('网络错误！')</script>");
         }
     }
     protected void LinkButton1_Click(object sender, EventArgs e)
