@@ -9,7 +9,6 @@ using System.Data.SqlClient;
 
 public partial class Default2 : System.Web.UI.Page
 {
-    string id;
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -18,11 +17,11 @@ public partial class Default2 : System.Web.UI.Page
             {
                 bool isok = false;
                 TimeSpan ts = new TimeSpan();
-                id = Session["id"].ToString();
+                string id = Session["id"].ToString();
                 var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
                 SqlConnection conn = new SqlConnection(consql);
                 conn.Open();
-                string sqlstr = string.Format("select NAME from TRM where ID = '{0}';", id);
+                string sqlstr = string.Format("select NAME from TRM where ID = '{0}';", Session["id"].ToString());
                 SqlCommand cmd = new SqlCommand(sqlstr, conn);
                 SqlDataReader dr = cmd.ExecuteReader();
                 string name = null;
@@ -115,7 +114,7 @@ public partial class Default2 : System.Web.UI.Page
         {
             var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
             SqlConnection conn = new SqlConnection(consql);
-            string sqlstr = string.Format("update TRL set STATUS = 0,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), id);
+            string sqlstr = string.Format("update TRL set STATUS = 0,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Session["id"].ToString());
             SqlCommand cdm = new SqlCommand(sqlstr, conn);
             conn.Open();
             cdm.ExecuteNonQuery();

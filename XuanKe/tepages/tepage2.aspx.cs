@@ -16,7 +16,7 @@ public partial class pages_tepage2 : System.Web.UI.Page
         {
             var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
             SqlConnection conn = new SqlConnection(consql);
-            string sqlstr = string.Format("update TRL set STATUS = 0,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), id);
+            string sqlstr = string.Format("update TRL set STATUS = 0,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Session["id"].ToString());
             SqlCommand cdm = new SqlCommand(sqlstr, conn);
             conn.Open();
             cdm.ExecuteNonQuery();

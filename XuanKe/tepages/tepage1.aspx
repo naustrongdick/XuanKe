@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div style="font-size:large;width:700px;float:left;">
-                    <center><asp:Label ID="Label10" runat="server" Text="Label">请根据自身安排选择2-10个空闲时间，系统将根据预约结果安排课程。</asp:Label></center>
+                    <center><asp:Label ID="Label10" runat="server" Text="Label">请根据自身安排选择空闲时间，系统将根据预约结果安排课程。</asp:Label></center>
                 </div>
                 
             </div>
@@ -57,17 +57,17 @@
                         <td class="style2"><asp:Label ID="Label7" runat="server" Text=" 上午 " Width="50px"></asp:Label></td>
                         <td class="style1">
                             <asp:DropDownList ID="DropDownList1" runat="server" Width="120px"></asp:DropDownList></td>
-                        <td class="style1"><asp:DropDownList ID="DropDownList2" runat="server" Width="120px"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList3" runat="server" Width="120px"></asp:DropDownList></td>
-                        <td class="style1"><asp:DropDownList ID="DropDownList4" runat="server" Width="120px"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList5" runat="server" Width="120px"></asp:DropDownList></td>
+                        <td class="style1"><asp:DropDownList ID="DropDownList7" runat="server" Width="120px"></asp:DropDownList></td>
+                        <td class="style1"><asp:DropDownList ID="DropDownList9" runat="server" Width="120px"></asp:DropDownList></td>
                     </tr>
                     <tr>
                         <td class="style2"><asp:Label ID="Label6" runat="server" Text=" 下午 "></asp:Label></td>
+                        <td class="style1"><asp:DropDownList ID="DropDownList2" runat="server" Width="120px"></asp:DropDownList></td>
+                        <td class="style1"><asp:DropDownList ID="DropDownList4" runat="server" Width="120px"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList6" runat="server" Width="120px"></asp:DropDownList></td>
-                        <td class="style1"><asp:DropDownList ID="DropDownList7" runat="server" Width="120px"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList8" runat="server" Width="120px"></asp:DropDownList></td>
-                        <td class="style1"><asp:DropDownList ID="DropDownList9" runat="server" Width="120px"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList10" runat="server" Width="120px"></asp:DropDownList></td>
                     </tr>
                 </table>

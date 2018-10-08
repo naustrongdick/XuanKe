@@ -10,39 +10,36 @@ using System.Data;
 
 public partial class pages_Default : System.Web.UI.Page
 {
-    string id = null;
-    int class1;
-    int class2;
-    string classna1;
+    public string classna1;
 
-    DataTable dt = null;
-    string classna2;
+    public DataTable dt = null;
+    public string classna2;
 
     public void ClearDropList()
     {
         DropDownList1.Items.Clear();
-        DropDownList2.Items.Clear();
         DropDownList3.Items.Clear();
-        DropDownList4.Items.Clear();
         DropDownList5.Items.Clear();
-        DropDownList6.Items.Clear();
         DropDownList7.Items.Clear();
-        DropDownList8.Items.Clear();
         DropDownList9.Items.Clear();
+        DropDownList2.Items.Clear();
+        DropDownList4.Items.Clear();
+        DropDownList6.Items.Clear();
+        DropDownList8.Items.Clear();
         DropDownList10.Items.Clear();
     }
 
     public void AddDropList(string s)
     {
         DropDownList1.Items.Add(s);
-        DropDownList2.Items.Add(s);
         DropDownList3.Items.Add(s);
-        DropDownList4.Items.Add(s);
         DropDownList5.Items.Add(s);
-        DropDownList6.Items.Add(s);
         DropDownList7.Items.Add(s);
-        DropDownList8.Items.Add(s);
         DropDownList9.Items.Add(s);
+        DropDownList2.Items.Add(s);
+        DropDownList4.Items.Add(s);
+        DropDownList6.Items.Add(s);
+        DropDownList8.Items.Add(s);
         DropDownList10.Items.Add(s);
     }
 
@@ -52,7 +49,7 @@ public partial class pages_Default : System.Web.UI.Page
         {
             var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
             SqlConnection conn = new SqlConnection(consql);
-            string sqlstr = string.Format("update TRL set STATUS = 0,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), id);
+            string sqlstr = string.Format("update TRL set STATUS = 0,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Session["id"].ToString());
             SqlCommand cdm = new SqlCommand(sqlstr, conn);
             conn.Open();
             cdm.ExecuteNonQuery();
@@ -120,6 +117,10 @@ public partial class pages_Default : System.Web.UI.Page
             {
                 if (Session["id"] != null)
                 {
+                    string id = null;
+                    int class1 = 0;
+                    int class2 = 0;
+
                     WriteDateTime();
                     id = Session["id"].ToString();
                     var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
@@ -140,6 +141,7 @@ public partial class pages_Default : System.Web.UI.Page
                             class2 = -1;
                     }
                     dr.Close();
+                    
 
                     classna1 = GetClassName(class1);
                     classna2 = GetClassName(class2);
@@ -250,8 +252,34 @@ public partial class pages_Default : System.Web.UI.Page
         try
         {
             WriteDateTime();
-            bool ok = false;
+
+            string id = Session["id"].ToString();
+            int class1 = 0;
+            int class2 = 0;
+
             var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+            SqlConnection conn0 = new SqlConnection(consql);
+            string sqlstr0 = string.Format("select CLASSID1,CLASSID2 from TRM where ID = '{0}'", id);
+            SqlCommand cmd0 = new SqlCommand(sqlstr0, conn0);
+            conn0.Open();
+            SqlDataReader dr0 = cmd0.ExecuteReader();
+            while (dr0.Read())
+            {
+                if (!dr0.IsDBNull(0))
+                    class1 = dr0.GetInt32(0);
+                else
+                    class1 = -1;
+                if (!dr0.IsDBNull(1))
+                    class2 = dr0.GetInt32(1);
+                else
+                    class2 = -1;
+            }
+            dr0.Close();
+            
+
+
+            bool ok = false;
+            
             SqlConnection conn = new SqlConnection(consql);
             string sqlstr = string.Format("select * from FaBu");
             SqlCommand cmd = new SqlCommand(sqlstr, conn);
@@ -478,10 +506,12 @@ public partial class pages_Default : System.Web.UI.Page
                             success = false;
                     }
 
+                    
                     if (success)
                         Label9.Text = "提交成功！";
                     else
                         Label9.Text = "提交失败！";
+                    
                 }
             }
             else

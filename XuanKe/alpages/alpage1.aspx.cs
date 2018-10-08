@@ -25,39 +25,39 @@ public partial class pages_alpage1 : System.Web.UI.Page
                 da.Fill(dta);
 
                 DropDownList1.Items.Add("无课程");
-                DropDownList2.Items.Add("无课程");
                 DropDownList3.Items.Add("无课程");
-                DropDownList4.Items.Add("无课程");
                 DropDownList5.Items.Add("无课程");
-                DropDownList6.Items.Add("无课程");
                 DropDownList7.Items.Add("无课程");
-                DropDownList8.Items.Add("无课程");
                 DropDownList9.Items.Add("无课程");
+                DropDownList2.Items.Add("无课程");
+                DropDownList4.Items.Add("无课程");
+                DropDownList6.Items.Add("无课程");
+                DropDownList8.Items.Add("无课程");
                 DropDownList10.Items.Add("无课程");
 
                 for (int i = 0; i <= 9; i++)
                 {
                     DropDownList1.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList2.Items.Add(dta.Rows[i][1].ToString());
                     DropDownList3.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList4.Items.Add(dta.Rows[i][1].ToString());
                     DropDownList5.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList6.Items.Add(dta.Rows[i][1].ToString());
                     DropDownList7.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList8.Items.Add(dta.Rows[i][1].ToString());
                     DropDownList9.Items.Add(dta.Rows[i][1].ToString());
+                    DropDownList2.Items.Add(dta.Rows[i][1].ToString());
+                    DropDownList4.Items.Add(dta.Rows[i][1].ToString());
+                    DropDownList6.Items.Add(dta.Rows[i][1].ToString());
+                    DropDownList8.Items.Add(dta.Rows[i][1].ToString());
                     DropDownList10.Items.Add(dta.Rows[i][1].ToString());
                 }
 
                 DropDownList1.SelectedIndex = 0;
-                DropDownList2.SelectedIndex = 0;
                 DropDownList3.SelectedIndex = 0;
-                DropDownList4.SelectedIndex = 0;
                 DropDownList5.SelectedIndex = 0;
-                DropDownList6.SelectedIndex = 0;
                 DropDownList7.SelectedIndex = 0;
-                DropDownList8.SelectedIndex = 0;
                 DropDownList9.SelectedIndex = 0;
+                DropDownList2.SelectedIndex = 0;
+                DropDownList4.SelectedIndex = 0;
+                DropDownList6.SelectedIndex = 0;
+                DropDownList8.SelectedIndex = 0;
                 DropDownList10.SelectedIndex = 0;
 
                 for (int i = 0; i <= 9; i++)

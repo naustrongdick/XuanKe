@@ -9,14 +9,13 @@ using System.Data.SqlClient;
 
 public partial class Default2 : System.Web.UI.Page
 {
-    string id;
     protected void Page_Load(object sender, EventArgs e)
     {
         try
         {
             if (Session["ad"] != null)
             {
-                id = Session["ad"].ToString();
+                string id = Session["ad"].ToString();
                 var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
                 SqlConnection conn = new SqlConnection(consql);
 
