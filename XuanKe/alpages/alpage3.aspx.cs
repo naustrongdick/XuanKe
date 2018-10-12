@@ -11,7 +11,10 @@ public partial class pages_alpage2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["ad"] == null)
+        {
+            Response.Redirect("~/Adminlo.aspx");
+        }
     }
 
     bool jiancha(string s)

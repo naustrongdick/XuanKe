@@ -29,7 +29,10 @@ public partial class pages_tepage4 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        if(Session["id"]==null)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
     }
 
     bool jiancha(string s)

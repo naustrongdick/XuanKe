@@ -32,6 +32,10 @@ public partial class Default2 : System.Web.UI.Page
                 conn.Close();
                 hello.Text = "欢迎您，" + name;
             }
+            else
+            {
+                Response.Redirect("Adminlo.aspx");
+            }
         }
         catch
         {

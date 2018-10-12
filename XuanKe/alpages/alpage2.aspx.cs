@@ -29,9 +29,14 @@ public partial class pages_alpage2 : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            
-            LoadGrid();
-            
+            if (Session["ad"] != null)
+            {
+                LoadGrid();
+            }
+            else
+            {
+                Response.Redirect("~/Adminlo.aspx");
+            }
         }
     }
     

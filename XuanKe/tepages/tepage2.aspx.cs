@@ -159,7 +159,10 @@ public partial class pages_tepage2 : System.Web.UI.Page
                         conn.Close();
                     }
                 }
-
+                else
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
             }
         }
         catch

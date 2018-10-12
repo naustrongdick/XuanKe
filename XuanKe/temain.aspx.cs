@@ -11,9 +11,9 @@ public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        try
+        if (Session["id"] != null)
         {
-            if (Session["id"] != null)
+            try
             {
                 bool isok = false;
                 TimeSpan ts = new TimeSpan();
@@ -47,10 +47,14 @@ public partial class Default2 : System.Web.UI.Page
                 hello.Text = "欢迎您，" + name;
 
             }
+            catch
+            {
+                Response.Write("<script>alert('网络错误！')</script>");
+            }
         }
-        catch
+        else
         {
-            Response.Write("<script>alert('网络错误！')</script>");
+            Response.Redirect("Default.aspx");
         }
     }
     protected void exit_Click(object sender, EventArgs e)

@@ -237,10 +237,14 @@ public partial class alpages_alpage0 : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            
-            LoadTable();
-            
-
+            if (Session["ad"] != null)
+            {
+                LoadTable();
+            }
+            else
+            {
+                Response.Redirect("~/Adminlo.aspx");
+            }
 
         }
     }

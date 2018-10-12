@@ -14,97 +14,104 @@ public partial class pages_alpage1 : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            try
+            if (Session["ad"] != null)
             {
-                DataTable dta = new DataTable();
-                var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
-                SqlConnection conn = new SqlConnection(consql);
-                conn.Open();
-                string sqlstr = string.Format("select CLASSID,CLASSNAME,CLASSTIME from CSM");
-                SqlDataAdapter da = new SqlDataAdapter(sqlstr, conn);
-                da.Fill(dta);
-
-                DropDownList1.Items.Add("无课程");
-                DropDownList3.Items.Add("无课程");
-                DropDownList5.Items.Add("无课程");
-                DropDownList7.Items.Add("无课程");
-                DropDownList9.Items.Add("无课程");
-                DropDownList2.Items.Add("无课程");
-                DropDownList4.Items.Add("无课程");
-                DropDownList6.Items.Add("无课程");
-                DropDownList8.Items.Add("无课程");
-                DropDownList10.Items.Add("无课程");
-
-                for (int i = 0; i <= 9; i++)
+                try
                 {
-                    DropDownList1.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList3.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList5.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList7.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList9.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList2.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList4.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList6.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList8.Items.Add(dta.Rows[i][1].ToString());
-                    DropDownList10.Items.Add(dta.Rows[i][1].ToString());
+                    DataTable dta = new DataTable();
+                    var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+                    SqlConnection conn = new SqlConnection(consql);
+                    conn.Open();
+                    string sqlstr = string.Format("select CLASSID,CLASSNAME,CLASSTIME from CSM");
+                    SqlDataAdapter da = new SqlDataAdapter(sqlstr, conn);
+                    da.Fill(dta);
+
+                    DropDownList1.Items.Add("无课程");
+                    DropDownList3.Items.Add("无课程");
+                    DropDownList5.Items.Add("无课程");
+                    DropDownList7.Items.Add("无课程");
+                    DropDownList9.Items.Add("无课程");
+                    DropDownList2.Items.Add("无课程");
+                    DropDownList4.Items.Add("无课程");
+                    DropDownList6.Items.Add("无课程");
+                    DropDownList8.Items.Add("无课程");
+                    DropDownList10.Items.Add("无课程");
+
+                    for (int i = 0; i <= 9; i++)
+                    {
+                        DropDownList1.Items.Add(dta.Rows[i][1].ToString());
+                        DropDownList3.Items.Add(dta.Rows[i][1].ToString());
+                        DropDownList5.Items.Add(dta.Rows[i][1].ToString());
+                        DropDownList7.Items.Add(dta.Rows[i][1].ToString());
+                        DropDownList9.Items.Add(dta.Rows[i][1].ToString());
+                        DropDownList2.Items.Add(dta.Rows[i][1].ToString());
+                        DropDownList4.Items.Add(dta.Rows[i][1].ToString());
+                        DropDownList6.Items.Add(dta.Rows[i][1].ToString());
+                        DropDownList8.Items.Add(dta.Rows[i][1].ToString());
+                        DropDownList10.Items.Add(dta.Rows[i][1].ToString());
+                    }
+
+                    DropDownList1.SelectedIndex = 0;
+                    DropDownList3.SelectedIndex = 0;
+                    DropDownList5.SelectedIndex = 0;
+                    DropDownList7.SelectedIndex = 0;
+                    DropDownList9.SelectedIndex = 0;
+                    DropDownList2.SelectedIndex = 0;
+                    DropDownList4.SelectedIndex = 0;
+                    DropDownList6.SelectedIndex = 0;
+                    DropDownList8.SelectedIndex = 0;
+                    DropDownList10.SelectedIndex = 0;
+
+                    for (int i = 0; i <= 9; i++)
+                    {
+                        if ((int)dta.Rows[i][2] == 0)
+                            DropDownList1.SelectedIndex = (int)dta.Rows[i][0] + 1;
+                        if ((int)dta.Rows[i][2] == 1)
+                            DropDownList2.SelectedIndex = (int)dta.Rows[i][0] + 1;
+                        if ((int)dta.Rows[i][2] == 2)
+                            DropDownList3.SelectedIndex = (int)dta.Rows[i][0] + 1;
+                        if ((int)dta.Rows[i][2] == 3)
+                            DropDownList4.SelectedIndex = (int)dta.Rows[i][0] + 1;
+                        if ((int)dta.Rows[i][2] == 4)
+                            DropDownList5.SelectedIndex = (int)dta.Rows[i][0] + 1;
+                        if ((int)dta.Rows[i][2] == 5)
+                            DropDownList6.SelectedIndex = (int)dta.Rows[i][0] + 1;
+                        if ((int)dta.Rows[i][2] == 6)
+                            DropDownList7.SelectedIndex = (int)dta.Rows[i][0] + 1;
+                        if ((int)dta.Rows[i][2] == 7)
+                            DropDownList8.SelectedIndex = (int)dta.Rows[i][0] + 1;
+                        if ((int)dta.Rows[i][2] == 8)
+                            DropDownList9.SelectedIndex = (int)dta.Rows[i][0] + 1;
+                        if ((int)dta.Rows[i][2] == 9)
+                            DropDownList10.SelectedIndex = (int)dta.Rows[i][0] + 1;
+                    }
+
+                    DateTime dt = new DateTime();
+                    bool isok = false;
+                    string sqlstr2 = string.Format("select * from FaBu");
+                    SqlCommand cmd = new SqlCommand(sqlstr2, conn);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        isok = dr.GetBoolean(0);
+                        dt = dr.GetDateTime(1);
+                    }
+                    TextBox1.Text = dt.ToString();
+
+                    TimeSpan ts = DateTime.Now - dt;
+                    if (isok || ts.Seconds > 0)
+                        Button2.Text = "停止发布";
+                    else
+                        Button2.Text = "立刻发布";
                 }
-
-                DropDownList1.SelectedIndex = 0;
-                DropDownList3.SelectedIndex = 0;
-                DropDownList5.SelectedIndex = 0;
-                DropDownList7.SelectedIndex = 0;
-                DropDownList9.SelectedIndex = 0;
-                DropDownList2.SelectedIndex = 0;
-                DropDownList4.SelectedIndex = 0;
-                DropDownList6.SelectedIndex = 0;
-                DropDownList8.SelectedIndex = 0;
-                DropDownList10.SelectedIndex = 0;
-
-                for (int i = 0; i <= 9; i++)
+                catch
                 {
-                    if ((int)dta.Rows[i][2] == 0)
-                        DropDownList1.SelectedIndex = (int)dta.Rows[i][0] + 1;
-                    if ((int)dta.Rows[i][2] == 1)
-                        DropDownList2.SelectedIndex = (int)dta.Rows[i][0] + 1;
-                    if ((int)dta.Rows[i][2] == 2)
-                        DropDownList3.SelectedIndex = (int)dta.Rows[i][0] + 1;
-                    if ((int)dta.Rows[i][2] == 3)
-                        DropDownList4.SelectedIndex = (int)dta.Rows[i][0] + 1;
-                    if ((int)dta.Rows[i][2] == 4)
-                        DropDownList5.SelectedIndex = (int)dta.Rows[i][0] + 1;
-                    if ((int)dta.Rows[i][2] == 5)
-                        DropDownList6.SelectedIndex = (int)dta.Rows[i][0] + 1;
-                    if ((int)dta.Rows[i][2] == 6)
-                        DropDownList7.SelectedIndex = (int)dta.Rows[i][0] + 1;
-                    if ((int)dta.Rows[i][2] == 7)
-                        DropDownList8.SelectedIndex = (int)dta.Rows[i][0] + 1;
-                    if ((int)dta.Rows[i][2] == 8)
-                        DropDownList9.SelectedIndex = (int)dta.Rows[i][0] + 1;
-                    if ((int)dta.Rows[i][2] == 9)
-                        DropDownList10.SelectedIndex = (int)dta.Rows[i][0] + 1;
+                    Response.Write("<script>alert('网络错误！')</script>");
                 }
-
-                DateTime dt = new DateTime();
-                bool isok = false;
-                string sqlstr2 = string.Format("select * from FaBu");
-                SqlCommand cmd = new SqlCommand(sqlstr2, conn);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    isok = dr.GetBoolean(0);
-                    dt = dr.GetDateTime(1);
-                }
-                TextBox1.Text = dt.ToString();
-
-                TimeSpan ts = DateTime.Now - dt;
-                if (isok || ts.Seconds > 0)
-                    Button2.Text = "停止发布";
-                else
-                    Button2.Text = "立刻发布";
             }
-            catch
+            else
             {
-                Response.Write("<script>alert('网络错误！')</script>");
+                Response.Redirect("~/Adminlo.aspx");
             }
         }
     }

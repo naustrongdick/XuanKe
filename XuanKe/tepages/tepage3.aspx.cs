@@ -62,6 +62,10 @@ public partial class pages_tepage3 : System.Web.UI.Page
                     dr.Close();
                     conn.Close();
                 }
+                else
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
             }
         }
         catch

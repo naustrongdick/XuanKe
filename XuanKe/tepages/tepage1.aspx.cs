@@ -239,6 +239,10 @@ public partial class pages_Default : System.Web.UI.Page
                         SelectDropList(ref DropDownList10, 9);
                     }
                 }
+                else
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
             }
         }
         catch
