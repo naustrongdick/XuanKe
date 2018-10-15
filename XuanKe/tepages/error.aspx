@@ -24,7 +24,12 @@
 <body class ="bg">
     <form id="form1" runat="server">
         <div class="mat">
-            <asp:Label ID="Label1" runat="server" Text="课程结果未发布。。。"></asp:Label>
+            <div>
+                <asp:Label ID="Label1" runat="server" Text="课程结果未发布。。。"></asp:Label>
+            </div>
+            <div>
+                <asp:Label ID="Label2" runat="server"></asp:Label>
+            </div>
         </div>
     </form>
 </body>
