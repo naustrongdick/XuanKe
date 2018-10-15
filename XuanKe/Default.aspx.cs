@@ -63,10 +63,17 @@ public partial class _Default : System.Web.UI.Page
                 string sqlch = string.Format("update TRL set STATUS = 1,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), un);
                 SqlCommand cdm = new SqlCommand(sqlch, conn);
                 conn.Open();
-                cdm.ExecuteNonQuery();
-                conn.Close();
-                Session["id"] = un;
-                Response.Redirect("temain.aspx");
+                int n = cdm.ExecuteNonQuery();
+                if (n > 0)
+                {
+                    conn.Close();
+                    Session["id"] = un;
+                    Response.Redirect("temain.aspx");
+                }
+                else
+                {
+                    Show.Text = "登录失败";
+                }
 
             }
             else if (success == 0)

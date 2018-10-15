@@ -15,7 +15,7 @@ public partial class pages_Default : System.Web.UI.Page
         var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
         SqlConnection conn = new SqlConnection(consql);
         conn.Open();
-        string sqlstr = string.Format("select DEADTIME from FaBu");
+        string sqlstr = string.Format("select FABUTIME from FaBu");
         SqlCommand cmd2 = new SqlCommand(sqlstr, conn);
         SqlDataReader dr2 = cmd2.ExecuteReader();
         while (dr2.Read())

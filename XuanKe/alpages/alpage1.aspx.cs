@@ -86,7 +86,8 @@ public partial class pages_alpage1 : System.Web.UI.Page
                             DropDownList10.SelectedIndex = (int)dta.Rows[i][0] + 1;
                     }
 
-                    DateTime dt = new DateTime();
+                    DateTime dt2 = new DateTime();
+                    DateTime dt1 = new DateTime();
                     bool isok = false;
                     string sqlstr2 = string.Format("select * from FaBu");
                     SqlCommand cmd = new SqlCommand(sqlstr2, conn);
@@ -94,11 +95,13 @@ public partial class pages_alpage1 : System.Web.UI.Page
                     while (dr.Read())
                     {
                         isok = dr.GetBoolean(0);
-                        dt = dr.GetDateTime(1);
+                        dt1 = dr.GetDateTime(1);
+                        dt2 = dr.GetDateTime(2);
                     }
-                    TextBox1.Text = dt.ToString();
+                    TextBox1.Text = dt1.ToString();
+                    TextBox2.Text = dt2.ToString();
 
-                    TimeSpan ts = DateTime.Now - dt;
+                    TimeSpan ts = DateTime.Now - dt2;
                     if (isok || ts.Seconds > 0)
                         Button2.Text = "停止发布";
                     else
@@ -120,10 +123,12 @@ public partial class pages_alpage1 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string strDate = TextBox1.Text;
-        DateTime dt;
+        string strDate1 = TextBox1.Text;
+        string strDate2 = TextBox2.Text;
+        DateTime dt1;
+        DateTime dt2;
         int[] fb = new int[10];
-        if (DateTime.TryParse(strDate, out dt))
+        if (DateTime.TryParse(strDate1, out dt1)&&DateTime.TryParse(strDate2,out dt2))
         {
             fb[0] = DropDownList1.SelectedIndex;
             fb[1] = DropDownList2.SelectedIndex;
@@ -181,7 +186,7 @@ public partial class pages_alpage1 : System.Web.UI.Page
                     SqlCommand cmd1 = new SqlCommand(sqlstr, conn);
                     int n1 = cmd1.ExecuteNonQuery();
 
-                    string sqlstr1 = string.Format("update FaBu set DEADTIME = '{0}';", dt.ToString());
+                    string sqlstr1 = string.Format("update FaBu set DEADTIME = '{0}',FABUTIME = '{1}';", dt1.ToString(),dt2.ToString());
                     SqlCommand cmd2 = new SqlCommand(sqlstr1, conn);
                     int n2 = cmd2.ExecuteNonQuery();
 
@@ -213,12 +218,12 @@ public partial class pages_alpage1 : System.Web.UI.Page
             if (Button2.Text == "停止发布")
             {
                 DateTime dt = DateTime.Now.AddYears(1);
-                string strsql = string.Format("update FaBu set ISOK = 0,DEADTIME='{0}';", dt.ToString());
+                string strsql = string.Format("update FaBu set ISOK = 0,FABUTIME='{0}';", dt.ToString());
                 SqlCommand cmd = new SqlCommand(strsql, conn);
                 int n = cmd.ExecuteNonQuery();
                 if (n > 0)
                 {
-                    TextBox1.Text = dt.ToString();
+                    TextBox2.Text = dt.ToString();
                     Button2.Text = "立刻发布";
                     Label9.Text = "停止发布成功!";
                 }
@@ -228,12 +233,12 @@ public partial class pages_alpage1 : System.Web.UI.Page
             else
             {
                 DateTime dt = DateTime.Now;
-                string strsql = string.Format("update FaBu set ISOK = 1,DEADTIME='{0}';", dt.ToString());
+                string strsql = string.Format("update FaBu set ISOK = 1,FABUTIME='{0}';", dt.ToString());
                 SqlCommand cmd = new SqlCommand(strsql, conn);
                 int n = cmd.ExecuteNonQuery();
                 if (n > 0)
                 {
-                    TextBox1.Text = dt.ToString();
+                    TextBox2.Text = dt.ToString();
                     Button2.Text = "停止发布";
                     Label9.Text = "发布成功!";
                 }

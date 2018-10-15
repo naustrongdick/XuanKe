@@ -251,8 +251,8 @@ public partial class pages_Default : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        try
-        {
+        //try
+        //{
             WriteDateTime();
 
             string id = Session["id"].ToString();
@@ -313,9 +313,9 @@ public partial class pages_Default : System.Web.UI.Page
                 yy[7] = DropDownList8.SelectedIndex;
                 yy[8] = DropDownList9.SelectedIndex;
                 yy[9] = DropDownList10.SelectedIndex;
-                if (classna1 == "无课程")
+                if (class1 == -1)
                 {
-                    if (classna2 == "无课程")
+                    if (class2 == -1)
                         Label9.Text = "您没有需要预约的课程";
                     else
                     {
@@ -360,7 +360,7 @@ public partial class pages_Default : System.Web.UI.Page
                         }
                     }
                 }
-                else if (classna2 == "无课程")
+                else if (class2 == -1)
                 {
                     for (i = 0; i <= 9; i++)
                     {
@@ -520,10 +520,10 @@ public partial class pages_Default : System.Web.UI.Page
             {
                 Label9.Text = "当前时刻未开放预约";
             }
-        }
-        catch
-        {
-            Response.Write("<script>alert('网络错误！')</script>");
-        }
+        //}
+        //catch
+        //{
+        //    Response.Write("<script>alert('网络错误！')</script>");
+        //}
     }
 }

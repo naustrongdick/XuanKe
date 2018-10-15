@@ -31,25 +31,23 @@
             </center>
         </div>
         <div style="width:750px;">
-            <div style="float:left;width:420px;height:50px;">
-                <div style="float:left;">
+                <div style="float:left;width:350px;">
                     <div style="float:left;">
-                        <asp:Label ID="Label1" Font-Size="Large" runat="server" Text="Label">发布时间:&nbsp;</asp:Label>
+                        <asp:Label ID="Label1" Font-Size="Large" runat="server" Text="Label">截止时间:&nbsp;</asp:Label>
                     </div>
                     <div style="float:left;">
                         <asp:TextBox ID="TextBox1" CssClass=" form-control" Width="160px" runat="server"></asp:TextBox>
                     </div>
                 </div>
-                <div style="float:right;">
-                    <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="保存修改" OnClick="Button1_Click" />
-                </div>
-            </div>
-            <div style="float:left;width:330px;">
-                <div>
+                <div style="float:right;width:350px;">
                     <div style="float:right;">
-                    <asp:Button ID="Button2" CssClass="btn btn-primary" runat="server" Text="立刻发布" OnClick="Button2_Click" />
+                        <asp:TextBox ID="TextBox2" CssClass=" form-control" Width="160px" runat="server"></asp:TextBox>
+                    </div>
+                    <div style="float:right;">
+                        <asp:Label ID="Label12" Font-Size="Large" runat="server" Text="Label">发布时间:&nbsp;</asp:Label>
+                    </div>
+                    
                 </div>
-            </div>
         </div>
         <div style="text-align:center;">
                 <table class="table table-hover table-bordered" style ="width:750px;">
@@ -80,6 +78,14 @@
                     </tr>
                 </table>
         </div>
+        <div>
+            <div style="float:left;">
+                    <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="保存修改" OnClick="Button1_Click" />
+            </div>
+            <div style="float:right;">
+                    <asp:Button ID="Button2" CssClass="btn btn-primary" runat="server" Text="立刻发布" OnClick="Button2_Click" />
+            </div>
+        </div>
         <div style="width:750px;">
             <center>
                 <asp:Label ID="Label11" runat="server" ForeColor="Black">发布前请先保存修改</asp:Label>
@@ -91,7 +97,6 @@
             </center>
         </div>
         
-    </div>
     </div>
     </form>
 </body>

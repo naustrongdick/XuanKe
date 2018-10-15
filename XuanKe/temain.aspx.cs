@@ -37,7 +37,7 @@ public partial class Default2 : System.Web.UI.Page
                 while (dr2.Read())
                 {
                     isok = dr2.GetBoolean(0);
-                    ts = DateTime.Now - dr2.GetDateTime(1);
+                    ts = DateTime.Now - dr2.GetDateTime(2);
                 }
 
                 if (isok || ts.Seconds > 0)
@@ -84,7 +84,7 @@ public partial class Default2 : System.Web.UI.Page
             TimeSpan ts = new TimeSpan();
             while (dr.Read())
             {
-                ts = DateTime.Now - dr.GetDateTime(1);
+                ts = DateTime.Now - dr.GetDateTime(2);
                 if (dr.GetBoolean(0) || ts.Seconds > 0)
                 {
                     mainbox.Attributes["src"] = "tepages/tepage2.aspx";
