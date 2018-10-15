@@ -37,13 +37,14 @@
     	.ot 
 		{
 			position:absolute;
-            bottom:5%;
+            bottom:8%;
 			width:100%;
 			text-align:center;
             font-family:glfont;
             font-family:'Microsoft YaHei UI';
 			margin:auto;
             height: 13px;
+            left: 0px;
     	}
         
     </style>
@@ -80,7 +81,7 @@
     </center>
     </div>
 	<div class ="ot">
-		<asp:LinkButton ID="LinkButton1" runat="server" Font-Size="Small" OnClick="LinkButton1_Click">账号登录</asp:LinkButton>
+		<a href="http://www.rosecat707.top">账号登录</a>
 	</div>
     </form>
 </body>

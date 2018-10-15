@@ -60,7 +60,8 @@ public partial class Default2 : System.Web.UI.Page
     protected void exit_Click(object sender, EventArgs e)
     {
         WriteDateTime();
-        Session.Clear();
+        Session["id"] = null;
+        Session.Remove("id");
         Response.Redirect("Default.aspx");
     }
 

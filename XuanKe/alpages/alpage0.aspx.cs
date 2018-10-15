@@ -56,6 +56,8 @@ class TimeMessage
                 if (dr.GetInt32(j) == 100)
                     c++;
         }
+        if (c == 0)
+            c = 10;
         this.count = c;
         conn.Close();
     }
@@ -369,11 +371,6 @@ public partial class alpages_alpage0 : System.Web.UI.Page
             yy[9, 8] = ChangeMode2(CheckBox99.Checked);
             yy[9, 9] = ChangeMode2(CheckBox100.Checked);
 
-            string xsxsx = "";
-
-
-
-
             ClassMessage[] cs = new ClassMessage[10];
             TimeMessage[] tm = new TimeMessage[10];
             int[] weight;
@@ -386,7 +383,7 @@ public partial class alpages_alpage0 : System.Web.UI.Page
             }
 
 
-            for (int j = 10; j >= 0; j--)
+            for (int j = 1; j <= 10; j++)
             {
                 for (int i = 0; i <= 9; i++)
                 {

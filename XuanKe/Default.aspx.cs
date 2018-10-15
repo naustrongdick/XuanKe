@@ -85,8 +85,5 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-    protected void  LinkButton1_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Adminlo.aspx");
-    }
+    
 }

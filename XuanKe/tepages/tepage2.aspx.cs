@@ -9,7 +9,6 @@ using System.Data.SqlClient;
 
 public partial class pages_tepage2 : System.Web.UI.Page
 {
-    string id;
     public void WriteDateTime()
     {
         try

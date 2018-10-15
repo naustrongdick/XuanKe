@@ -68,8 +68,5 @@ public partial class Adminlo : System.Web.UI.Page
             Response.Write("<script>alert('网络错误！')</script>");
         }
     }
-    protected void LinkButton1_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Default.aspx");
-    }
+    
 }

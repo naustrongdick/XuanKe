@@ -44,7 +44,9 @@ public partial class Default2 : System.Web.UI.Page
     }
     protected void exit_Click(object sender, EventArgs e)
     {
-        Session.Clear();
+
+        Session["ad"] = null;
+        Session.Remove("ad");
         Response.Redirect("Adminlo.aspx");
     }
 

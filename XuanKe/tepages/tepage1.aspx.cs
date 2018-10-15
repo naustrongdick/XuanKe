@@ -45,39 +45,34 @@ public partial class pages_Default : System.Web.UI.Page
 
     public void WriteDateTime()
     {
-        try
-        {
-            var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
-            SqlConnection conn = new SqlConnection(consql);
-            string sqlstr = string.Format("update TRL set STATUS = 0,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Session["id"].ToString());
-            SqlCommand cdm = new SqlCommand(sqlstr, conn);
-            conn.Open();
-            cdm.ExecuteNonQuery();
-            conn.Close();
-        }
-        catch
-        {
-            Response.Write("<script>alert('网络错误！')</script>");
-        }
+
+        var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+        SqlConnection conn = new SqlConnection(consql);
+        string sqlstr = string.Format("update TRL set STATUS = 0,LASTTIME = '{0}' where ID = '{1}'", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Session["id"].ToString());
+        SqlCommand cdm = new SqlCommand(sqlstr, conn);
+        conn.Open();
+        cdm.ExecuteNonQuery();
+        conn.Close();
+
     }
 
-    public void SelectDropList(ref DropDownList d,int i)
+    public void SelectDropList(ref DropDownList d, int i)
     {
-            if (dt.Rows[i][0].ToString() == "100")
-            {
-                if (dt.Rows[i][1].ToString() == "100")
-                    d.SelectedIndex = 1;
-                else
-                    d.SelectedIndex = 2;
-            }
-            else if (dt.Rows[i][1].ToString() == "100")
-            {
-                d.SelectedIndex = 3;
-            }
+        if (dt.Rows[i][0].ToString() == "100")
+        {
+            if (dt.Rows[i][1].ToString() == "100")
+                d.SelectedIndex = 1;
             else
-            {
-                d.SelectedIndex = 0;
-            }
+                d.SelectedIndex = 2;
+        }
+        else if (dt.Rows[i][1].ToString() == "100")
+        {
+            d.SelectedIndex = 3;
+        }
+        else
+        {
+            d.SelectedIndex = 0;
+        }
     }
 
     public void SelectDropList2(ref DropDownList d, int i)
@@ -90,22 +85,25 @@ public partial class pages_Default : System.Web.UI.Page
 
     public string GetClassName(int i)
     {
-            var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
-            SqlConnection conn = new SqlConnection(consql);
-            string sqlstr = string.Format("select CLASSNAME from CSM where CLASSID = {0}", i);
-            SqlCommand cmd = new SqlCommand(sqlstr, conn);
-            conn.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-        
-            if (dr.Read())
-            {
-                return dr.GetString(0).TrimEnd();
-            }
-            else
-            {
-                return "无课程";
-            }
+
+        var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+        SqlConnection conn = new SqlConnection(consql);
+        string sqlstr = string.Format("select CLASSNAME from CSM where CLASSID = {0}", i);
+        SqlCommand cmd = new SqlCommand(sqlstr, conn);
+        conn.Open();
+        SqlDataReader dr = cmd.ExecuteReader();
+
+        if (dr.Read())
+        {
+            string s = dr.GetString(0).TrimEnd();
             conn.Close();
+            return s;
+        }
+        else
+        {
+            conn.Close();
+            return "无课程";
+        }
     }
 
 
@@ -141,7 +139,7 @@ public partial class pages_Default : System.Web.UI.Page
                             class2 = -1;
                     }
                     dr.Close();
-                    
+
 
                     classna1 = GetClassName(class1);
                     classna2 = GetClassName(class2);
