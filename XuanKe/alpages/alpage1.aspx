@@ -82,9 +82,15 @@
         </div>
         <div style="width:750px;">
             <center>
+                <asp:Label ID="Label11" runat="server" ForeColor="Black">发布前请先保存修改</asp:Label>
+            </center>
+        </div>
+        <div style="width:750px;">
+            <center>
                 <asp:Label ID="Label9" runat="server" ForeColor="Red"></asp:Label>
             </center>
         </div>
+        
     </div>
     </div>
     </form>

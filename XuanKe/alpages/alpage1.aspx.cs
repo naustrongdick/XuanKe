@@ -154,6 +154,9 @@ public partial class pages_alpage1 : System.Web.UI.Page
                     x = -1;
                 }
             }
+            if (fb[0] == 0)
+                x = -1;
+
             if (x != 0 && x != -1)
             {
                 Label9.Text = DropDownList1.Items[x].ToString() + "被选择了多次!";
@@ -176,8 +179,13 @@ public partial class pages_alpage1 : System.Web.UI.Page
                     }
 
                     SqlCommand cmd1 = new SqlCommand(sqlstr, conn);
-                    int n = cmd1.ExecuteNonQuery();
-                    if (n > 0)
+                    int n1 = cmd1.ExecuteNonQuery();
+
+                    string sqlstr1 = string.Format("update FaBu set DEADTIME = '{0}';", dt.ToString());
+                    SqlCommand cmd2 = new SqlCommand(sqlstr1, conn);
+                    int n2 = cmd2.ExecuteNonQuery();
+
+                    if (n1 > 0 && n2 > 0)
                         Label9.Text = "保存成功!";
                     else
                         Label9.Text = "保存失败，请重试";
@@ -210,6 +218,7 @@ public partial class pages_alpage1 : System.Web.UI.Page
                 int n = cmd.ExecuteNonQuery();
                 if (n > 0)
                 {
+                    TextBox1.Text = dt.ToString();
                     Button2.Text = "立刻发布";
                     Label9.Text = "停止发布成功!";
                 }
@@ -224,6 +233,7 @@ public partial class pages_alpage1 : System.Web.UI.Page
                 int n = cmd.ExecuteNonQuery();
                 if (n > 0)
                 {
+                    TextBox1.Text = dt.ToString();
                     Button2.Text = "停止发布";
                     Label9.Text = "发布成功!";
                 }
