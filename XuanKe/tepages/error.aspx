@@ -6,11 +6,10 @@
 <head runat="server">
 <meta name="viewport" content="width=device-width",initial-scale="1.0,minimun-scale=0.5,maximun-scale=2.0,user-scalable=yes" />
     <title>未发布</title>
-    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/pagebase.css" rel="stylesheet" />
     <style type="text/css">
-        .bg{
-            background-color:#E9CFAE;
-        }
+        
         .mat{
             position:absolute;
             top:30px;

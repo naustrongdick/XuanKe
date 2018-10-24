@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>预约信息</title>
-    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet" />
-
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/pagebase.css" rel="stylesheet" />
     <style type="text/css">
         .style1 {
             background-color:#DE8100;
@@ -22,7 +22,7 @@
     </style>
 
 </head>
-<body style="background-color:#E9CFAE; font-family:'Microsoft YaHei UI';">
+<body class="bg">
     <form id="form1" runat="server">
     <div style="position:absolute;top:30px;left:100px;">
         <div style="font-size:large"><center>预约信息</center></div>

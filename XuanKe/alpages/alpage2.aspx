@@ -5,8 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>在线状态</title>
+
+    <link href="/css/pagebase.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+
 </head>
-<body style="background-color:#E9CFAE; font-family:'Microsoft YaHei UI';">
+<body class="bg">
     <form id="form1" runat="server">
     <div style="position:absolute;top:30px;left:100px;">
         <div style="width:500px;font-size:large;">

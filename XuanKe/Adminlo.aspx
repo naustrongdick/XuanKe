@@ -7,82 +7,58 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width",initial-scale="1.0,minimun-scale=0.5,maximun-scale=2.0,user-scalable=yes" />
 <title>管理员登录</title>
-    <link href="bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <style>
-        @font-face {
-            font-family:'glfont';
-            src: url('bootstrap/glyphigcons-halflings-reular.ttf');
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/loginmain.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .main{
+            background-image: url("bg/bg2.png");
         }
-        .bg
-        {
-        	background-image:url('bg/bg4.jpg');
-            background-attachment:fixed;
-            background-size:cover;
-            background-repeat:no-repeat;
-        }
-        .main
-        {
-        	text-align:left;
-        	background-color:#FAFAFA;
-        	width:270px;
-        	height:300px;
-        	margin:auto;
-        	position:absolute;
-            font-family:glfont;
-            font-family:'Microsoft YaHei UI';
-            top:20%;
-        	right:10%;
-            border-radius:10px;
-        }
-    	.ot 
-		{
-			position:absolute;
-            bottom:8%;
-			width:100%;
-			text-align:center;
-            font-family:glfont;
-            font-family:'Microsoft YaHei UI';
-			margin:auto;
-            height: 13px;
-            left: 0px;
-    	}
-        
     </style>
 </head>
-<body class="bg">
-    <form id="form1" runat="server" >
-    <div class=main>
+<body>
+    <form id="form2" runat="server" >
+        <script type="text/javascript" src ="js/canvas-nest.min.js" count="250" zindex="-2" opacity="0.8" color="78,29,76"></script>
+    <div class="top">
+        <div style="display: table-cell;vertical-align: middle;padding-left:20px;">
+            <asp:Label ID="Label4" runat="server" Text="教师选课系统" Font-Size="X-Large" ForeColor="White"></asp:Label>
+        </div>
+    </div>
+    <div class="main">
+        <div class ="inside">
         <center>
-        <div style="height:85px;width:230px;line-height:85px;">
-            <asp:Label ID="Label1" runat="server" Text="管理员登陆" Font-Size="X-Large"></asp:Label>
+        <div style="height:120px;width:300px;line-height:85px;">
+            <asp:Label ID="Label1" runat="server" Text="管理员登陆" Font-Size="XX-Large"></asp:Label>
         </div>
-        <div style="height:70px;width:230px;">
+        <div style="height:90px;width:300px;">
             <div style="float:left;">
-                <asp:Label ID="Label2" runat="server" Text="账号：" Font-Size="Large"></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="账号：" Font-Size="X-Large"></asp:Label>
             </div>
             <div style="float:right;">
-                <asp:TextBox ID="usernm" CssClass="form-control" runat="server" Width="170px" Font-Size="Larger" Font-Underline="False"></asp:TextBox>
+                <asp:TextBox ID="usernm" CssClass="form-control" runat="server" Width="200px" Font-Size="X-Large" Font-Underline="False"></asp:TextBox>
             </div>
         </div>
-        <div style="height:70px;width:230px;">
+        <div style="height:90px;width:300px;">
             <div style="float:left;">
-                <asp:Label ID="Label3" runat="server" Text="密码：" Font-Size="Large"></asp:Label>
+                <asp:Label ID="Label3" runat="server" Text="密码：" Font-Size="X-Large"></asp:Label>
             </div>
             <div style="float:right;">
-                <asp:TextBox ID="passwd" CssClass="form-control" runat="server" Width="170px" MaxLength="10" TextMode="Password" Font-Size="Larger"></asp:TextBox>
+                <asp:TextBox ID="passwd" CssClass="form-control" runat="server" Width="200px" MaxLength="10" TextMode="Password" Font-Size="X-Large"></asp:TextBox>
             </div>
         </div>
-        <div style="height:50px;width:230px;">
-            <asp:Button class="btn btn-primary" ID="tologin" runat="server" Text="登录" onclick="Button1_Click" Font-Size="Large" Width="170px" Height="40px" />
+        <div style="height:70px;width:300px;">
+            <asp:Button class="btn btn-primary" ID="tologin" runat="server" Text="登录" onclick="Button1_Click" Font-Size="X-Large" Width="300px" Height="50px" />
         </div>
-        <div style="height:25px;width:230px;">
-            <asp:Label ID="Show" runat="server" Text=""></asp:Label></div>
+        <div style="height:35px;width:300px;">
+            <asp:Label ID="Show" runat="server" Text="" Font-Size="Large"></asp:Label></div>
         <br/>
     </center>
-    </div>
-	<div class ="ot">
-		<a href="http://www.rosecat707.top">账号登录</a>
+            </div>
+        <div class ="ot">
+		<a href="http://www.rosecat707.top" style="font-size: large">账号登录</a>
 	</div>
+    </div>
+	
     </form>
 </body>
 </html>

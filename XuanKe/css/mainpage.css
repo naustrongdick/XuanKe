@@ -1,0 +1,80 @@
+﻿.top {
+    width: 1600px;
+    height: 200px;
+    background-position-y: center;
+    font-family: glfont;
+    font-family: 'Microsoft YaHei UI';
+    -moz-box-shadow: 2px 2px 5px #333333;
+    -webkit-box-shadow: 2px 2px 5px #333333;
+    box-shadow: 5px 10px 30px #285a63;
+    display: table;
+}
+
+.left {
+    height: 700px;
+    float: left;
+    background-color: #F8F2DC;
+    font-family: glfont;
+    font-family: 'Microsoft YaHei UI';
+    -moz-box-shadow: 2px 2px 5px #333333;
+    -webkit-box-shadow: 2px 2px 5px #333333;
+    box-shadow: 5px 10px 30px #285a63;
+    display: table;
+}
+
+.btleft {
+    text-align: left;
+    float: left;
+}
+
+.content {
+    width: 1400px;
+    height: 700px;
+}
+
+.alabal {
+    background-color: #A39F93;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
+
+.right {
+    float: left;
+    width: 1328px;
+    height: 700px;
+    font-family: glfont;
+    font-family: 'Microsoft YaHei UI';
+    -moz-box-shadow: 2px 2px 5px #333333;
+    -webkit-box-shadow: 2px 2px 5px #333333;
+    box-shadow: 5px 10px 30px #285a63;
+}
+
+.dis {
+    display:none;
+}
+
+.frame {
+    
+}
+
+.bar {
+    width: 98%;
+    background-color: #11054C;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.logo {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}

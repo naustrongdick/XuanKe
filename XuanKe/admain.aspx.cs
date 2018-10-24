@@ -50,25 +50,6 @@ public partial class Default2 : System.Web.UI.Page
         Response.Redirect("Adminlo.aspx");
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        mainbox.Attributes["src"] = "alpages/alpage0.aspx";
-    }
-
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        mainbox.Attributes["src"] = "alpages/alpage1.aspx";
-    }
-
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-        mainbox.Attributes["src"] = "alpages/alpage2.aspx";
-    }
-
-    protected void Button4_Click(object sender, EventArgs e)
-    {
-        mainbox.Attributes["src"] = "alpages/alpage3.aspx";
-    }
     
     
 }

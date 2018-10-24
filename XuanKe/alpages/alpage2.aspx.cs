@@ -27,17 +27,23 @@ public partial class pages_alpage2 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
             if (Session["ad"] != null)
             {
-                LoadGrid();
-            }
+                var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+                SqlConnection conn = new SqlConnection(consql);
+                conn.Open();
+                string sqlstr = string.Format("select TRM.ID as 用户编号,TRM.NAME as 用户名 from TRM,TRL where TRM.ID=TRL.ID and TRL.STATUS = 1");
+                SqlDataAdapter da = new SqlDataAdapter(sqlstr, conn);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                GridView1.DataSource = ds;
+                GridView1.DataBind();
+                conn.Close();
+        }
             else
             {
                 Response.Redirect("~/Adminlo.aspx");
             }
-        }
     }
     
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)

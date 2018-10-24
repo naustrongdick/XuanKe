@@ -1,0 +1,51 @@
+﻿.main {
+    text-align: left;
+    background-color: #FAFAFA;
+    width: 700px;
+    height: 870px;
+    margin: auto;
+    position: absolute;
+    font-family: glfont;
+    font-family: 'Microsoft YaHei UI';
+    top: 63px;
+    right: 0;
+    left: 0;
+    background-position-y: center;
+    -moz-box-shadow: 2px 2px 5px #333333;
+    -webkit-box-shadow: 2px 2px 5px #333333;
+    box-shadow: 7px 15px 30px #285a63;
+    z-index: 1;
+}
+
+.inside {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    font-family: glfont;
+    font-family: 'Microsoft YaHei UI';
+    height: 500px;
+    left: 0px;
+}
+
+.ot {
+    position: absolute;
+    bottom: 5%;
+    text-align: center;
+    width: 100%;
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    height: 67px;
+    width: 1920px;
+    font-family: glfont;
+    font-family: 'Microsoft YaHei UI';
+    background-color: #6B6575;
+    -moz-box-shadow: 2px 2px 5px #333333;
+    -webkit-box-shadow: 2px 2px 5px #333333;
+    box-shadow: 5px 10px 30px #285a63;
+    display: table;
+}

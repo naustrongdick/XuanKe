@@ -5,12 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>课表结果</title>
-    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/pagebase.css" rel="stylesheet" />
     <style type="text/css">
-        .bg{
-            background-color:#E9CFAE; 
-            font-family:'Microsoft YaHei UI';
-        }
+        
         .style2 {
             color:white;
             background-color:#3B200C;

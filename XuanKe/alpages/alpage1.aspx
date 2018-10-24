@@ -6,7 +6,8 @@
 <head runat="server">
     <title>排课管理</title>
     
-    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/pagebase.css" rel="stylesheet" />
     <style type="text/css">
         .style2 {
             height: 50px;
@@ -21,7 +22,7 @@
         }
     </style>
 </head>
-<body style="background-color:#E9CFAE; font-family:'Microsoft YaHei UI';">
+<body class="bg">
     <form id="form1" runat="server">
     
     <div style="position:absolute;top:30px;left:100px;">
