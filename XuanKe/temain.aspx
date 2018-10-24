@@ -25,7 +25,7 @@
     <form id="form1" runat="server">
         <div class="top">
             <center>
-                <div style="width:98%; background-color:#0D1740;height:50px;display:flex;justify-content:center;align-items:center;border-bottom-left-radius:20px;border-bottom-right-radius:20px;">
+                <div class= "bar">
                     <div style="width:98%; font-size:large; color:white;">
                         <div style="float:left;">
                             <asp:Label ID="hello" runat="server" Text="欢迎您，"></asp:Label>
