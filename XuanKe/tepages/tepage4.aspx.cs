@@ -102,7 +102,7 @@ public partial class pages_tepage4 : System.Web.UI.Page
                             string scmdStr = "update TRL set PASSWD='" + password + "'where ID=" + id + "";
                             scmd = new SqlCommand(scmdStr, conn);
                             scmd.ExecuteNonQuery();
-                            Show.Text = "修改成功！";
+                            Response.Write("<script>alert('修改成功！')</script>");
                             conn.Close();
                         }
 

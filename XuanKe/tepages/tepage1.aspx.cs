@@ -88,7 +88,7 @@ public partial class pages_Default : System.Web.UI.Page
 
         var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
         SqlConnection conn = new SqlConnection(consql);
-        string sqlstr = string.Format("select CLASSNAME from CSM where CLASSID = {0}", i);
+        string sqlstr = string.Format("select CLASSNAME,INTERVAL from CSM where CLASSID = {0}", i);
         SqlCommand cmd = new SqlCommand(sqlstr, conn);
         conn.Open();
         SqlDataReader dr = cmd.ExecuteReader();
@@ -96,6 +96,11 @@ public partial class pages_Default : System.Web.UI.Page
         if (dr.Read())
         {
             string s = dr.GetString(0).TrimEnd();
+            bool it = dr.GetBoolean(1);
+            if (it)
+            {
+                s = s + "(两周一次)";
+            }
             conn.Close();
             return s;
         }
@@ -105,6 +110,7 @@ public partial class pages_Default : System.Web.UI.Page
             return "无课程";
         }
     }
+
 
 
     protected void Page_Load(object sender, EventArgs e)
@@ -251,8 +257,8 @@ public partial class pages_Default : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        //try
-        //{
+        try
+        {
             WriteDateTime();
 
             string id = Session["id"].ToString();
@@ -277,7 +283,7 @@ public partial class pages_Default : System.Web.UI.Page
                     class2 = -1;
             }
             dr0.Close();
-            
+
 
 
             bool ok = false;
@@ -316,7 +322,7 @@ public partial class pages_Default : System.Web.UI.Page
                 if (class1 == -1)
                 {
                     if (class2 == -1)
-                        Label9.Text = "您没有需要预约的课程";
+                        Response.Write("<script>alert('你没有需要预约的课程！')</script>");
                     else
                     {
                         for (i = 0; i <= 9; i++)
@@ -344,9 +350,9 @@ public partial class pages_Default : System.Web.UI.Page
                             SqlCommand cmd1 = new SqlCommand(sqlstr, conn);
                             int n = cmd1.ExecuteNonQuery();
                             if (n > 0)
-                                Label9.Text = "提交成功！";
+                                Response.Write("<script>alert('提交成功！')</script>");
                             else
-                                Label9.Text = "连接失败！";
+                                Response.Write("<script>alert('提交失败！')</script>");
                         }
                         if (!first2)
                         {
@@ -354,9 +360,9 @@ public partial class pages_Default : System.Web.UI.Page
                             SqlCommand cmd1 = new SqlCommand(sqlstr, conn);
                             int n = cmd1.ExecuteNonQuery();
                             if (n > 0)
-                                Label9.Text = "提交成功！";
+                                Response.Write("<script>alert('提交成功！')</script>");
                             else
-                                Label9.Text = "连接失败！";
+                                Response.Write("<script>alert('提交失败！')</script>");
                         }
                     }
                 }
@@ -387,9 +393,9 @@ public partial class pages_Default : System.Web.UI.Page
                         SqlCommand cmd2 = new SqlCommand(sqlstr, conn);
                         int n = cmd2.ExecuteNonQuery();
                         if (n > 0)
-                            Label9.Text = "提交成功！";
+                            Response.Write("<script>alert('提交成功！')</script>");
                         else
-                            Label9.Text = "连接失败！";
+                            Response.Write("<script>alert('提交失败！')</script>");
                     }
                     if (!first2)
                     {
@@ -397,9 +403,9 @@ public partial class pages_Default : System.Web.UI.Page
                         SqlCommand cmd2 = new SqlCommand(sqlstr, conn);
                         int n = cmd2.ExecuteNonQuery();
                         if (n > 0)
-                            Label9.Text = "提交成功！";
+                            Response.Write("<script>alert('提交成功！')</script>");
                         else
-                            Label9.Text = "连接失败！";
+                            Response.Write("<script>alert('提交失败！')</script>");
                     }
                 }
                 else
@@ -510,20 +516,20 @@ public partial class pages_Default : System.Web.UI.Page
 
                     
                     if (success)
-                        Label9.Text = "提交成功！";
+                        Response.Write("<script>alert('提交成功！')</script>");
                     else
-                        Label9.Text = "提交失败！";
-                    
+                        Response.Write("<script>alert('提交失败！')</script>");
+
                 }
             }
             else
             {
-                Label9.Text = "当前时刻未开放预约";
+                Response.Write("<script>alert('当前时刻未开放预约！')</script>");
             }
-        //}
-        //catch
-        //{
-        //    Response.Write("<script>alert('网络错误！')</script>");
-        //}
+        }
+        catch
+        {
+            Response.Write("<script>alert('网络错误！')</script>");
+        }
     }
 }

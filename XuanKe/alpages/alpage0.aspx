@@ -7,12 +7,13 @@
     <title>预约信息</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/pagebase.css" rel="stylesheet" />
+    <link href="/css/mycss.css" rel="stylesheet" />
     <style type="text/css">
         .style1 {
-            background-color:#DE8100;
+            background-color:#FFFFFF;
         }
         .style2 {
-            background-color:#3B200C;
+            background-color:#495A80;
             height:32px;
         }
         .style3 {
@@ -25,18 +26,18 @@
 <body class="bg">
     <form id="form1" runat="server">
     <div style="position:absolute;top:30px;left:100px;">
-        <div style="font-size:large"><center>预约信息</center></div>
+        <div style="font-size:x-large"><center>预约信息</center></div>
         <div style="width:700px;">
             <div style="float:left;">
-                <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="刷新" Width="100px" OnClick="Button1_Click" />
+                <asp:Button ID="Button1" CssClass="mybutton" runat="server" Text="刷新" Width="100px" OnClick="Button1_Click" />
             </div>
             <div style="float:right;">
-                <asp:Button ID="Button2" CssClass="btn btn-primary" runat="server" Text="一键排课" OnClick="Button2_Click" />
+                <asp:Button ID="Button2" CssClass="mybutton" runat="server" Text="一键排课" Width="100px" OnClick="Button2_Click" />
             </div>
         </div>
 
-    <div style="text-align:center; color:white; position:absolute; top:70px;">
-        <table border="1" style="border:solid #E9CFAE;" >
+    <div style="text-align:center; color:white; position:absolute; top:90px;">
+        <table border="1" style="border:solid #7f8ba6;" >
             <tr class="style1">
                 <td class="style2" style="width:100px;"></td>
                 <td class="style2" style="width:60px;">

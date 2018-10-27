@@ -8,6 +8,7 @@
 
     <link href="/css/pagebase.css" rel="stylesheet" />
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/mycss.css" rel="stylesheet" />
 
 </head>
 <body class="bg">
@@ -15,34 +16,30 @@
     <div style="position:absolute;top:30px;left:100px;">
         <div style="width:500px;font-size:large;">
             <center>
-                <asp:Label ID="Label10" runat="server" Text="Label">在线状态</asp:Label>
+                <asp:Label ID="Label10" runat="server" Text="在线状态" Font-Size="X-Large"></asp:Label>
             </center>
         </div>
+        <div style="height:15px;"></div>
         <div style="width:500px;height:50px;">
             <center>
-                <asp:Button ID="Button1" runat="server" Text="刷新" OnClick="Button1_Click" Font-Size="Large" Height="31px" Width="95px" />
+                <asp:Button ID="Button1" runat="server" Text="刷新" CssClass="mybutton" OnClick="Button1_Click" Font-Size="Large" Height="31px" Width="95px" />
             </center>
         </div>
         <div >
-            <asp:GridView ID="GridView1" runat="server" OnRowCommand="GridView1_RowCommand" AllowPaging="True" CellPadding="4" Width="500px" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" HorizontalAlign="Center">
+            <asp:GridView ID="GridView1" runat="server" OnRowCommand="GridView1_RowCommand" AllowPaging="True" CellPadding="3" Width="500px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" HorizontalAlign="Center">
                 <Columns>
-                    <asp:ButtonField ButtonType="Button" CommandName="xiaxian" Text="下线" />
+                    <asp:ButtonField ButtonType="Button"  CommandName="xiaxian" Text="下线" />
                 </Columns>
-                <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
-                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" HorizontalAlign="Center" />
-                <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
-                <RowStyle BackColor="White" ForeColor="#330099"  HorizontalAlign="Center" />
-                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
-                <SortedAscendingCellStyle BackColor="#FEFCEB" />
-                <SortedAscendingHeaderStyle BackColor="#AF0101" />
-                <SortedDescendingCellStyle BackColor="#F6F0C0" />
-                <SortedDescendingHeaderStyle BackColor="#7E0000" />
+                <FooterStyle BackColor="White" ForeColor="#000066" />
+                <HeaderStyle BackColor="#495A80" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                <RowStyle ForeColor="#000066"  HorizontalAlign="Center" />
+                <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#00547E" />
             </asp:GridView>
-        </div>
-        <div>
-            <center>
-                <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
-            </center>
         </div>
    </div>
     </form>

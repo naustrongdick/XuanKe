@@ -80,9 +80,9 @@ public partial class pages_alpage2 : System.Web.UI.Page
                     SqlCommand scmd = new SqlCommand(scmdStr, conn);
                     int n = scmd.ExecuteNonQuery();
                     if (n > 0)
-                        Show.Text = "添加成功！";
+                        Response.Write("<script>alert('添加成功！')</script>");
                     else
-                        Show.Text = "添加失败！";
+                        Response.Write("<script>alert('添加失败！')</script>");
                     conn.Close();
                 }
             }

@@ -60,11 +60,11 @@ public partial class pages_alpage2 : System.Web.UI.Page
             int n = cmd.ExecuteNonQuery();
             if (n > 0)
             {
-                Label1.Text = GridView1.Rows[index].Cells[2].Text + "已下线";
+                Response.Write("<script>alert('"+GridView1.Rows[index].Cells[2].Text + "已下线')</script>");
             }
             else
             {
-                Label1.Text = GridView1.Rows[index].Cells[2].Text + "下线失败";
+                Response.Write("<script>alert('" + GridView1.Rows[index].Cells[2].Text + "下线失败')</script>");
             }
             conn.Close();
             LoadGrid();

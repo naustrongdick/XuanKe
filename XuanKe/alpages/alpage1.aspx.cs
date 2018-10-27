@@ -164,11 +164,11 @@ public partial class pages_alpage1 : System.Web.UI.Page
 
             if (x != 0 && x != -1)
             {
-                Label9.Text = DropDownList1.Items[x].ToString() + "被选择了多次!";
+                Response.Write("<script>alert('"+DropDownList1.Items[x].ToString() + "被选择了多次!')</script>");
             }
             else if (x == -1)
             {
-                Label9.Text = "有一个时段未选课!";
+                Response.Write("<script>alert('有一个时段未选课！')</script>");
             }
             else
             {
@@ -191,9 +191,9 @@ public partial class pages_alpage1 : System.Web.UI.Page
                     int n2 = cmd2.ExecuteNonQuery();
 
                     if (n1 > 0 && n2 > 0)
-                        Label9.Text = "保存成功!";
+                        Response.Write("<script>alert('保存成功！')</script>");
                     else
-                        Label9.Text = "保存失败，请重试";
+                        Response.Write("<script>alert('保存失败，请重试！')</script>");
                     conn.Close();
                 }
                 catch
@@ -204,7 +204,7 @@ public partial class pages_alpage1 : System.Web.UI.Page
         }
         else
         {
-            Label9.Text = "日期格式错误！";
+            Response.Write("<script>alert('日期格式错误！')</script>");
         }
     }
 
@@ -225,10 +225,10 @@ public partial class pages_alpage1 : System.Web.UI.Page
                 {
                     TextBox2.Text = dt.ToString();
                     Button2.Text = "立刻发布";
-                    Label9.Text = "停止发布成功!";
+                    Response.Write("<script>alert('停止发布成功！')</script>");
                 }
                 else
-                    Label9.Text = "停止发布失败!";
+                    Response.Write("<script>alert('停止发布失败！')</script>");
             }
             else
             {
@@ -240,10 +240,10 @@ public partial class pages_alpage1 : System.Web.UI.Page
                 {
                     TextBox2.Text = dt.ToString();
                     Button2.Text = "停止发布";
-                    Label9.Text = "发布成功!";
+                    Response.Write("<script>alert('发布成功！')</script>");
                 }
                 else
-                    Label9.Text = "发布失败!";
+                    Response.Write("<script>alert('发布失败！')</script>");
             }
             conn.Close();
         }

@@ -20,8 +20,8 @@ public partial class _Default : System.Web.UI.Page
 
         String un = usernm.Text;
         String ps = passwd.Text;
-        try
-        {
+        //try
+        //{
             var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
             SqlConnection conn = new SqlConnection(consql);
             string sqlstr = string.Format("select PASSWD,STATUS,LASTTIME from TRL where ID = '{0}'", un);
@@ -84,12 +84,13 @@ public partial class _Default : System.Web.UI.Page
             {
                 Show.Text = "当前账号已登录，请安全退出或过会再尝试";
             }
-
+           /*
         }
         catch
         {
             Response.Write("<script>alert('网络错误！')</script>");
         }
+        */
     }
 
     

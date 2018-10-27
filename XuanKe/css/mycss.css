@@ -1,0 +1,33 @@
+﻿.mybutton {
+    width: 200px;
+    height: 40px;
+    border-width: 0px;
+    border-radius: 3px;
+    background: #495A80;
+    cursor: pointer;
+    outline: none;
+    font-family: Microsoft YaHei;
+    color: white;
+    font-size: 17px;
+}
+
+    .mybutton:hover {
+        background: #5b6a8c;
+    }
+
+.mybutton2 {
+    width: 200px;
+    height: 40px;
+    border-width: 0px;
+    border-radius: 3px;
+    background: #FFFFFF;
+    cursor: pointer;
+    outline: none;
+    font-family: Microsoft YaHei;
+    color: white;
+    font-size: 17px;
+}
+
+    .mybutton2:hover {
+        background: #e5e5e5;
+    }

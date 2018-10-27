@@ -18,7 +18,7 @@
 </head>
 <body>
     <form id="form2" runat="server" >
-        <script type="text/javascript" src ="js/canvas-nest.min.js" count="250" zindex="-2" opacity="0.8" color="78,29,76"></script>
+        <script type="text/javascript" src ="js/canvas-nest.min.js" count="250" zindex="-2" opacity="0.9" color="77,21,125"></script>
     <div class="top">
         <div style="display: table-cell;vertical-align: middle;padding-left:20px;">
             <asp:Label ID="Label4" runat="server" Text="教师选课系统" Font-Size="X-Large" ForeColor="White"></asp:Label>

@@ -11,23 +11,24 @@
         
         .style2 {
             color:white;
-            background-color:#3B200C;
+            background-color:#495A80;
         }
         .style1 {
-            background-color:#DE8100;
+            background-color:#FFFFFF;
         }
     </style>
 </head>
 <body class ="bg">
     <form id="form1" runat="server">
         <div style="position:absolute;top:30px;left:100px;width:700px;">
-            <div style="font-size:large;width:700px;">
+            <div style="font-size:x-large;width:700px;">
                 <center><asp:Label ID="Label1" runat="server" Text="Label">课表结果</asp:Label></center>
             </div>
             <div style="font-size:large;width:700px;">
                 <div style="float:left;">
                     <asp:Label ID="Label17" runat="server" Text="Label">您的课程安排如下：</asp:Label>
                 </div>
+                <div style="height:30px;width:700px;"></div>
             </div>
             <div>
                 <table class="table table-striped table-hover table-bordered" style ="width:700px;">

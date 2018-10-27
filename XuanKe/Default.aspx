@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <script type="text/javascript" src ="js/canvas-nest.min.js" count="250" zindex="-2" opacity="0.8" color="78,29,76"></script>
+    <script type="text/javascript" src ="js/canvas-nest.min.js" count="250" zindex="-2" opacity="0.9" color="77,21,125"></script>
     <form id="form1" runat="server" >
     <div class="top">
         <div style="display: table-cell;vertical-align: middle;padding-left:20px;">
