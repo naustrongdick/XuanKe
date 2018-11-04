@@ -96,10 +96,10 @@ public partial class pages_Default : System.Web.UI.Page
         if (dr.Read())
         {
             string s = dr.GetString(0).TrimEnd();
-            bool it = dr.GetBoolean(1);
-            if (it)
+            int it = dr.GetInt32(1);
+            if (it == 1)
             {
-                s = s + "(两周一次)";
+                s = s + "(单/双周)";
             }
             conn.Close();
             return s;

@@ -15,6 +15,9 @@
         .top {
             background-image:url("bg/bg3.png");
         }
+        #Button1 {
+            height: 40px;
+        }
     </style>  
 
 </head>
@@ -90,11 +93,13 @@
         </div>
         
         <div style="float:left;width:10px;height:700px;"></div>
-            <div id ="divf" class="dis right">
+            <div id ="divf" class="dis right" runat="server">
                 <iframe class="frame" id="mainbox" name="iframeContent" frameborder="0" width="1330px" height="700px" marginheight="0" marginwidth="0" runat="server" ></iframe>
             </div>
         </div>
-    
+    <div style="position:absolute;right:10px;bottom:10px; width: 128px;">
+        <input id="Button1" type="button" value="不如玩个游戏吧" style="background-color:deeppink;color:aqua;height:43px; width:128px;" onclick="window.open('game.html');" />
+    </div>
     </form>
     
     <script type="text/javascript" src="js/menu.js"></script>

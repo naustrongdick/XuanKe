@@ -76,4 +76,5 @@ public partial class Default2 : System.Web.UI.Page
             Response.Write("<script>alert('网络错误！')</script>");
         }
     }
+
 }

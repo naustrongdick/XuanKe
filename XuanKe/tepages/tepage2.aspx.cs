@@ -87,38 +87,107 @@ public partial class pages_tepage2 : System.Web.UI.Page
                             {
                                 Label7.Text = dr2.GetString(1).ToString();
                                 int classtime1 = dr2.GetInt32(2);
-                                switch (classtime1)
+                                if (dr2.GetInt32(6) == 0)
                                 {
-                                    case 0:
-                                        Label8.Text = "星期一上午";
-                                        break;
-                                    case 1:
-                                        Label8.Text = "星期二上午";
-                                        break;
-                                    case 2:
-                                        Label8.Text = "星期三上午";
-                                        break;
-                                    case 3:
-                                        Label8.Text = "星期四上午";
-                                        break;
-                                    case 4:
-                                        Label8.Text = "星期五上午";
-                                        break;
-                                    case 5:
-                                        Label8.Text = "星期一下午";
-                                        break;
-                                    case 6:
-                                        Label8.Text = "星期二下午";
-                                        break;
-                                    case 7:
-                                        Label8.Text = "星期三下午";
-                                        break;
-                                    case 8:
-                                        Label8.Text = "星期四下午";
-                                        break;
-                                    case 9:
-                                        Label8.Text = "星期五下午";
-                                        break;
+                                    switch (classtime1)
+                                    {
+                                        case 0:
+                                            Label8.Text = "星期一上午";
+                                            break;
+                                        case 1:
+                                            Label8.Text = "星期二上午";
+                                            break;
+                                        case 2:
+                                            Label8.Text = "星期三上午";
+                                            break;
+                                        case 3:
+                                            Label8.Text = "星期四上午";
+                                            break;
+                                        case 4:
+                                            Label8.Text = "星期五上午";
+                                            break;
+                                        case 5:
+                                            Label8.Text = "星期一下午";
+                                            break;
+                                        case 6:
+                                            Label8.Text = "星期二下午";
+                                            break;
+                                        case 7:
+                                            Label8.Text = "星期三下午";
+                                            break;
+                                        case 8:
+                                            Label8.Text = "星期四下午";
+                                            break;
+                                        case 9:
+                                            Label8.Text = "星期五下午";
+                                            break;
+                                    }
+                                }
+                                else
+                                {
+                                    switch (classtime1)
+                                    {
+                                        case 0:
+                                            Label8.Text = "单周星期一上午";
+                                            break;
+                                        case 1:
+                                            Label8.Text = "单周星期二上午";
+                                            break;
+                                        case 2:
+                                            Label8.Text = "单周星期三上午";
+                                            break;
+                                        case 3:
+                                            Label8.Text = "单周星期四上午";
+                                            break;
+                                        case 4:
+                                            Label8.Text = "单周星期五上午";
+                                            break;
+                                        case 5:
+                                            Label8.Text = "双周星期一下午";
+                                            break;
+                                        case 6:
+                                            Label8.Text = "双周星期二下午";
+                                            break;
+                                        case 7:
+                                            Label8.Text = "双周星期三下午";
+                                            break;
+                                        case 8:
+                                            Label8.Text = "双周星期四下午";
+                                            break;
+                                        case 9:
+                                            Label8.Text = "双周星期五下午";
+                                            break;
+                                        case 10:
+                                            Label8.Text = "双周星期一上午";
+                                            break;
+                                        case 11:
+                                            Label8.Text = "双周星期二上午";
+                                            break;
+                                        case 12:
+                                            Label8.Text = "双周星期三上午";
+                                            break;
+                                        case 13:
+                                            Label8.Text = "双周星期四上午";
+                                            break;
+                                        case 14:
+                                            Label8.Text = "双周星期五上午";
+                                            break;
+                                        case 15:
+                                            Label8.Text = "双周星期一下午";
+                                            break;
+                                        case 16:
+                                            Label8.Text = "双周星期二下午";
+                                            break;
+                                        case 17:
+                                            Label8.Text = "双周星期三下午";
+                                            break;
+                                        case 18:
+                                            Label8.Text = "双周星期四下午";
+                                            break;
+                                        case 19:
+                                            Label8.Text = "双周星期五下午";
+                                            break;
+                                    }
                                 }
                                 Label9.Text = dr2.GetString(3).ToString();
                                 Label10.Text = dr2.GetInt32(4).ToString();
@@ -138,7 +207,9 @@ public partial class pages_tepage2 : System.Web.UI.Page
                             {
                                 Label12.Text = dr3.GetString(1).ToString();
                                 int classtime1 = dr3.GetInt32(2);
-                                switch (classtime1)
+                                if (dr3.GetInt32(6) == 0)
+                                {
+                                    switch (classtime1)
                                 {
                                     case 0:
                                         Label13.Text = "星期一上午";
@@ -170,6 +241,73 @@ public partial class pages_tepage2 : System.Web.UI.Page
                                     case 9:
                                         Label13.Text = "星期五下午";
                                         break;
+                                }
+                                }
+                                else
+                                {
+                                    switch (classtime1)
+                                    {
+                                        case 0:
+                                            Label8.Text = "单周星期一上午";
+                                            break;
+                                        case 1:
+                                            Label8.Text = "单周星期二上午";
+                                            break;
+                                        case 2:
+                                            Label8.Text = "单周星期三上午";
+                                            break;
+                                        case 3:
+                                            Label8.Text = "单周星期四上午";
+                                            break;
+                                        case 4:
+                                            Label8.Text = "单周星期五上午";
+                                            break;
+                                        case 5:
+                                            Label8.Text = "双周星期一下午";
+                                            break;
+                                        case 6:
+                                            Label8.Text = "双周星期二下午";
+                                            break;
+                                        case 7:
+                                            Label8.Text = "双周星期三下午";
+                                            break;
+                                        case 8:
+                                            Label8.Text = "双周星期四下午";
+                                            break;
+                                        case 9:
+                                            Label8.Text = "双周星期五下午";
+                                            break;
+                                        case 10:
+                                            Label8.Text = "双周星期一上午";
+                                            break;
+                                        case 11:
+                                            Label8.Text = "双周星期二上午";
+                                            break;
+                                        case 12:
+                                            Label8.Text = "双周星期三上午";
+                                            break;
+                                        case 13:
+                                            Label8.Text = "双周星期四上午";
+                                            break;
+                                        case 14:
+                                            Label8.Text = "双周星期五上午";
+                                            break;
+                                        case 15:
+                                            Label8.Text = "双周星期一下午";
+                                            break;
+                                        case 16:
+                                            Label8.Text = "双周星期二下午";
+                                            break;
+                                        case 17:
+                                            Label8.Text = "双周星期三下午";
+                                            break;
+                                        case 18:
+                                            Label8.Text = "双周星期四下午";
+                                            break;
+                                        case 19:
+                                            Label8.Text = "双周星期五下午";
+                                            break;
+                                    }
                                 }
                                 Label14.Text = dr3.GetString(3).ToString();
                                 Label15.Text = dr3.GetInt32(4).ToString();

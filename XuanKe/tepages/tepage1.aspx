@@ -25,7 +25,7 @@
 </head>
 <body class="bg">
     <form id="form1" runat="server" style="width:1400;">
-        <div style="position:absolute;top:30px;left:100px;width:1000px;">
+        <div style="position:absolute;top:30px;left:100px;width:1200px;">
             <div style="width:900px;">
                 
                 <div style="font-size:x-large;width:900px;">
@@ -53,7 +53,7 @@
             <div>
                 <div style="text-align:center;">
                     
-                <table class="table table-hover table-bordered" style ="width:900px;">
+                <table class="table table-hover table-bordered" style ="width:1000px;">
                     <tr>
                         <td class="style2"></td>
                         <td class="style2"><asp:Label ID="Label2" runat="server" Text=" 星期一 "></asp:Label></td>

@@ -54,7 +54,7 @@
                                 <asp:Label ID="Label1" runat="server" Text="性别:" ForeColor="White"></asp:Label>
                             </div>
                             <div style="float:right; height: 40px;">
-                                <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" Height="30px" Width="170px">
+                                <asp:DropDownList ID="DropDownList1" CssClass="form-control" runat="server" Height="40px" Width="170px">
                                     <asp:ListItem>男</asp:ListItem>
                                     <asp:ListItem>女</asp:ListItem>
                                 </asp:DropDownList>

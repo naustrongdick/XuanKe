@@ -16,7 +16,6 @@ class ClassMessage
     public int order;
     public int isArranged;
     public int timeno;
-    
 
     public ClassMessage(int i,int o)
     {
@@ -37,34 +36,10 @@ class ClassMessage
     }
 }
 
-class TimeMessage
-{
-    public int count;
-
-    public TimeMessage(int i)
-    {
-        int c = 0;
-        var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
-        SqlConnection conn = new SqlConnection(consql);
-        string sqlstr = string.Format("select CLASS0,CLASS1,CLASS2,CLASS3,CLASS4,CLASS5,CLASS6,CLASS7,CLASS8,CLASS9 from YYB where CLASSTIME = {0}",i);
-        SqlCommand cdm = new SqlCommand(sqlstr, conn);
-        conn.Open();
-        SqlDataReader dr = cdm.ExecuteReader();
-        while (dr.Read())
-        {
-            for (int j = 0; j <= 9; j++)
-                if (dr.GetInt32(j) == 100)
-                    c++;
-        }
-        if (c == 0)
-            c = 10;
-        this.count = c;
-        conn.Close();
-    }
-}
 
 public partial class alpages_alpage0 : System.Web.UI.Page
 {
+
     
 
     bool ChangeMode(string s)
@@ -256,11 +231,19 @@ public partial class alpages_alpage0 : System.Web.UI.Page
         LoadTable();
     }
 
+
+    
+
     protected void Button2_Click(object sender, EventArgs e)
     {
         try
         {
-            int[,] yy = new int[10, 10];
+            int[,] yy = new int[10, 10];//预约表
+            int[] interval = new int[10];//课程间隔
+            int[] tmc = new int[10];//时段预约数
+            int[] tmi = new int[10];//时段预约间隔数
+            int[] turn = new int[10];//时段次序
+
             yy[0, 0] = ChangeMode2(CheckBox1.Checked);
             yy[0, 1] = ChangeMode2(CheckBox2.Checked);
             yy[0, 2] = ChangeMode2(CheckBox3.Checked);
@@ -371,40 +354,152 @@ public partial class alpages_alpage0 : System.Web.UI.Page
             yy[9, 8] = ChangeMode2(CheckBox99.Checked);
             yy[9, 9] = ChangeMode2(CheckBox100.Checked);
 
+            var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+            SqlConnection conn = new SqlConnection(consql);
+            conn.Open();
+
+            string sqlsss = "select INTERVAL from CSM;";
+            SqlCommand scc = new SqlCommand(sqlsss, conn);
+            SqlDataReader drrr = scc.ExecuteReader();
+            int ttt = 0;
+            while (drrr.Read())
+            {
+                interval[ttt] = drrr.GetInt32(0);
+                ttt++;
+            }
+        drrr.Close();
+
             ClassMessage[] cs = new ClassMessage[10];
-            TimeMessage[] tm = new TimeMessage[10];
+            
             int[] weight;
             int[] a = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             int[] b = a.OrderBy(x => Guid.NewGuid()).ToArray();
             for (int i = 0; i <= 9; i++)
             {
                 cs[i] = new ClassMessage(i, b[i]);
-                tm[i] = new TimeMessage(i);
+                
             }
 
-
-            for (int j = 1; j <= 10; j++)
+            for (int i = 0; i < 10; i++)
             {
-                for (int i = 0; i <= 9; i++)
+                for (int j = 0; j < 10; j++)
                 {
-                    if (tm[i].count == j)
+                    tmc[i] += yy[i, j];
+                }
+                tmc[i] = tmc[i] / 100;
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (yy[i, j] == 100)
                     {
-                        weight = new int[10];
-                        for (int k = 0; k <= 9; k++)
-                        {
-                            weight[k] = yy[i, k] + cs[k].grade * 10 + cs[k].order + cs[k].isArranged;
-                        }
-                        cs[GetMaxIndex(weight)].timeno = i;
-                        cs[GetMaxIndex(weight)].isArranged = -200;
+                        tmi[i] += interval[j];
                     }
                 }
             }
 
+            for (int i = 0; i < 10; i++)
+            {
+                turn[i] = i;
+            }
+
+            
+            int temp = 0;
+            int size = 10;
+            for (int i = 0; i < size - 1; i++)
+            {
+                for (int j = 0; j < size - 1 - i; j++)
+                {
+                    if (tmi[turn[j]] >= 2 && tmi[turn[j + 1]] < 2)
+                    {
+                        temp = turn[j];
+                        turn[j] = turn[j + 1];
+                        turn[j + 1] = temp;
+                    }
+                    else if (!(tmi[turn[j]] < 2 && tmi[turn[j + 1]] >= 2))
+                    {
+                        if (tmc[turn[j]] > tmc[turn[j + 1]])
+                        {
+                            temp = turn[j];
+                            turn[j] = turn[j + 1];
+                            turn[j + 1] = temp;
+                        }
+                    }
+                }
+            }
+
+            
+            for (int i = 9; i > 0; i--)
+            {
+                if (tmi[turn[i]] >= 2 && i == 9)
+                {
+                    int[] ait = new int[9];
+                    int[] cp = new int[2];
+                    weight = new int[10];
+                    int nk = 0;
+                    for (int k = 0; k <= 9; k++)
+                    {
+                        if (interval[k] == 1 && yy[turn[i], k] == 100)
+                        {
+                            weight[k] = yy[turn[i], k] + cs[k].grade * 10 + cs[k].order + cs[k].isArranged;
+                            ait[nk] = k;
+                            nk++;
+                        }
+                    }
+                    if (tmi[turn[i]] == 2)
+                    {
+                        cp[0] = ait[0];
+                        cp[1] = ait[1];
+                    }
+                    else
+                    {
+                        cp[0] = ait[0];
+                        cp[1] = ait[1];
+                        if (weight[ait[3]] > weight[ait[0]])
+                        {
+                            cp[0] = ait[3];
+                        }
+                        else if (weight[ait[3]] > weight[ait[1]])
+                        {
+                            cp[1] = ait[3];
+                        }
+                    }
+                    cs[cp[0]].timeno = turn[i];
+                    cs[cp[0]].isArranged = -200;
+                    cs[cp[1]].timeno = turn[i] + 10;
+                    cs[cp[1]].isArranged = -200;
+                }
+                else
+                {
+                    weight = new int[10];
+                    for (int k = 0; k <= 9; k++)
+                    {
+                        weight[k] = yy[turn[i], k] + cs[k].grade * 10 + cs[k].order + cs[k].isArranged;
+                    }
+                    cs[GetMaxIndex(weight)].timeno = turn[i];
+                    cs[GetMaxIndex(weight)].isArranged = -200;
+                }
+            }
+            /*
+            string tmcss = "tmc:";
+            string tmiss = "tmi:";
+            string turss = "tur:";
+            string cssss = "cs:";
+            for (int i = 0; i < 10; i++)
+            {
+                tmcss += tmc[i].ToString();
+                tmiss += tmi[i].ToString();
+                turss += turn[i].ToString();
+                cssss += cs[i].timeno.ToString();
+            }
+            Label1.Text = tmcss + " " + tmiss + " " + turss +" "+cssss;
+            */
+           
             string sqlstr = "";
 
-            var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
-            SqlConnection conn = new SqlConnection(consql);
-            conn.Open();
+            
             for (int i = 0; i <= 9; i++)
             {
                 sqlstr += string.Format("update CSM set CLASSTIME = {0} where CLASSID = {1};", cs[i].timeno, i);
@@ -413,14 +508,20 @@ public partial class alpages_alpage0 : System.Web.UI.Page
             SqlCommand cmd1 = new SqlCommand(sqlstr, conn);
             int n = cmd1.ExecuteNonQuery();
             if (n > 0)
+            {
                 Response.Redirect("alpage1.aspx");
+            }
             else
+            {
                 Response.Write("<script>alert('提交失败，请重试')</script>");
+            }
             conn.Close();
+            
         }
         catch
         {
             Response.Write("<script>alert('网络错误！')</script>");
         }
+        
     }
 }

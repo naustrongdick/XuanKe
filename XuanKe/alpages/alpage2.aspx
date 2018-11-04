@@ -31,7 +31,7 @@
                     <asp:ButtonField ButtonType="Button"  CommandName="xiaxian" Text="下线" />
                 </Columns>
                 <FooterStyle BackColor="White" ForeColor="#000066" />
-                <HeaderStyle BackColor="#495A80" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                <HeaderStyle BackColor="#495A80" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
                 <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
                 <RowStyle ForeColor="#000066"  HorizontalAlign="Center" />
                 <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
