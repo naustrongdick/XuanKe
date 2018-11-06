@@ -220,6 +220,7 @@ public partial class alpages_alpage0 : System.Web.UI.Page
             }
             else
             {
+                //LoadTable();
                 Response.Redirect("~/Adminlo.aspx");
             }
 
@@ -367,17 +368,17 @@ public partial class alpages_alpage0 : System.Web.UI.Page
                 interval[ttt] = drrr.GetInt32(0);
                 ttt++;
             }
-        drrr.Close();
+            drrr.Close();
 
             ClassMessage[] cs = new ClassMessage[10];
-            
+
             int[] weight;
             int[] a = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             int[] b = a.OrderBy(x => Guid.NewGuid()).ToArray();
             for (int i = 0; i <= 9; i++)
             {
                 cs[i] = new ClassMessage(i, b[i]);
-                
+
             }
 
             for (int i = 0; i < 10; i++)
@@ -387,6 +388,10 @@ public partial class alpages_alpage0 : System.Web.UI.Page
                     tmc[i] += yy[i, j];
                 }
                 tmc[i] = tmc[i] / 100;
+                if (tmc[i] == 0)
+                {
+                    tmc[i] = 10;
+                }
             }
 
             for (int i = 0; i < 10; i++)
@@ -405,7 +410,7 @@ public partial class alpages_alpage0 : System.Web.UI.Page
                 turn[i] = i;
             }
 
-            
+
             int temp = 0;
             int size = 10;
             for (int i = 0; i < size - 1; i++)
@@ -420,7 +425,7 @@ public partial class alpages_alpage0 : System.Web.UI.Page
                     }
                     else if (!(tmi[turn[j]] < 2 && tmi[turn[j + 1]] >= 2))
                     {
-                        if (tmc[turn[j]] > tmc[turn[j + 1]])
+                        if (tmc[turn[j]] < tmc[turn[j + 1]])
                         {
                             temp = turn[j];
                             turn[j] = turn[j + 1];
@@ -430,8 +435,7 @@ public partial class alpages_alpage0 : System.Web.UI.Page
                 }
             }
 
-            
-            for (int i = 9; i > 0; i--)
+            for (int i = 9; i >= 0; i--)
             {
                 if (tmi[turn[i]] >= 2 && i == 9)
                 {
@@ -496,10 +500,10 @@ public partial class alpages_alpage0 : System.Web.UI.Page
             }
             Label1.Text = tmcss + " " + tmiss + " " + turss +" "+cssss;
             */
-           
+            ///*
             string sqlstr = "";
 
-            
+
             for (int i = 0; i <= 9; i++)
             {
                 sqlstr += string.Format("update CSM set CLASSTIME = {0} where CLASSID = {1};", cs[i].timeno, i);
@@ -516,7 +520,7 @@ public partial class alpages_alpage0 : System.Web.UI.Page
                 Response.Write("<script>alert('提交失败，请重试')</script>");
             }
             conn.Close();
-            
+            //*/
         }
         catch
         {

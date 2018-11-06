@@ -135,6 +135,7 @@ public partial class pages_alpage1 : System.Web.UI.Page
                         if ((int)dta.Rows[i][2] == 3)
                         {
                             DropDownList4.SelectedIndex = (int)dta.Rows[i][0] + 1;
+                            if ((int)dta.Rows[i][3] == 0)
                             {
                                 DropDownList14.SelectedIndex = (int)dta.Rows[i][0] + 1;
                             }

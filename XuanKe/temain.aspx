@@ -97,8 +97,8 @@
                 <iframe class="frame" id="mainbox" name="iframeContent" frameborder="0" width="1330px" height="700px" marginheight="0" marginwidth="0" runat="server" ></iframe>
             </div>
         </div>
-    <div style="position:absolute;right:10px;bottom:10px; width: 128px;">
-        <input id="Button1" type="button" value="不如玩个游戏吧" style="background-color:deeppink;color:aqua;height:43px; width:128px;" onclick="window.open('game.html');" />
+    <div style="position:absolute;right:30px;bottom:10px; width:128px; height:43px;">
+        <input id="Button1" type="button" value="不如玩个游戏吧" style="background-color:transparent;color:black;border-color:black;border-style:solid;border-width:2px; height:43px; width:128px;" onclick="window.open('game.html');" />
     </div>
     </form>
     
