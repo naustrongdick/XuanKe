@@ -19,7 +19,7 @@ public partial class pages_alpage2 : System.Web.UI.Page
             string sqlstr = string.Format("select TRM.ID as 用户编号,TRM.NAME as 用户名 from TRM,TRL where TRM.ID=TRL.ID and TRL.STATUS = 1");
             SqlDataAdapter da = new SqlDataAdapter(sqlstr, conn);
             DataSet ds = new DataSet();
-            da.Fill(ds);
+            da.Fill(ds,"users");
             GridView1.DataSource = ds;
             GridView1.DataBind();
             conn.Close();
@@ -29,6 +29,7 @@ public partial class pages_alpage2 : System.Web.UI.Page
     {
             if (Session["ad"] != null)
             {
+                /*
                 var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
                 SqlConnection conn = new SqlConnection(consql);
                 conn.Open();
@@ -39,6 +40,8 @@ public partial class pages_alpage2 : System.Web.UI.Page
                 GridView1.DataSource = ds;
                 GridView1.DataBind();
                 conn.Close();
+                 */
+                LoadGrid();
         }
             else
             {
@@ -74,6 +77,11 @@ public partial class pages_alpage2 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        LoadGrid();
+    }
+    protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.PageIndex = e.NewPageIndex;
         LoadGrid();
     }
 }

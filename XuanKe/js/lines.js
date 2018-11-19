@@ -4,6 +4,31 @@
         kTime = 1;
     }
 
+    function savescore(value) {
+        var expire = "";
+        expire = new Date((new Date()).getTime() + 30 * 24 * 3600000);
+        expire = ";expires=" + expire.toGMTString();
+        document.cookie = "fastest=" + escape(value) + expire;
+    }
+
+    function readscore() {
+        var cookievalue = "";
+        var search = "fastest=";
+        if (document.cookie.length > 0) {
+            offset = document.cookie.indexOf(search);
+            if (offset != -1) {
+                offset += search.length;
+                end = document.cookie.indexOf(";", offset);
+                if (end == -1) {
+                    end = document.cookie.length;
+                }
+                cookievalue = unescape(document.cookie.substring(offset, end));
+            }
+        }
+        return cookievalue;
+    }
+
+
     function win() {
 
 
@@ -13,12 +38,12 @@
         score++;
         flicker(5);
         if (z < fastest) {
-            fastest = z;
+        fastest = z;
         }
 
 
         while (fdisp.childNodes.length) {
-            fdisp.removeChild(fdisp.childNodes[0]);
+        fdisp.removeChild(fdisp.childNodes[0]);
         }
         fdisp.appendChild(document.createTextNode("Fastest: " + fastest + " seconds."));
         fdisp.appendChild(document.createElement("br"));
@@ -355,43 +380,43 @@
 
             for (var v = 0; v < lines.length; v++) {
                 if (u != v) {
-					/*
-		U_x= ux1 + t*(ux2-ux1)
-		U_y= uy1 + t*(uy2-uy1)		
+                    /*
+                    U_x= ux1 + t*(ux2-ux1)
+                    U_y= uy1 + t*(uy2-uy1)		
 		
-		V_x= vx1 + s*(vx2-vx1)
-		V_y= vy1 + s*(vy2-vy1)
+                    V_x= vx1 + s*(vx2-vx1)
+                    V_y= vy1 + s*(vy2-vy1)
 		
-		U_x = V_x
-		U_y = V_y
+                    U_x = V_x
+                    U_y = V_y
 		
-		t*(ux2-ux1) + s*(vx1-vx2) = vx1 - ux1
-		t*(uy2-uy1) + s*(vy1-vy2) = vy1 - uy1
+                    t*(ux2-ux1) + s*(vx1-vx2) = vx1 - ux1
+                    t*(uy2-uy1) + s*(vy1-vy2) = vy1 - uy1
 		
-		[ ux2-ux1  vx1-vx2 ]   [ t ]   [ vx1-ux1 ]
-		[ uy2-uy1  vy1-vy2 ] x [ s ] = [ vy1-uy1 ]
+                    [ ux2-ux1  vx1-vx2 ]   [ t ]   [ vx1-ux1 ]
+                    [ uy2-uy1  vy1-vy2 ] x [ s ] = [ vy1-uy1 ]
 		
-		AB = C
-		det A	= ad - bc
-				= (ux2-ux1)*(vy1-vy2) - (vx1-vx2)*(uy2-uy1)
+                    AB = C
+                    det A	= ad - bc
+                    = (ux2-ux1)*(vy1-vy2) - (vx1-vx2)*(uy2-uy1)
 		
-		B = A^-1 * A * B
-                   [ vy1-vy2  vx2-vx1 ]   [ vx1-ux1 ]
-		B = 1/detA [ uy1-uy2  ux2-ux1 ] x [ vy1-uy1 ]
+                    B = A^-1 * A * B
+                    [ vy1-vy2  vx2-vx1 ]   [ vx1-ux1 ]
+                    B = 1/detA [ uy1-uy2  ux2-ux1 ] x [ vy1-uy1 ]
 		
-		B = 1/detA [ (vy1-vy2)*(vx1-ux1) + (vx2-vx1)*(vy1-uy1) ]
-		           [ (uy1-uy2)*(vx1-ux1) + (ux2-ux1)*(vy1-uy1) ]
+                    B = 1/detA [ (vy1-vy2)*(vx1-ux1) + (vx2-vx1)*(vy1-uy1) ]
+                    [ (uy1-uy2)*(vx1-ux1) + (ux2-ux1)*(vy1-uy1) ]
 		           
-		t =  ((vy1-vy2)*(vx1-ux1) + (vx2-vx1)*(vy1-uy1))/((ux2-ux1)*(vy1-vy2) - (vx1-vx2)*(uy2-uy1))
-		s =  ((uy1-uy2)*(vx1-ux1) + (ux2-ux1)*(vy1-uy1))/((ux2-ux1)*(vy1-vy2) - (vx1-vx2)*(uy2-uy1))
+                    t =  ((vy1-vy2)*(vx1-ux1) + (vx2-vx1)*(vy1-uy1))/((ux2-ux1)*(vy1-vy2) - (vx1-vx2)*(uy2-uy1))
+                    s =  ((uy1-uy2)*(vx1-ux1) + (ux2-ux1)*(vy1-uy1))/((ux2-ux1)*(vy1-vy2) - (vx1-vx2)*(uy2-uy1))
     
-		//solve for t and s
+                    //solve for t and s
 		
 		
 		
-		//solve for t, and make sure 0鈮鈮�1, and maybe make sure there's no division by zero
+                    //solve for t, and make sure 0鈮鈮�1, and maybe make sure there's no division by zero
 
-	*/
+                    */
                     var ux1 = lines[u].x1;
                     var uy1 = lines[u].y1;
                     var ux2 = lines[u].x2;
@@ -454,15 +479,15 @@
 
     /*
     function publishScore(service) {
-        if (service == "twitter") {
-            window.location = 'http://twitter.com/?status=' + encodeURIComponent((fastest === Infinity) ? "Untangle - HTML5 Game http://url3.tk/untangle/" : "My fastest time in UntangleJS: " + fastest + " s. Play it here: http://url3.tk/untangle/");
-        } else if (service == "facebook") {
-            window.location = 'http://www.facebook.com/sharer.php?u=http%3A%2F%2Furl3.tk%2Funtangle%2F&t=' + encodeURIComponent('Untangle HTML5 Game')
+    if (service == "twitter") {
+    window.location = 'http://twitter.com/?status=' + encodeURIComponent((fastest === Infinity) ? "Untangle - HTML5 Game http://url3.tk/untangle/" : "My fastest time in UntangleJS: " + fastest + " s. Play it here: http://url3.tk/untangle/");
+    } else if (service == "facebook") {
+    window.location = 'http://www.facebook.com/sharer.php?u=http%3A%2F%2Furl3.tk%2Funtangle%2F&t=' + encodeURIComponent('Untangle HTML5 Game')
 
 
-        } else {
-            throw ("Error: Service Not Implemented.");
-        }
+    } else {
+    throw ("Error: Service Not Implemented.");
+    }
 
     }
     */

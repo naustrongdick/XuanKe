@@ -26,7 +26,10 @@
             </center>
         </div>
         <div >
-            <asp:GridView ID="GridView1" runat="server" OnRowCommand="GridView1_RowCommand" AllowPaging="True" CellPadding="3" Width="500px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" HorizontalAlign="Center">
+            <asp:GridView ID="GridView1" runat="server" OnRowCommand="GridView1_RowCommand" 
+                AllowPaging="True" CellPadding="3" Width="500px" BackColor="White" 
+                BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
+                HorizontalAlign="Center" onpageindexchanging="GridView1_PageIndexChanging">
                 <Columns>
                     <asp:ButtonField ButtonType="Button"  CommandName="xiaxian" Text="下线" />
                 </Columns>
