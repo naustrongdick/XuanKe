@@ -74,7 +74,7 @@
                         <td class="style2"><asp:Label ID="Label6" runat="server" Text=" 下午 "></asp:Label></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList2" CssClass="form-control" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList4" CssClass="form-control" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList4_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
-                        <td class="style1"><asp:DropDownList ID="DropDownList6" CssClass="form-control" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList6_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
+                        <td class="style1"><asp:DropDownList ID="DropDownList6" CssClass="form-control" Visible="false" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList6_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList8" CssClass="form-control" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList8_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList10" CssClass="form-control" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList10_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
                     </tr>
@@ -102,9 +102,9 @@
                         <td class="style2"><asp:Label ID="Label20" runat="server" Text=" 下午 "></asp:Label></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList12" CssClass="form-control" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList12_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList14" CssClass="form-control" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList14_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
-                        <td class="style1"><asp:DropDownList ID="DropDownList16" CssClass="form-control" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList16_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
+                        <td class="style1"><asp:DropDownList ID="DropDownList16" CssClass="form-control" Visible="false" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList16_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList18" CssClass="form-control" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList18_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
-                        <td class="style1"><asp:DropDownList ID="DropDownList20" CssClass="form-control" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList20_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
+                        <td class="style1"><asp:DropDownList ID="DropDownList20" CssClass="form-control" runat="server" Width="150px" OnSelectedIndexChanged="DropDownList20_SelectedIndexChanged" AutoPostBack="true" ></asp:DropDownList></td>
                     </tr>
                 </table>
         </div>

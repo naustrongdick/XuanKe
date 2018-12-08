@@ -31,6 +31,9 @@ public partial class Default2 : System.Web.UI.Page
                 dr.Close();
                 conn.Close();
                 hello.Text = "欢迎您，" + name;
+
+                string sssr = string.Format("av.html?a=欢迎您！|{0}|教师选课系统|管理员端|#time",name);
+                mainbox.Attributes.Add("src", sssr);
             }
             else
             {
@@ -50,6 +53,4 @@ public partial class Default2 : System.Web.UI.Page
         Response.Redirect("Adminlo.aspx");
     }
 
-    
-    
 }

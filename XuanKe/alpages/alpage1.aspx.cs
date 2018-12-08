@@ -282,7 +282,8 @@ public partial class pages_alpage1 : System.Web.UI.Page
             fb[2] = DropDownList3.SelectedIndex;
             fb[3] = DropDownList4.SelectedIndex;
             fb[4] = DropDownList5.SelectedIndex;
-            fb[5] = DropDownList6.SelectedIndex;
+            //fb[5] = DropDownList6.SelectedIndex;
+            fb[5] = 1;
             fb[6] = DropDownList7.SelectedIndex;
             fb[7] = DropDownList8.SelectedIndex;
             fb[8] = DropDownList9.SelectedIndex;
@@ -292,7 +293,8 @@ public partial class pages_alpage1 : System.Web.UI.Page
             fb[12] = DropDownList13.SelectedIndex;
             fb[13] = DropDownList14.SelectedIndex;
             fb[14] = DropDownList15.SelectedIndex;
-            fb[15] = DropDownList16.SelectedIndex;
+            //fb[15] = DropDownList16.SelectedIndex;
+            fb[15] = 6;
             fb[16] = DropDownList17.SelectedIndex;
             fb[17] = DropDownList18.SelectedIndex;
             fb[18] = DropDownList19.SelectedIndex;
@@ -312,26 +314,29 @@ public partial class pages_alpage1 : System.Web.UI.Page
             int y = 0;
             for (int i = 9; i >= 0; i--)
             {
-                if (itv[i] == 0)
+                if (i != 5 && i != 0)
                 {
-                    if (ccc[i] > 2)
+                    if (itv[i] == 0)
                     {
-                        x = i + 1;
+                        if (ccc[i] > 2)
+                        {
+                            x = i + 1;
+                        }
+                        if (ccc[i] == 0)
+                        {
+                            y = i + 1;
+                        }
                     }
-                    if (ccc[i] == 0)
+                    else
                     {
-                        y = i + 1;
-                    }
-                }
-                else
-                {
-                    if (ccc[i] > 1)
-                    {
-                        x = i + 1;
-                    }
-                    if (ccc[i] == 0)
-                    {
-                        y = i + 1;
+                        if (ccc[i] > 1)
+                        {
+                            x = i + 1;
+                        }
+                        if (ccc[i] == 0)
+                        {
+                            y = i + 1;
+                        }
                     }
                 }
             }

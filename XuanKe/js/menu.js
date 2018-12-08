@@ -66,7 +66,7 @@ window.onload = function () {
                 seconC[i].classList.remove("seconFocus");
             }
             this.classList.add("seconFocus");
-            div.classList.remove("dis");
+            //div.classList.remove("dis");
             var txt = this.id;
             switch (txt) {
                 case "kbjg": document.getElementById("mainbox").src = "tepages/tepage2.aspx"; break;

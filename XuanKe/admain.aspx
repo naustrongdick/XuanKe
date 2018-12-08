@@ -29,11 +29,16 @@
                     <div style="float:left;">
                         <asp:Label ID="hello" runat="server" Text="欢迎您，"></asp:Label>
                     </div>
-                    <div style="float:right;">
-                        <asp:LinkButton ID="exit" ForeColor="White" runat="server" OnClick="exit_Click">安全退出</asp:LinkButton>
+                    <div style="float:right;width:10%;">
+                        <div style="float:left;">
+                            <a href="help/alhelp.html" style="color:white;" target="_blank">帮助</a>
+                        </div>
+
+                        <div style="float:right;">
+                            <asp:LinkButton ID="exit" ForeColor="White" runat="server" OnClick="exit_Click">安全退出</asp:LinkButton>
+                        </div>
                     </div>
-                    <div id="time">
-                    </div>
+                    <div id="time"></div>
                     </div>
             </div>
             <script type="text/javascript">
@@ -56,6 +61,7 @@
             </script>
             <div class ="logo">
                 <img alt="" src="bg\logo.png" style="height: 80px; width: 423px" />
+                
             </div>
             </center>
         </div>
@@ -92,8 +98,8 @@
 
 </div >
         <div style="float:left;width:10px;height:700px;"></div>
-        <div id ="divf" class="right dis">
-        <iframe class="frame" id="mainbox" name="iframeContent" frameborder="0" width="1330px" height="700px" marginheight="0" marginwidth="0" runat="server"></iframe>
+        <div id ="divf" class="right">
+        <iframe class="frame" id="mainbox" name="iframeContent" frameborder="0" width="1330px" height="700px" marginheight="0" marginwidth="0" runat="server" scrolling="no"></iframe>
         </div>
         </div>
     </form>

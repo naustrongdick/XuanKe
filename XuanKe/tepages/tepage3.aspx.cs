@@ -92,7 +92,7 @@ public partial class pages_tepage3 : System.Web.UI.Page
             scmd = new SqlCommand(scmdStr, conn);
             int n = scmd.ExecuteNonQuery();
             if (n > 0)
-                Response.Write("<script>alert('网络错误！')</script>");
+                Response.Write("<script>alert('修改成功！')</script>");
             else
                 Response.Write("<script>alert('修改失败！')</script>");
             conn.Close();

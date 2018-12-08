@@ -23,6 +23,13 @@
 </head>
 <body style="font-family:'Microsoft YaHei UI';">
     <script type="text/javascript" src ="js/canvas-nest.min.js" count="250" zindex="-2" opacity="0.9" color="77,21,125"></script>
+
+    <div id="codefans_net" style="position: absolute;visibility :hidden;z-index:2;" align="right">
+        <a href="game/line.aspx" target="_blank"><img border="0" src="res/guangg.gif"></a>
+        <br>
+        <span style="CURSOR:hand;color:red;font-weight:bold" onclick="clearInterval(itl);obj.style.visibility = 'hidden'">关闭</span>
+</div>
+
     <form id="form1" runat="server">
 
         <div class="top">
@@ -32,8 +39,14 @@
                         <div style="float:left;">
                             <asp:Label ID="hello" runat="server" Text="欢迎您，"></asp:Label>
                         </div>
+                        <div style="float:right;width:10%;">
+                            <div style="float:left;">
+                            <a href="help/tehelp.html" style="color:white;" target="_blank">帮助</a>
+                        </div>
                         <div style="float:right;">
                             <asp:LinkButton ID="exit" ForeColor="White" runat="server" OnClick="exit_Click">安全退出</asp:LinkButton>
+                        </div>
+
                         </div>
                         <div id="time">
                         </div>
@@ -93,15 +106,13 @@
         </div>
         
         <div style="float:left;width:10px;height:700px;"></div>
-            <div id ="divf" class="dis right" runat="server">
-                <iframe class="frame" id="mainbox" name="iframeContent" frameborder="0" width="1330px" height="700px" marginheight="0" marginwidth="0" runat="server" ></iframe>
+            <div id ="divf" class="right" runat="server">
+                <iframe class="frame" id="mainbox" name="iframeContent" frameborder="0" width="1330px" height="700px" marginheight="0" marginwidth="0" runat="server" scrolling="no" ></iframe>
             </div>
         </div>
-    <div style="position:absolute;right:30px;bottom:10px; width:128px; height:43px;">
-        <input id="Button1" type="button" value="不如玩个游戏吧" style="background-color:transparent;color:black;border-color:black;border-style:solid;border-width:2px; height:43px; width:128px;" onclick="window.open('game.html');" />
-    </div>
-    </form>
     
+    </form>
+    <script type="text/javascript" src ="js/gg.js"></script> 
     <script type="text/javascript" src="js/menu.js"></script>
 </body>
 </html>

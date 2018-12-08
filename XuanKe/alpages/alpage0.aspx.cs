@@ -33,6 +33,7 @@ class ClassMessage
 
         this.order = o;
         this.isArranged = 0;
+        this.timeno = -1;
     }
 }
 
@@ -40,7 +41,27 @@ class ClassMessage
 public partial class alpages_alpage0 : System.Web.UI.Page
 {
 
-    
+    int Another(int i)
+    {
+        int n;
+        var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
+        SqlConnection conn = new SqlConnection(consql);
+        string sqlstr = string.Format("select CLASSID from CSM where Teacher = (select Teacher from CSM where CLASSID = {0}) and CLASSID <> {0}", i);
+        SqlCommand cdm = new SqlCommand(sqlstr, conn);
+        conn.Open();
+        SqlDataReader dr = cdm.ExecuteReader();
+        if (dr.Read())
+        {
+            n = dr.GetInt32(0);
+        }
+        else
+        {
+            
+            n = -1;
+        }
+        conn.Close();
+        return n;
+    }
 
     bool ChangeMode(string s)
     {
@@ -237,8 +258,8 @@ public partial class alpages_alpage0 : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        try
-        {
+        //try
+        //{
             int[,] yy = new int[10, 10];//预约表
             int[] interval = new int[10];//课程间隔
             int[] tmc = new int[10];//时段预约数
@@ -375,6 +396,14 @@ public partial class alpages_alpage0 : System.Web.UI.Page
             int[] weight;
             int[] a = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             int[] b = a.OrderBy(x => Guid.NewGuid()).ToArray();
+            int[,] csr = new int[10, 4];
+            for (int i = 0; i <= 9; i++)
+            {
+                csr[i, 0] = 1;
+                csr[i, 1] = -1;
+                csr[i, 2] = -1;
+                csr[i, 3] = -1;
+            }
             for (int i = 0; i <= 9; i++)
             {
                 cs[i] = new ClassMessage(i, b[i]);
@@ -435,8 +464,17 @@ public partial class alpages_alpage0 : System.Web.UI.Page
                 }
             }
 
+            cs[0].isArranged = -1000;
+            cs[5].isArranged = -1000;
+
             for (int i = 9; i >= 0; i--)
             {
+                if (turn[i] == 5)
+                {
+                    cs[0].timeno = 5;
+                    cs[5].timeno = 5;
+                    continue;
+                }
                 if (tmi[turn[i]] >= 2 && i == 9)
                 {
                     int[] ait = new int[9];
@@ -474,16 +512,52 @@ public partial class alpages_alpage0 : System.Web.UI.Page
                     cs[cp[0]].isArranged = -200;
                     cs[cp[1]].timeno = turn[i] + 10;
                     cs[cp[1]].isArranged = -200;
+
+                    int cp0 = Another(cp[0]);
+                    int cp1 = Another(cp[1]);
+                    if (turn[i] != 0)
+                    {
+                        csr[turn[i] - 1, csr[turn[i] - 1, 0]] = cp0;
+                        csr[turn[i] - 1, 0]++;
+                        csr[turn[i] - 1, csr[turn[i] - 1, 0]] = cp1;
+                        csr[turn[i] - 1, 0]++;
+                    }
+                    if (turn[i] != 9)
+                    {
+                        csr[turn[i] + 1, csr[turn[i] + 1, 0]] = cp0;
+                        csr[turn[i] + 1, 0]++;
+                        csr[turn[i] + 1, csr[turn[i] + 1, 0]] = cp1;
+                        csr[turn[i] + 1, 0]++;
+                    }
                 }
                 else
                 {
+                    int csr1 = csr[turn[i], 1];
+                    int csr2 = csr[turn[i], 2];
+                    int csr3 = csr[turn[i], 3];
                     weight = new int[10];
                     for (int k = 0; k <= 9; k++)
                     {
                         weight[k] = yy[turn[i], k] + cs[k].grade * 10 + cs[k].order + cs[k].isArranged;
+                        if (k == csr1 || k == csr2 || k == csr3)
+                            weight[k] -= 1000;
                     }
-                    cs[GetMaxIndex(weight)].timeno = turn[i];
-                    cs[GetMaxIndex(weight)].isArranged = -200;
+
+                    int csmi = GetMaxIndex(weight);
+                    cs[csmi].timeno = turn[i];
+                    cs[csmi].isArranged = -200;
+
+                    int csmo = Another(csmi);
+                    if (turn[i] != 0)
+                    {
+                        csr[turn[i] - 1, csr[turn[i] - 1, 0]] = csmo;
+                        csr[turn[i] - 1, 0]++;
+                    }
+                    if (turn[i] != 9)
+                    {
+                        csr[turn[i] + 1, csr[turn[i] + 1, 0]] = csmo;
+                        csr[turn[i] + 1, 0]++;
+                    }
                 }
             }
             /*
@@ -521,11 +595,12 @@ public partial class alpages_alpage0 : System.Web.UI.Page
             }
             conn.Close();
             //*/
-        }
-        catch
-        {
-            Response.Write("<script>alert('网络错误！')</script>");
-        }
+        //}
+        //catch
+        //{
+            //Response.Write("<script>alert('网络错误！')</script>");
+        //}
         
     }
+    
 }

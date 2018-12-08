@@ -30,10 +30,12 @@
 
 
     function win() {
-
-
+        
+        
         var z = timer.getValue();
         alert("恭喜你，你共花了" + z + " 秒!");
+        document.getElementById('HiddenField1').value = z.toString();
+        document.getElementById('Button1').click()
         /*
         score++;
         flicker(5);
