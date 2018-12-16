@@ -125,5 +125,13 @@
         
     </div>
     </form>
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/click.js"></script>
+    <script type="text/javascript" src="/js/input.js" data-no-instant></script>
+    <script type="text/javascript">
+        POWERMODE.colorful = true;
+        POWERMODE.shake = false;
+        document.body.addEventListener('input', POWERMODE);
+    </script>
 </body>
 </html>

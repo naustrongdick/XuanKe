@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
 
+
 public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -55,6 +56,7 @@ public partial class _Default : System.Web.UI.Page
             }
 
 
+
             dr.Close();
             conn.Close();
 
@@ -64,9 +66,10 @@ public partial class _Default : System.Web.UI.Page
                 SqlCommand cdm = new SqlCommand(sqlch, conn);
                 conn.Open();
                 int n = cdm.ExecuteNonQuery();
+
+
                 if (n > 0)
                 {
-                    conn.Close();
                     Session["id"] = un;
                     Response.Redirect("temain.aspx");
                 }
@@ -91,5 +94,4 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-    
 }

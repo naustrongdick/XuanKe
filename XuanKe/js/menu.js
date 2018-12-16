@@ -1,6 +1,10 @@
+
 window.onload = function () {
     var flag = true;
     var liC = document.querySelectorAll(".navBox li h2");
+    var av = true;
+    var str = document.getElementById("HiddenField1").value;
+
     // 主导航nav点击事件
     for (var i = 0; i < liC.length; i++) {
         liC[i].onclick = function () {
@@ -56,6 +60,17 @@ window.onload = function () {
 
         }
     }
+    var logo = document.getElementById("lg");
+    logo.onclick = function () {
+        if (av == false) {
+            av = true;
+            document.getElementById("mainbox").src = str;
+        }
+        else {
+            document.getElementById("mainbox").contentWindow.location.reload(true);
+        }
+    }
+
 
     // 子导航点击事件
     var seconC = document.querySelectorAll(".secondary h3");
@@ -69,14 +84,14 @@ window.onload = function () {
             //div.classList.remove("dis");
             var txt = this.id;
             switch (txt) {
-                case "kbjg": document.getElementById("mainbox").src = "tepages/tepage2.aspx"; break;
-                case "yyks": document.getElementById("mainbox").src = "tepages/tepage1.aspx"; break;
-                case "xxwh": document.getElementById("mainbox").src = "tepages/tepage3.aspx"; break;
-                case "xgmm": document.getElementById("mainbox").src = "tepages/tepage4.aspx"; break;
-                case "yyxx": document.getElementById("mainbox").src = "alpages/alpage0.aspx"; break;
-                case "pkgl": document.getElementById("mainbox").src = "alpages/alpage1.aspx"; break;
-                case "zxzt": document.getElementById("mainbox").src = "alpages/alpage2.aspx"; break;
-                case "tjzh": document.getElementById("mainbox").src = "alpages/alpage3.aspx"; break;
+                case "kbjg": document.getElementById("mainbox").src = "tepages/tepage2.aspx"; av = false;break;
+                case "yyks": document.getElementById("mainbox").src = "tepages/tepage1.aspx"; av = false;break;
+                case "xxwh": document.getElementById("mainbox").src = "tepages/tepage3.aspx"; av = false;break;
+                case "xgmm": document.getElementById("mainbox").src = "tepages/tepage4.aspx"; av = false;break;
+                case "yyxx": document.getElementById("mainbox").src = "alpages/alpage0.aspx"; av = false;break;
+                case "pkgl": document.getElementById("mainbox").src = "alpages/alpage1.aspx"; av = false;break;
+                case "zxzt": document.getElementById("mainbox").src = "alpages/alpage2.aspx"; av = false;break;
+                case "tjzh": document.getElementById("mainbox").src = "alpages/alpage3.aspx"; av = false;break;
             }
             
         }

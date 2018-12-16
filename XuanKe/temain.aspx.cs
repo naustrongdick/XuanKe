@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Text;
+using System.Security.Cryptography;
+
 
 public partial class Default2 : System.Web.UI.Page
 {
@@ -21,6 +24,7 @@ public partial class Default2 : System.Web.UI.Page
                 {
                     bool isok = false;
                     TimeSpan ts = new TimeSpan();
+
                     string id = Session["id"].ToString();
                     var consql = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ConnectionServer"].ConnectionString;
                     SqlConnection conn = new SqlConnection(consql);
@@ -31,16 +35,17 @@ public partial class Default2 : System.Web.UI.Page
                     string name = null;
                     while (dr.Read())
                     {
-                        name = dr.GetString(0);
+                        name = dr.GetString(0).Trim();
                     }
                     dr.Close();
 
                     conn.Close();
+
                     hello.Text = "欢迎您，" + name;
 
                     string sssr = string.Format("av.html?a=欢迎您！|{0}|教师选课系统|教师端|#time", name);
                     mainbox.Attributes.Add("src", sssr);
-
+                    HiddenField1.Value = sssr;
                 }
                 catch
                 {

@@ -6,6 +6,7 @@
  
 <head id="Head1" runat="server">
     <meta name="viewport" content="width=device-width",initial-scale="1.0,minimun-scale=0.5,maximun-scale=2.0,user-scalable=yes" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>登录界面</title>
     
     <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -18,6 +19,7 @@
     </style>
 </head>
 <body>
+    
     <script type="text/javascript" src ="js/canvas-nest.min.js" count="250" zindex="-2" opacity="0.9" color="77,21,125"></script>
     <form id="form1" runat="server" >
     <div class="top">
@@ -60,5 +62,14 @@
 	    </div>
     </div>
     </form>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/click.js"></script>
+    <script type="text/javascript" src="js/input.js" data-no-instant></script>
+    <script type="text/javascript">
+        POWERMODE.colorful = true;
+        POWERMODE.shake = false;
+        document.body.addEventListener('input', POWERMODE);
+    </script>
+    
 </body>
 </html>

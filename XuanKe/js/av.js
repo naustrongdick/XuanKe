@@ -722,3 +722,9 @@ S.Shape = (function () {
 
 
 S.init();
+
+window.onload = function () {
+    document.addEventListener('click', function () {
+        location.reload();
+    });
+}

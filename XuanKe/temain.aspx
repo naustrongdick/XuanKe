@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>教师选课系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="text/javascript" src="js/adapter.js"></script>
 
     <link href="css/base.css" rel="stylesheet" />
@@ -23,12 +24,18 @@
 </head>
 <body style="font-family:'Microsoft YaHei UI';">
     <script type="text/javascript" src ="js/canvas-nest.min.js" count="250" zindex="-2" opacity="0.9" color="77,21,125"></script>
-
+    <script type="text/javascript" src ="js/sha.js"></script>
+    
     <div id="codefans_net" style="position: absolute;visibility :hidden;z-index:2;" align="right">
         <a href="game/line.aspx" target="_blank"><img border="0" src="res/guangg.gif"></a>
         <br>
         <span style="CURSOR:hand;color:red;font-weight:bold" onclick="clearInterval(itl);obj.style.visibility = 'hidden'">关闭</span>
-</div>
+    </div>
+    <div id="gg2" style="position:absolute;right:0;top:400px;" align="right">
+        <a href="http://www.rosecat707.top:84" target="_blank"><img border="0" src="res/guangg2.gif"></a>
+        <br>
+        <span style="CURSOR:hand;color:red;font-weight:bold" onclick="obj2.style.visibility = 'hidden'">关闭</span>
+    </div>
 
     <form id="form1" runat="server">
 
@@ -69,7 +76,7 @@
                     };
                     setInterval("time()", 1000);
                 </script>
-                <div class="logo">
+                <div class="logo" id ="lg">
                     <img alt="" src="bg\logo.png" style="height: 80px; width: 423px" />
                 </div>
             </center>
@@ -110,8 +117,17 @@
                 <iframe class="frame" id="mainbox" name="iframeContent" frameborder="0" width="1330px" height="700px" marginheight="0" marginwidth="0" runat="server" scrolling="no" ></iframe>
             </div>
         </div>
+    <asp:HiddenField ID="HiddenField1" runat="server" />
+    
+    <script>
+        var xlm_wid='13954';
+        var xlm_url = 'https://www.xianliao.me/';
+    </script>
+<script type='text/javascript' charset='UTF-8' src='https://www.xianliao.me/embed.js'></script>
     
     </form>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/click.js"></script>
     <script type="text/javascript" src ="js/gg.js"></script> 
     <script type="text/javascript" src="js/menu.js"></script>
 </body>

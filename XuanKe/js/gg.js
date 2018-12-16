@@ -3,6 +3,7 @@ var xin = true, yin = true
 var step = 1
 var delay = 1
 var obj = document.getElementById("codefans_net")
+var obj2 = document.getElementById("gg2")
 function w() {
     var width = 0;
     if (document.documentElement && document.documentElement.clientWidth) {

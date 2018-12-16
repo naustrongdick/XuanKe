@@ -26,7 +26,7 @@ public partial class Default2 : System.Web.UI.Page
                 string name = null;
                 while (dr.Read())
                 {
-                    name = dr[0].ToString();
+                    name = dr[0].ToString().Trim() ;
                 }
                 dr.Close();
                 conn.Close();
@@ -34,6 +34,7 @@ public partial class Default2 : System.Web.UI.Page
 
                 string sssr = string.Format("av.html?a=欢迎您！|{0}|教师选课系统|管理员端|#time",name);
                 mainbox.Attributes.Add("src", sssr);
+                HiddenField1.Value = sssr;
             }
             else
             {

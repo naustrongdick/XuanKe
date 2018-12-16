@@ -59,7 +59,7 @@
                 };
                 setInterval("time()",1000);
             </script>
-            <div class ="logo">
+            <div class ="logo" id="lg">
                 <img alt="" src="bg\logo.png" style="height: 80px; width: 423px" />
                 
             </div>
@@ -102,7 +102,10 @@
         <iframe class="frame" id="mainbox" name="iframeContent" frameborder="0" width="1330px" height="700px" marginheight="0" marginwidth="0" runat="server" scrolling="no"></iframe>
         </div>
         </div>
+        <asp:HiddenField ID="HiddenField1" runat="server" />
     </form>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/click.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
 </body>
 </html>
