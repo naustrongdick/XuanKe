@@ -5,7 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>预约信息</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/pagebase.css" rel="stylesheet" />
     <link href="/css/mycss.css" rel="stylesheet" />
     <style type="text/css">
@@ -42,26 +41,40 @@
         .time9 {
         }
         .class0{
+            width:60px;
             display:none;
         }
         .class1{
+            width:60px;
         }
         .class2{
+            width:60px;
         }
         .class3{
+            width:60px;
         }
         .class4{
+            width:60px;
         }
         .class5{
+            width:60px;
             display:none;
         }
         .class6{
+            width:60px;
         }
         .class7{
+            width:60px;
         }
         .class8{
+            width:60px;
         }
         .class9{
+            width:60px;
+        }
+
+        .auto-style1 {
+            width: 60px;
         }
 
     </style>
@@ -81,7 +94,7 @@
         </div>
 
     <div style="text-align:center; color:white; position:absolute; top:90px;">
-        <table border="1" style="border:solid #7f8ba6;" >
+        <table border="1" style="border:solid #7f8ba6;" width="700px" >
             <tr class="style1">
                 <td class="style2" style="width:100px;"></td>
                 <td class="style2 class0" style="width:60px;">

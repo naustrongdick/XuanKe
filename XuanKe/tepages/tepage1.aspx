@@ -74,7 +74,7 @@
                         <td class="style2"><asp:Label ID="Label6" runat="server" Text=" 下午 " Width="50px"></asp:Label></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList2" CssClass="form-control" runat="server" Width="150px"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList4" CssClass="form-control" runat="server" Width="150px"></asp:DropDownList></td>
-                        <td class="style1"><asp:DropDownList ID="DropDownList6" CssClass="form-control" runat="server" Width="150px"></asp:DropDownList></td>
+                        <td class="style1"><asp:DropDownList ID="DropDownList6" CssClass="form-control" runat="server" Width="150px" Visible="false"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList8" CssClass="form-control" runat="server" Width="150px"></asp:DropDownList></td>
                         <td class="style1"><asp:DropDownList ID="DropDownList10" CssClass="form-control" runat="server" Width="150px"></asp:DropDownList></td>
                     </tr>
